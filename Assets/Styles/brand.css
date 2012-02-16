@@ -1,0 +1,35 @@
+/* Brand.css
+ **********************************************************************/
+ 
+ 
+/* 	1. Base
+	2. Buttons
+
+ **********************************************************************/
+
+/* 1. Base
+ **********************************************************************/
+ 
+a {
+	color:#EF6060;
+}
+
+
+/* 2. Buttons
+ **********************************************************************/
+
+.btn-submit {
+	background: rgb(243,128,128); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(243,128,128,1) 0%, rgba(239,96,96,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(243,128,128,1)), color-stop(100%,rgba(239,96,96,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(243,128,128,1) 0%,rgba(239,96,96,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(243,128,128,1) 0%,rgba(239,96,96,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(243,128,128,1) 0%,rgba(239,96,96,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(243,128,128,1) 0%,rgba(239,96,96,1) 100%); /* W3C */
+	border:1px solid #F64E4E;
+	color:#fff;
+}
+
+.btn-submit:hover {
+	background:#EF6060;	
+}

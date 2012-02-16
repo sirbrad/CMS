@@ -1,0 +1,52 @@
+/* Header.css
+ **********************************************************************/
+
+/* 	1. Header
+	2. Logo
+	3. Navigation
+
+ **********************************************************************/
+
+/* 1. Header
+ **********************************************************************/
+
+header {
+	margin-bottom:2em; /* REMOVE */
+	padding:1em 0 .8em;
+	text-align:center;
+}
+ 
+
+/* 2. Logo
+ **********************************************************************/
+ 
+.logo {
+	color:rgba(0, 0, 0, 0.8);
+	font-size:2em;
+	font-weight:bold;
+	margin-top:10px;
+}
+ 
+ 
+/* 3. Navigation
+ **********************************************************************/
+ 
+.glob-nav a {
+	min-height:18px;
+	vertical-align:top;	
+}
+
+.icon-bar {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: block;
+  height: 2px;
+  margin-top: 3px;
+  width: 18px;
+  
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,34 @@
+/* Form.css
+ **********************************************************************/
+ 
+
+/* 1. Labels
+ **********************************************************************/
+
+label {
+	display:block;
+	font-size:1.166666667em; /* 14 / 12 */
+	font-weight:bold;
+	margin-bottom:0.5em;	
+}
+
+.hint {
+	color:rgba(0, 0, 0, 0.5);
+	display:block;
+	margin:-1.5em 0 1.5em;	
+}
+
+.hint:before {
+	content:'*';
+	padding-right:2px;	
+}
+
+
+/* 2. Inputs
+ **********************************************************************/
+ 
+/* See inputs.css for core styling */
+
+.input {
+	margin-bottom:1em;	
+}

@@ -1,0 +1,135 @@
+/* Input.css
+ **********************************************************************/
+
+
+/* 1. Input
+ **********************************************************************/
+
+.input {
+	border:1px solid #ccc;
+	color:#999;	
+	display:block;
+	font-size:1.166666667em; /* 14 / 12 */
+	padding:2.5% 2%;
+	width:96%;
+	
+	-webkit-border-radius:0.25em;
+	-moz-border-radius:0.25em;
+	border-radius:0.25em;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-webkit-transition:color 0.2s ease, background-color 0.2s ease;
+	-moz-transition:color 0.2s ease, background-color 0.2s ease;
+	-o-transition:color 0.2s ease, background-color 0.2s ease;
+}
+ 
+.input:focus {
+	background-color:rgba(0, 0, 0, 0.03);
+	color:#000;
+	outline:none;	
+}
+
+.no-rgba .input:focus {
+	background-color:#F8F8F8;
+}
+
+label {
+	-webkit-transition:color 0.3s ease;	
+	-moz-transition:color 0.3s ease;	
+	-o-transition:color 0.3s ease;	
+	-ms-transition:color 0.3s ease;	
+	transition:color 0.3s ease;	
+}
+
+input[type=checkbox] {
+	display:inline-block;
+	margin-right:5px;
+}
+
+.checkb {
+	height:16px;
+	float:left;
+	padding:0 !important;
+	width:16px;
+	-webkit-appearance:none;
+}
+
+.checkb:checked {
+	background:url(../Images/Css/Sprite.png) center no-repeat rgba(0, 0, 0, 0.09);
+}
+
+.input-med {
+	width:60%;	
+}
+
+.input-sml {
+	width:40%;	
+}
+
+.input-trio {
+	display:inline-block;
+	margin-left:0.4em;
+	text-align:center;
+	width:14%;	
+}
+
+.container {
+	margin-bottom:1em;
+}
+
+.container .input {
+	margin-bottom:0;
+}
+
+.container .checkb {
+	position:absolute;
+	top:2px;
+}
+
+.input-abbr {
+	padding-left:17%;
+	width:81%;
+}
+
+
+/* 2. Label
+ **********************************************************************/
+
+
+label + .input-trio {
+	margin-left:0;	
+}
+
+.abbr {
+	border-bottom:0;
+	border-right:1px solid rgba(0, 0, 0, 0.1);
+	bottom:1px;
+	color:rgba(0, 0, 0, 0.4);
+	font-size:1em;
+	font-weight:bold;
+	left:1px;
+	margin:0;
+	min-width:14%;
+	max-width:60px;
+	padding:2.23% 0;
+	position:absolute;
+	text-align:center;
+	text-shadow:0 -1px 0 rgba(255, 255, 255, 1);
+	
+	-webkit-border-top-left-radius: 0.3em;
+	-webkit-border-bottom-left-radius: 0.3em;
+	-moz-border-radius-topleft: 0.3em;
+	-moz-border-radius-bottomleft: 0.3em;
+	border-top-left-radius: 0.3em;
+	border-bottom-left-radius: 0.3em;
+}
+
+.input:focus + .abbr {
+	background:rgba(0, 0, 0, 0.05);
+}
+
+.container .checkb + label {
+	font-weight:normal;
+	padding-left:25px;
+}

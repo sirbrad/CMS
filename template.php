@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="Assets/Styles/inputs.css" />
     <link rel="stylesheet" href="Assets/Styles/form.css" />
     <link rel="stylesheet" href="Assets/Styles/brand.css" />
-    <link rel="stylesheet" href="Assets/Styles/handheld.css" />
+    <link rel="stylesheet" media="only screen and (min-width: 600px)" href="Assets/Styles/600.css">
+    <link rel="stylesheet" media="only screen and (min-width: 768px)" href="Assets/Styles/768.css">
+    <link rel="stylesheet" href="Assets/Styles/extend.css" />
     <!--[if IE]>
     	<link rel="stylesheet" href="Assets/Styles/IE.css" />
     <![endif]-->
@@ -35,38 +37,38 @@
     <div class="contain body cf">
         <article class="article">
         	<h1 class="heading gradbar">Page tile</h1>
-            <form class="module form">
+            <form class="module form cf">
             	<p>Incase you need to explain a few things before the <strong>inputs</strong> you can just use a simple p tag. It is <a href="#">styled</a> to just co-operate with its surroundings.</p>
                 <p>You can even add multiple lines if you wish, sometimes it's best when it's broken up.</p>
                 <h2 class="title">Title for description</h2>
                 <p>Thought it would be good to style a title just incase a point needs to be outlined!</p>
-            	<label for="">Label</label>
+            	<label class="label" for="">Label</label>
                 <input class="input">
-                <label for="img">Image</label>
+                <label class="label" for="img">Image</label>
                 <span class="img"><img src="Assets/Images/Core/test.jpg" alt="" /></span>
-                <ol class="hoz btns">
+                <ol class="hoz btns img-opts">
                 	<li><input type="submit" class="btn f-btn" value="Upload"></li>
                 	<li><input type="submit" class="btn e-btn" value="Remove image"></li>
                 </ol>
-            	<label for="">Label</label>
+            	<label class="label" for="">Label</label>
                 <input class="input">
                 <small class="hint">Little hint</small>
-            	<label for="">Label</label>
+            	<label class="label" for="">Label</label>
                 <input class="input input-med">
-            	<label for="">Label</label>
+            	<label class="label" for="">Label</label>
                 <input class="input input-sml">
                 <small class="hint">Little hint</small>
-            	<label for="">D.O.B</label>
+            	<label class="label" for="">D.O.B</label>
                 <input class="input input-trio" maxlength="2">
                 <input class="input input-trio" maxlength="2">
                 <input class="input input-trio" maxlength="4">
                 <span class="container">
-                    <label for="">URL</label>
+                    <label class="label" for="">URL</label>
                     <input id="url" class="input input-abbr">
                     <label for="url" class="gradbar abbr">http://</label>
                 </span>
                 <span class="container">
-                    <label for="">Twitter</label>
+                    <label class="label" for="">Twitter</label>
                     <input id="twitter" class="input input-abbr">
                     <label for="twitter" class="gradbar abbr">@</label>
                 </span>
@@ -74,7 +76,7 @@
                 	<input type="checkbox" id="cool" class="btn checkb">
                     <label class="" for="cool">Would you like me to do something cool for you?</label>
                 </span>
-            	<label for="">Label</label>
+            	<label class="label" for="">Label</label>
                 <input class="input">
                 <small class="hint">Little hint</small>
                 <input type="submit" class="btn" value="Submit">

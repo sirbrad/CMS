@@ -50,28 +50,13 @@ input[type=checkbox] {
 .checkb {
 	height:16px;
 	float:left;
-	padding:0 !important;
+	padding:0;
 	width:16px;
 	-webkit-appearance:none;
 }
 
 .checkb:checked {
 	background:url(../Images/Css/Sprite.png) center no-repeat rgba(0, 0, 0, 0.09);
-}
-
-.input-med {
-	width:60%;	
-}
-
-.input-sml {
-	width:40%;	
-}
-
-.input-trio {
-	display:inline-block;
-	margin-left:0.4em;
-	text-align:center;
-	width:14%;	
 }
 
 .container {

@@ -1,0 +1,66 @@
+/* 600+.css
+ **********************************************************************/
+
+/* 	1. Typography
+	2. Layout
+	3. Form Elements
+
+ **********************************************************************/
+
+/* 1. Typography
+ **********************************************************************/
+ 
+
+
+/* 2. Layout
+ **********************************************************************/
+ 
+
+.logo,
+.label,
+.img {
+	float:left;	
+}
+
+.glob-nav {
+	float:right;	
+}
+
+
+/* 3. Form Elements
+ **********************************************************************/
+
+.input {
+	padding:2.5% 2%;
+	width:96%;
+}
+
+.label {
+	display:inline-block;
+	padding-right:01.7331023%; /* 10 / 577 */
+	padding-top:2%;
+	min-width:20.797227%; /* 120 / 577 */
+}
+
+.input {
+	display:inline-block;
+	padding:2%;
+	width:76.4696707%;	/* 447 / 577 */
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.img-opts {
+	clear:left;
+}
+
+.img-opts,
+.hint {
+	margin-left:22.5303293%; /* 130 / 577 */
+}
+
+.hint {
+	margin-top:-1em;	
+}

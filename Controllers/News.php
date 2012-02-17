@@ -23,10 +23,7 @@ if ( $method == 'edit' )
 	
 	$_tags = $mod->get_values ( $value );
 	
-	array_merge ( $_tags, $tags );
-	
-	die ( print_r ( $tags ) );
-	
+	$tags = array_merge ( $_tags, $tags );
 }
 
 $_templater->set_content ( $template, $tags );

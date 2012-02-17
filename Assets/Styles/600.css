@@ -46,6 +46,7 @@
 }
 
 [class="input"],
+.input-multi,
 .input-abbr {
 	width:76.4696707%;	/* 447 / 577 */
 }
@@ -64,7 +65,8 @@
 }
 
 .img-opts,
-.hint {
+.hint,
+.input-multi + .input-multi {
 	margin-left:22.5303293%; /* 130 / 577 */
 }
 

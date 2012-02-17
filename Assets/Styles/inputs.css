@@ -50,9 +50,12 @@ input[type=checkbox] {
 .checkb {
 	height:16px;
 	float:left;
-	padding:0;
 	width:16px;
 	-webkit-appearance:none;
+}
+
+.btn.checkb {
+	padding:0;
 }
 
 .checkb:checked {

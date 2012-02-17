@@ -65,7 +65,8 @@ input[type="submit"] {
 	margin-top:10px;	
 }
 
-.ie7 [class="input"] {
+.ie7 [class="input"],
+.ie7 [class="input input-multi"] {
 	width:73%;	
 }
 

@@ -9,6 +9,6 @@ $tags['site_name'] = SITE_NAME;
 
 $template = 'Templates/index';
 
-$_templater->set_content ( $template, $tags );
+$_templater->set_content ( $template, $tags, FALSE, FALSE );
 
 ?>

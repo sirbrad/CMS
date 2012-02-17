@@ -73,6 +73,10 @@
 	margin-top:-2.5em;	
 }
 
+.input-abbr {
+	padding-left:12%;
+}
+
 .abbr {
 	left:22.7036395%; /* 130 / 577 */
 	max-height:16px;

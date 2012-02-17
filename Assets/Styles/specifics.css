@@ -1,0 +1,30 @@
+/* Menu.css
+ **********************************************************************/
+ 
+
+/* 1. Firefox
+ **********************************************************************/
+ 
+/* Hack my face off */
+@-moz-document url-prefix() {
+	
+	
+	/* Firefox bug: Ignores padding in percentages - https://bugzilla.mozilla.org/show_bug.cgi?id=527459 */
+	[class="input"],
+	[class="input input-med"],
+	[class="input input-sml"] {
+		text-indent:10px;	
+	}
+	
+	[class="input input-abbr"] {
+		text-indent:17%;	
+	}
+	
+	/* Pixel pushing */
+	.abbr {
+		padding:1.9% 0;	
+	}
+	
+	
+}
+ 

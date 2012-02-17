@@ -10,8 +10,8 @@
             <li><a href="#" class="btn m-btn">Visit Site</a></li>
             <li><a href="#" class="btn e-btn">Log Out</a></li>
         </ol>
-        <nav>
-            <ol class="nav">
+        <nav class="nav nav-des">
+            <ol class="">
                 <li><a class="active" href="#">Dashboard</a></li>
                 <li><a href="#">Pages</a></li>
                 <li><a href="#">Downloads</a></li>

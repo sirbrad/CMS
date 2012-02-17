@@ -15,6 +15,10 @@ header {
 	padding:1em 0 .8em;
 	text-align:center;
 }
+
+header > .contain {
+	position:relative;	
+}
  
 
 /* 2. Logo

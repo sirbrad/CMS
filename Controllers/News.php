@@ -17,20 +17,16 @@ $method = $_router->get_controller_method ();
 
 if ( $method == 'edit' )
 {
+	$mod = new News_model ();
+	
 	$value = $_router->get_method_value ();
 	
-	$query = $_db->get ( 'SELECT * FROM cms_news WHERE news_id = "' . $value . '"' );
+	$_tags = $mod->get_values ( $value );
 	
-	foreach ( $query as $rows )
-	{
-		foreach ( $rows as $key => $value )
-		{
-			if ( $value == 1 )
-				$tags[ $key ] = ' checked';
-			else
-				$tags[ $key ] = $value;
-		}
-	}
+	array_merge ( $_tags, $tags );
+	
+	die ( print_r ( $tags ) );
+	
 }
 
 $_templater->set_content ( $template, $tags );

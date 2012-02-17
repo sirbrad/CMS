@@ -2,7 +2,8 @@
  **********************************************************************/
 
 /* 	1. Base
-	2. Sharing
+	2. Pixel Pushing
+	3. IE7 Issues
 
  **********************************************************************/
 
@@ -36,4 +37,43 @@ input[type="button"],
 input[type="reset"], 
 input[type="submit"] {
     *overflow: visible;
+}
+
+
+/* 2. Pixel Pushing
+ **********************************************************************/
+
+
+.ie8 .btns li + li,
+.ie7 .btns li + li {
+	margin-left:-4px;
+}
+
+.ie8 .abbr {
+	padding:1.9% 0;
+}
+
+
+/* 3. IE7 Issues
+ **********************************************************************/
+ 
+.heading {
+	zoom:1;	
+}
+
+.ie7 .icon-bar:first-child {
+	margin-top:10px;	
+}
+
+.ie7 [class="input"] {
+	width:73%;	
+}
+
+.ie7 .input-abbr {
+	width:63.1%;	
+}
+
+.ie7 .abbr {
+	left:22.8769497%; /* 132 / 577 */
+	padding:1.5% 0 2.5%;
 }

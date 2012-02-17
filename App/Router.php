@@ -42,6 +42,12 @@ class Router {
 		$method = ceil ( $this->_controller + 1 );	
 		return $this->_uri[ $method ];
 	}
+	
+	public function get_method_value ()
+	{
+		$value = ceil ( $this->_controller + 2 );	
+		return $this->_uri[ $value ];
+	}
 
 	private function __clone () { }
 	

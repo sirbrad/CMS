@@ -33,14 +33,20 @@ class Templater {
 	 * @param assoc array $tags - the tags to replace
 	 */
 
-	public function set_content ( $template, $tags )
+	public function set_content ( $template, $tags, $use_header = TRUE, $use_footer = TRUE )
 	{
-		$this->_main_content = file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/' . $template . '.html' );
+		if ( $use_header )
+			$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/overall_header.html' ); flush();
+		
+		$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/' . $template . '.html' ); flush();
+		
+		if ( $use_footer )
+			$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/overall_footer.html' ); flush();
 		
 		$this->_template_tags = $tags;
 
 		$this->find_tags ();
-
+		
 		$this->render ();
 	}
 
@@ -100,7 +106,6 @@ class Templater {
 					
 				elseif ( $tag == 'DIRECTORY' && $replace == '' )
 					$this->_main_content = str_replace ( '[' . $tag . ']', '', $this->_main_content );
-					
 
 			}
 			return $this;

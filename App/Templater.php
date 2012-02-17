@@ -36,12 +36,12 @@ class Templater {
 	public function set_content ( $template, $tags, $use_header = TRUE, $use_footer = TRUE )
 	{
 		if ( $use_header )
-			$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/overall_header.html' );
+			$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/overall_header.html' ); flush();
 		
-		$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/' . $template . '.html' );
+		$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/' . $template . '.html' ); flush();
 		
 		if ( $use_footer )
-			$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/overall_footer.html' );
+			$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/overall_footer.html' ); flush();
 		
 		$this->_template_tags = $tags;
 
@@ -106,7 +106,6 @@ class Templater {
 					
 				elseif ( $tag == 'DIRECTORY' && $replace == '' )
 					$this->_main_content = str_replace ( '[' . $tag . ']', '', $this->_main_content );
-					
 
 			}
 			return $this;

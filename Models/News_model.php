@@ -8,17 +8,24 @@ class News_model extends Super_model {
 		
 		$tags = array ();
 		
-		foreach ( $query as $rows )
+		if ( $this->_db->num_rows() > 0 )
 		{
-			foreach ( $rows as $key => $value )
+			foreach ( $query as $rows )
 			{
-				if ( $value == 1 )
-					$tags[ $key ] = ' checked';
-				else
-					$tags[ $key ] = $value;
+				foreach ( $rows as $key => $value )
+				{
+					if ( $value == 1 )
+						$tags[ $key ] = ' checked';
+					else
+						$tags[ $key ] = $value;
+				}
 			}
+			return $tags;
 		}
-		return $tags;
+		else
+		{
+			die ( 'Query returned zero results for News item ' . $value . ': Go back or find the correct variable' );	
+		}
 	}
 
 }

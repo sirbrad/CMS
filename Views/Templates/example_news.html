@@ -6,7 +6,7 @@
         <h2 class="title">Title for description</h2>
         <p>Thought it would be good to style a title just incase a point needs to be outlined!</p>
         <label class="label" for="">Label</label>
-        <input class="input" />
+        <input type="input" name="news_title" value="[NEWS_TITLE]" class="input"  />
         <label class="label" for="img">Image</label>
         <span class="img"><img src="Assets/Images/Core/test.jpg" alt="" /></span>
         <ol class="hoz btns img-opts">
@@ -14,23 +14,22 @@
             <li><input type="submit" class="btn e-btn" value="Remove image" /></li>
         </ol>
         <label class="label" for="">Label</label>
-        <input class="input" />
+        <input type="input" name="news_content" value="[NEWS_CONTENT]" class="input" />
         <small class="hint">Little hint</small>
-        <label class="label" for="">Label</label>
         
         
         <span class="container">
             <label class="label" for="">URL</label>
-            <input id="url" class="input input-abbr" />
+            <input type="text" name="news_link" value="[NEWS_LINK]" id="url" class="input input-abbr" />
             <label for="url" class="gradbar abbr">http://</label>
         </span>
         <span class="container">
             <label class="label" for="">Twitter</label>
-            <input id="twitter" class="input input-abbr" />
+            <input type="text" name="news_twitter" value="[NEWS_TWITTER]" id="twitter" class="input input-abbr" />
             <label for="twitter" class="gradbar abbr">@</label>
         </span>
         <span class="container">
-            <input type="checkbox" id="cool" class="btn checkb" />
+            <input type="checkbox" [NEWS_ON] id="cool" class="btn checkb" />
             <label class="" for="cool">Would you like me to do something cool for you?</label>
         </span>
         

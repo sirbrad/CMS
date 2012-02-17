@@ -50,6 +50,26 @@ class DB_Class {
 		}	
 	}
 	
+	public function row ()
+	{
+		if ( !$this->_query )
+		{
+			die ( "Must set a query before using method row()" );	
+			return FALSE;
+		}
+		else
+		{
+			$stmt = $this->_conn->prepare( $this->_query );
+
+			$stmt->execute();
+
+			$result = $stmt->fetch( PDO::FETCH_OBJ );
+
+			return $result;
+		}
+
+	}
+	
 	public function get ( $query = "" )
 	{
 		if ( !isset( $query ) && !isset( $this->_query ) )

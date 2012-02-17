@@ -25,6 +25,7 @@ define ( 'SITE_NAME', 'Brad/Ash CMS' );
 function __autoload ( $class_name ) 
 {
     include 'App/' . $class_name . '.php';
+	include 'Models/' . $class_name . '.php';
 }
 
 ?>

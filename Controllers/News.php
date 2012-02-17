@@ -21,6 +21,12 @@ $db_columns = array ( 'news_title',
 					  'news_twitter',
 					  'news_on' );
 
+// Set the tags in the view to nothing until assigned.
+// This means we do not need to views for adding and editing! 
+foreach ( $db_columns as $_col )
+	$tags[ $_col ] = '';
+
+// The template to view - this can change depending on the controller method.
 $template = 'Templates/example_news';
 
 $method = $_router->get_controller_method ();
@@ -36,9 +42,10 @@ if ( $method == 'edit' )
 	$_tags = $mod->get_values ( $value );
 	
 	// As the model gathered up tags we merge the two tag arrays to display
-	$tags = array_merge ( $_tags, $tags );
+	$tags = array_merge ( $tags, $_tags );
 	
 }
+
 
 $_templater->set_content ( $template, $tags );
 

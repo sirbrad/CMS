@@ -24,6 +24,7 @@
 <?php flush(); ?>
 <body>	
 	<form class="login">
+    [INCLUDE_BANANA]
     <p class="fbk error">Details are incorrect</p>
     	<div class="inputs">
             <div>

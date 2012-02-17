@@ -11,10 +11,10 @@ define ( 'DB_PASSWORD', 'root' );
 /** Site Configs **/
 
 // The segment of the Controller in the URI
-define ( 'CONTROLLER_SEG', 1 );
+define ( 'CONTROLLER_SEG', 2 );
 
 // The working directory, if none have blank
-define ( 'DIRECTORY', 'Singleton_Framework' ); 
+define ( 'DIRECTORY', 'Github/CMS' ); 
 
 
 

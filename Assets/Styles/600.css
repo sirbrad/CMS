@@ -35,6 +35,14 @@
 	width:96%;
 }
 
+.input,
+.img,
+.img-opts,
+.hint,
+.container {
+	margin-bottom:2em;	
+}
+
 .label {
 	display:inline-block;
 	padding-right:01.7331023%; /* 10 / 577 */
@@ -62,5 +70,12 @@
 }
 
 .hint {
-	margin-top:-1em;	
+	margin-top:-2.5em;	
+}
+
+.abbr {
+	left:22.7036395%; /* 130 / 577 */
+	max-height:16px;
+	min-width:10%;
+	padding:1.9% 0;
 }

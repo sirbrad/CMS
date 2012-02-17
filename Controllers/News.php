@@ -5,10 +5,10 @@ $_db = DB_Class::getInstance (); // Use this if you want a database connection
 $_templater = Templater::getInstance (); // Load this if you want the templater
 
 include ( 'App/Helpers/Common.php' );
+
 $tags['include_header'] = get_include ( 'header' );
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
-
 
 
 $template = 'Templates/example_news';

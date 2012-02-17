@@ -47,6 +47,7 @@
 	background-color:#fff;
 	border:1px solid rgba(0, 0, 0, 0.1);
 	border-width:0 1px 1px;
+	margin-bottom:3em;
 	padding:1.5em 03.3333333%; /* 30 / 900 */
 	
 	-webkit-border-bottom-right-radius: 0.35em;

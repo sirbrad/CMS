@@ -35,7 +35,7 @@ class Templater {
 
 	public function set_content ( $template, $tags )
 	{
-		$this->_main_content = file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/' . $template . '.php' );
+		$this->_main_content = file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/' . $template . '.html' );
 		
 		$this->_template_tags = $tags;
 

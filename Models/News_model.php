@@ -1,17 +1,9 @@
 <?php
 
-class News_model {
-	
-	private $_db;
-
-	public function __Construct ()
-	{
-		$this->_db = DB_Class::getInstance ();
-	}
+class News_model extends Super_model {
 	
 	public function get_values ( $value = "" )
 	{
-		
 		$query = $this->_db->get ( 'SELECT * FROM cms_news WHERE news_id = "' . $value . '"' );
 		
 		$tags = array ();

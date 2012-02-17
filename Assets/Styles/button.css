@@ -22,6 +22,8 @@
 	-webkit-border-radius:0.25em;
 	-moz-border-radius:0.25em;
 	border-radius:0.25em;
+	-webkit-box-shadow:inset 1px -1px 0 rgba(255, 255, 255, 0.5);
+	-moz-box-shadow:inset 1px -1px 0 rgba(255, 255, 255, 0.5);
 	box-shadow:inset 1px -1px 0 rgba(255, 255, 255, 0.5);
 	
 	-webkit-transition:box-shadow 0.2s ease;
@@ -29,6 +31,14 @@
 	-ms-transition:box-shadow 0.2s ease;
 	-o-transition:box-shadow 0.2s ease;
 	-webkit-transition:box-shadow 0.2s ease;
+}
+
+.no-cssgradients .btn {
+	background:url(../Images/Css/bg-btn-ie.png) left bottom repeat-x #fff;
+}
+
+.no-rgba .btn {
+	border:1px solid #C7C7C7;
 }
 
 .btn:hover,
@@ -39,6 +49,12 @@
 	-webkit-box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);
 	box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+.no-boxshadow .btn:hover,
+.no-boxshadow .btn:focus,
+.no-boxshadow .btn.selected {
+	background:url(../Images/Css/bg-btn-hover-ie.png) left bottom repeat-x;
 }
 
 .btn:active {

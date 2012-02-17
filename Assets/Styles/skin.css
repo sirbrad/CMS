@@ -20,6 +20,14 @@
 	-moz-box-shadow:0 1px 1px rgba(0, 0, 0, 0.03);
 	box-shadow:0 1px 1px rgba(0, 0, 0, 0.03);
 }
+
+.no-cssgradients .gradbar {
+	background:url(../Images/Css/bg-header-ie.png) left bottom repeat-x #fff;	
+}
+
+.no-rgba .gradbar {
+	border-bottom:1px solid #E0E0E0;
+}
  
 .gradbar:after {
 	content:'';
@@ -30,6 +38,10 @@
 	position:absolute;
 	width:100%;	
 } 
+
+.no-rgba .gradbar:after {
+	border-bottom:1px solid #F2F2F2;
+}
  
 .module {
 	background-color:#fff;

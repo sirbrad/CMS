@@ -49,27 +49,39 @@ define(['Utils/getEl', 'Utils/jquery'], function( getEl ) {
 		// Check to see if it's an image
 		if ( file.type.indexOf("image") == 0 ) {
 			
-			// Read the image
-			var r = new FileReader();
 			
-			// On load we display the user the image
-			r.onload = function(e) { 
+			
+			if ( file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/gif' ) {
 				
-				// Call to display image function
-				display_image(
-					"<p><strong>" + file.name + ":</strong><br />" +
-					'<img src="' + e.target.result + '" /></p>'
-				);
+				// Read the image
+				var r = new FileReader();
 				
-				// Set the hidden imagename field to the image name.
-				// This allows us to save the name - unfortunately will have to make a seperate call
-				// to the Server-side upload file.
-				form = get_form();
-				form.imagename.value = file.name;
 				
-			}
-			// Reads the file - without this the image doesn't display
-			r.readAsDataURL(file);
+				
+				// On load we display the user the image
+				r.onload = function(e) { 
+					
+					// Call to display image function
+					display_image(
+						"<p><strong>" + file.name + ":</strong><br />" +
+						'<img src="' + e.target.result + '" /></p>'
+					);
+					
+					// Set the hidden imagename field to the image name.
+					// This allows us to save the name - unfortunately will have to make a seperate call
+					// to the Server-side upload file.
+					form = get_form();
+					form.imagename.value = file.name;
+					
+				}
+				// Reads the file - without this the image doesn't display
+				r.readAsDataURL(file);
+				
+			} 
+			
+		} else {
+			display_image( '<p>Incorrect file type</p>' );
+			return false;	
 		}
 			
 	}

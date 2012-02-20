@@ -1,11 +1,13 @@
 <article class="article">
     <h1 class="heading gradbar">Test Uploading</h1>
-    <form method="post" action="">
+    <form method="post" action="" id="form" enctype="multipart/form-data">
+    	<input type="hidden" name="imagename" id="imagename" value="" />
     	<label class="label" for="img">Image</label>
         <span class="img" id="img-preview"></span>
         <ol class="hoz btns img-opts">
             <li><input type="file" class="btn f-btn" id="fileselect" value="Upload" /></li>
-            <li><input type="submit" class="btn e-btn" id="upload" value="Upload" /></li>
+            <li><input type="submit" class="btn e-btn" id="del-image" value="Remove Image" /></li>
+            <li><img src="/[DIRECTORY]/Assets/Images/Gif/ajax-loader.gif" id="ajax-loader" style="display:none;" /></li>
         </ol>
     </form>
     

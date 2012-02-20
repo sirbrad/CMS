@@ -15,10 +15,8 @@ $_directories = new Directories;
 $_directories->set_allowed ( array ( 'jpg', 'png', 'jpeg', 'gif' ) );
 $files = $_directories->get_images ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Assets/Uploads/Images' );
 
-foreach ( $files as $file )
-{
-	echo $file . "<br>";	
-}
 
+
+$_templater->set_content ( 'Templates/upload', $tags );
 
 ?>

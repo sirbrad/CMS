@@ -45,7 +45,8 @@
 
 .btn:hover,
 .btn:focus,
-.btn.selected {
+.btn.selected,
+input[type=checkbox]:checked + .btn {
 	text-decoration:none;	
 	
 	-webkit-box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);

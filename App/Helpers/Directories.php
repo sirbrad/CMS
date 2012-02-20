@@ -34,9 +34,7 @@ class Directories {
 					if ( $file != '.' && $file != '..' )
 					{	
 						if ( is_array ( $this->_allow ) && in_array ( $this->get_extension ( $file ), $this->_allow ) )
-						{
 							$this->_files[] = $file;
-						}
 					}
 				}
 				closedir ( $dh );

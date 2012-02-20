@@ -12,6 +12,7 @@ $tags['include_header'] = get_include ( 'header' );
 // Standard tags that should be set
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
+$tags['script'] = 'uploader';
 
 // Set up the database columns at the start - used for saving and whatever
 $db_columns = array ( 'news_title',

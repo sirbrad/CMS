@@ -1,17 +1,19 @@
 <article class="article">
     <h1 class="heading gradbar">Page tile</h1>
-    <form class="module form cf">
+    <form class="module form cf" method="post" action="" id="form" enctype="multipart/form-data">
         <p>Incase you need to explain a few things before the <strong>inputs</strong> you can just use a simple p tag. It is <a href="#">styled</a> to just co-operate with its surroundings.</p>
         <p>You can even add multiple lines if you wish, sometimes it's best when it's broken up.</p>
         <h2 class="title">Title for description</h2>
         <p>Thought it would be good to style a title just incase a point needs to be outlined!</p>
         <label class="label" for="">Label</label>
         <input type="input" name="news_title" value="[NEWS_TITLE]" class="input"  />
-        <label class="label" for="img">Image</label>
-        <span class="img"><img src="Assets/Images/Core/test.jpg" alt="" /></span>
+        <input type="hidden" name="imagename" id="imagename" value="" />
+    	<label class="label" for="img">Image</label>
+        <span class="img" id="img-preview"></span>
         <ol class="hoz btns img-opts">
-            <li><input type="submit" class="btn f-btn" value="Upload" /></li>
-            <li><input type="submit" class="btn e-btn" value="Remove image" /></li>
+            <li><input type="file" class="btn f-btn" id="fileselect" value="Upload" /></li>
+            <li><input type="submit" class="btn e-btn" id="del-image" value="Remove Image" /></li>
+            <li><img src="/[DIRECTORY]/Assets/Images/Gif/ajax-loader.gif" id="ajax-loader" style="display:none;" /></li>
         </ol>
         <label class="label" for="">Label</label>
         <input type="input" name="news_content" value="[NEWS_CONTENT]" class="input" />

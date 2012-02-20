@@ -101,6 +101,24 @@
 	margin-left:-3px;	
 }
 
+.btn:disabled,
+.btn:disabled:hover,
+.btn:disabled:focus,
+.btn:disabled:active {
+	color:#aaa;
+	cursor:default;
+	opacity:0.7;
+	
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+
+.btn-del {
+	float:right;
+	margin:2em 0 0;	
+}
+
 
 /* 2. Button-submit
  **********************************************************************/

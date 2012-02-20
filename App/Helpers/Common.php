@@ -12,6 +12,16 @@
 */
 
 
+/**
+ * Gets the extension of a file.
+ */
+function get_extension ( $file )
+{
+	$path_parts = pathinfo ( $file );
+	return $path_parts['extension'];
+}
+
+
 /*
 * Grab a specific segement in the URI
 * 

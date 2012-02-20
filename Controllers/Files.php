@@ -11,29 +11,9 @@ $tags['include_header'] = get_include ( 'header' );
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 
-$directory = $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Assets/Uploads/Images';
-
-$allow = array ( 'jpg', 'png', 'jpeg', 'gif' );
-
-$files = array ();
-
-if ( is_dir ( $directory ) )
-{
-	if ( $dh = opendir ( $directory ) )
-	{
-		while ( ( $file = readdir ( $dh ) ) !== FALSE )
-		{
-			if ( $file != '.' && $file != '..' )
-			{	
-				if ( is_array ( $allow ) && in_array ( get_extension ( $file ), $allow ) )
-				{
-					$files[] = $file;
-				}
-			}
-		}
-		closedir ( $dh );
-	}
-}
+$_directories = new Directories;
+$_directories->set_allowed ( array ( 'jpg', 'png', 'jpeg', 'gif' ) );
+$files = $_directories->get_images ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Assets/Uploads/Images' );
 
 foreach ( $files as $file )
 {

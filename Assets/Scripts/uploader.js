@@ -95,7 +95,7 @@ define(['Utils/getEl', 'Utils/jquery'], function( getEl ) {
 	
 	
 	// Initialization function
-	function Init() {
+	function initialize() {
 		
 		var file_section = getEl("fileselect");
 		
@@ -113,8 +113,8 @@ define(['Utils/getEl', 'Utils/jquery'], function( getEl ) {
 	
 
 	// Initialise the uploader
-	if (window.File && window.FileReader && window.FileList && window.Blob) {
-		Init();
+	if (window.File && window.FileReader) {
+		initialize();
 	}
 
 	

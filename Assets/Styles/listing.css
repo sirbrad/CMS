@@ -1,0 +1,46 @@
+/* Listing.css
+ **********************************************************************/
+
+
+/* 1. Listing
+ **********************************************************************/
+
+.listing {
+	list-style:none;
+	margin:0;
+	padding:0;	
+}
+
+.listing > li {
+	margin-bottom:1.5em;
+	padding-top:1.5em;
+	position:relative;
+}
+
+.listing > li + li {
+	border-top:1px solid rgba(0, 0, 0, 0.1);
+}
+
+.listing p {
+	margin:0;	
+}
+
+.listing p:first-child a{
+	font-weight:bold;
+}
+
+.listing small {
+	color:#aaa;
+	display:block;
+}
+
+.edit-opts {
+	margin:0;
+	position:absolute;
+	right:0;
+	top:1.5em;
+}
+
+.edit-opts .btn {
+	max-height:18px;
+}

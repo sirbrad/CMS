@@ -4,6 +4,14 @@
 
 /* 1. OOCSS
  **********************************************************************/
+ 
+.spr {
+	background-color:transparent;
+	background-image:url('../Images/Css/Sprite.png');
+	background-repeat:no-repeat;
+	display:inline-block;
+	text-indent:-999em;
+}
 
 .gradbar {
 	background: rgb(249,249,249); /* Old browsers */

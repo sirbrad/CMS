@@ -1,0 +1,55 @@
+/* Modal.css
+ **********************************************************************/
+
+/* 1. Modal
+ **********************************************************************/
+
+
+
+.modal {
+	position:fixed;
+	left:50%;
+	margin-left:-150px;
+	top:20%;
+	width:300px;
+	
+	-webkit-border-radius:0.4em;
+	-moz-border-radius:0.4em;
+	border-radius:0.4em;
+	-webkit-box-shadow:0px 5px 80px rgba(0, 0, 0, 0.7), 0 0 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:0px 5px 80px rgba(0, 0, 0, 0.7), 0 0 5px rgba(0, 0, 0, 0.3);
+	box-shadow:0px 5px 80px rgba(0, 0, 0, 0.7), 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.modal .module {
+	margin:0;
+}
+
+.list {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+.list li:before {
+	content:'–';
+	float:left;
+	padding-right:5px;
+}
+
+.modal .btns {
+	float:right;
+	margin:2em 0 0;
+}
+
+
+/* 2. Overlay
+ **********************************************************************/
+ 
+.overlay {
+	background-color:rgba(0, 0, 0, 0.2);
+	left:0;
+	position:absolute;
+	top:0;
+	width:100%;	
+}

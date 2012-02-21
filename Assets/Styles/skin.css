@@ -4,6 +4,15 @@
 
 /* 1. OOCSS
  **********************************************************************/
+ 
+.spr,
+.prepare:before {
+	background-color:transparent;
+	background-image:url('../Images/Css/Sprite.png');
+	background-repeat:no-repeat;
+	display:inline-block;
+	text-indent:-999em;
+}
 
 .gradbar {
 	background: rgb(249,249,249); /* Old browsers */
@@ -47,6 +56,7 @@
 	background-color:#fff;
 	border:1px solid rgba(0, 0, 0, 0.1);
 	border-width:0 1px 1px;
+	margin-bottom:3em;
 	padding:1.5em 03.3333333%; /* 30 / 900 */
 	
 	-webkit-border-bottom-right-radius: 0.35em;
@@ -69,6 +79,7 @@
 	border:1px solid rgba(0, 0, 0, 0.05);
 	border-bottom:1px solid rgba(0, 0, 0, 0.1);
 	font-size:1.666666667em; /* 20 / 12 */
+	font-weight:bold;
 	margin:0;
 	padding:.5em 03.3333333%; /* 30 / 900 */
 	text-shadow:0 -1px 0 rgba(255, 255, 255, 1);

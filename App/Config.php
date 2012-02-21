@@ -1,7 +1,11 @@
 <?php
 
 /** Database Details **/
+<<<<<<< HEAD
 define ( 'DB_HOST', 'localhost' );
+=======
+define ( 'DB_HOST', '192.168.0.43' );
+>>>>>>> upstream/master
 define ( 'DB_NAME', 'cms_2012' );
 define ( 'DB_USER', 'root' );
 define ( 'DB_PASSWORD', 'root' );
@@ -25,8 +29,11 @@ define ( 'SITE_NAME', 'Brad/Ash CMS' );
 function __autoload ( $class_name ) 
 {
     include 'App/' . $class_name . '.php';
+<<<<<<< HEAD
 	include 'App/Helpers/' . $class_name . '.php';
 	include 'App/Libraries/' . $class_name . '.php';
+=======
+>>>>>>> upstream/master
 	include 'Models/' . $class_name . '.php';
 }
 

@@ -57,6 +57,10 @@ input[type="submit"] {
 /* 3. IE7 Issues
  **********************************************************************/
  
+.ie7 .spr {
+	display:block;	
+}
+
 .heading {
 	zoom:1;	
 }
@@ -77,4 +81,8 @@ input[type="submit"] {
 .ie7 .abbr {
 	left:22.8769497%; /* 132 / 577 */
 	padding:1.5% 0 2.5%;
+}
+
+.ie7 .edit-opts .btn {
+	max-height:17px;
 }

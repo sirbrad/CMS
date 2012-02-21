@@ -1,0 +1,46 @@
+/* Animation.css
+ **********************************************************************/
+
+/* 1. Fade
+ **********************************************************************/
+
+@-webkit-keyframes fade {
+	0% {
+		opacity:0;	
+	}
+	
+	100% {
+		opacity:1;	
+	}
+}
+
+@-moz-keyframes fade {
+	0% {
+		opacity:0;	
+	}
+	
+	100% {
+		opacity:1;	
+	}
+}
+
+[data-animation="fadein"] {	
+	-webkit-animation: fade 0.3s ease;
+	-moz-animation: fade 0.3s ease;
+}
+
+@-webkit-keyframes fadeout {
+	0% {
+		opacity:1;	
+	}
+	
+	100% {
+		opacity:0;	
+	}
+}
+
+[data-animation="fadeout"] {	
+	-webkit-animation: fadeout 0.3s ease;
+	-moz-animation: fadeout 0.3s ease;
+	opacity:0;
+}

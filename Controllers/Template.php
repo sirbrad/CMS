@@ -8,6 +8,7 @@ include ( 'App/Helpers/Common.php' );
 
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
+$tags['script'] = 'main';
 
 $tags['include_header'] = get_include ( 'header' );
 

@@ -58,7 +58,7 @@
 	border-width:0 1px 1px;
 	margin-bottom:3em;
 	padding:1.5em 03.3333333%; /* 30 / 900 */
-	
+	position: relative;
 	-webkit-border-bottom-right-radius: 0.35em;
 	-webkit-border-bottom-left-radius: 0.35em;
 	-moz-border-radius-bottomright: 0.35em;

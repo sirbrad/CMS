@@ -6,19 +6,19 @@
  **********************************************************************/
 
 .i-penc {
-	background-position:0 -7px;
-	height:19px;
+	background-position:0 0;
+	height:17px;
 	width:11px;	
 }
 
 .i-bin {
-	background-position:-12px -7px;
+	background-position:-11px 0;
 	height:17px;
 	width:14px;	
 }
 
 .i-dwl {
-	background-position:-26px -7px;
+	background-position:-25px 0;
 	height:15px;
 	width:15px;	
 }

@@ -59,7 +59,7 @@ input[type=checkbox] {
 }
 
 .checkb:checked {
-	background:url(../Images/Css/Sprite.png) center no-repeat rgba(0, 0, 0, 0.09);
+	background:url(../Images/Css/bg-checkbox.png) center no-repeat rgba(0, 0, 0, 0.09);
 }
 
 .container {

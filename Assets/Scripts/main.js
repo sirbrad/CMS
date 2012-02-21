@@ -1,7 +1,8 @@
 require.config({ 
 	paths: {
-		jquery: 'Utils/jquery'
+		jquery: 'Utils/jquery',
+		tpl: 'Plugins/tpl'
 	}
 });
 
-require(['module']);
+require(['deleteElements']);

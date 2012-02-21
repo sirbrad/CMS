@@ -10,6 +10,7 @@ include ( 'App/Helpers/Common.php' );
 $tags['include_header'] = get_include ( 'header' );
 
 // Standard tags that should be set
+$tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 $tags['script'] = 'uploader';
@@ -17,6 +18,7 @@ $tags['script'] = 'uploader';
 // Set up the database columns at the start - used for saving and whatever
 $db_columns = array ( 'news_title',
 					  'news_content',
+					  'news_imgname',
 					  'news_link',
 					  'news_twitter',
 					  'news_on' );
@@ -34,15 +36,24 @@ $method = $_router->get_controller_method ();
 // Pick up the controller method - this time edit.
 if ( $method == 'edit' )
 {
+	$value = $_router->get_method_value ();
+	
 	// Load the relevent model that you want
 	$mod = new News_model ();
 	
-	$value = $_router->get_method_value ();
+	$response = $mod->save_news( $db_columns, $value );
+	
+	if ( is_string( $response ) && !is_bool( $response ) )
+	{
+		$tags['alert'] = $response;
+	}
 	
 	$_tags = $mod->get_values ( $value );
 	
 	// As the model gathered up tags we merge the two tag arrays to display
 	$tags = array_merge ( $tags, $_tags );
+	
+	
 	
 }
 

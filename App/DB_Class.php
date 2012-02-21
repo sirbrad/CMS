@@ -3,7 +3,8 @@
 class DB_Class {
 	
 	private $_conn,
-			$_query;
+			$_query,
+			$_where;
 	
 	private static $_instance = NULL;
 	
@@ -34,6 +35,27 @@ class DB_Class {
 		else
 		{
 			return FALSE;	
+		}
+	}
+	
+	public function where( $col, $val = "" )
+	{
+		if( $col == '' )
+		{
+			return TRUE;
+		}
+		else
+		{
+			$where = $col;
+
+			if ( !!$val )
+			{
+				$where = $col .' = "'. $this->escape ( $val ) .'"';
+			}
+
+			array_push ( $this->_where, $where );
+
+			return $this;
 		}
 	}
 	

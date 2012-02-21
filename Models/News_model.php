@@ -27,6 +27,36 @@ class News_model extends Super_model {
 			die ( 'Query returned zero results for News item ' . $value . ': Go back or find the correct variable' );	
 		}
 	}
+	
+	public function save_news ( $cols, $id )
+	{
+		if ( !!$_POST )
+		{
+			$_save_cols = array ();
+			
+			foreach ( $cols as $col )
+			{
+				$_save_cols[ $col ] = $_POST[ $col ];		
+			}
+			
+			if ( !!$id )
+			{
+				$this->_db->where( 'news_id', $id )->update( 'cms_news', $_save_cols );
+				
+				return '<div class="fbk success"><p>Item has been updated.</p></div>';
+			}
+			else
+			{
+				$num = $this->_db->insert ( 'cms_news', $_save_cols );
+				
+				if ( $num > 0 )
+					return '<div class="fbk success"><p>Item has been inserted.</p></div>';
+				else 
+					return FALSE;
+			}
+		}
+		
+	}
 
 }
 ?>

@@ -26,35 +26,38 @@ $db_columns = array ( 'news_title',
 // Set the tags in the view to nothing until assigned.
 // This means we do not need to views for adding and editing! 
 foreach ( $db_columns as $_col )
-	$tags[ $_col ] = '';
+	$tags[ $_col ] = ' ';
 
 // The template to view - this can change depending on the controller method.
 $template = 'Templates/example_news';
 
 $method = $_router->get_controller_method ();
 
+$mod = new News_model ();
+
 // Pick up the controller method - this time edit.
 if ( $method == 'edit' )
 {
 	$value = $_router->get_method_value ();
-	
 	// Load the relevent model that you want
-	$mod = new News_model ();
-	
 	$response = $mod->save_news( $db_columns, $value );
 	
 	if ( is_string( $response ) && !is_bool( $response ) )
 	{
 		$tags['alert'] = $response;
 	}
-	
 	$_tags = $mod->get_values ( $value );
-	
 	// As the model gathered up tags we merge the two tag arrays to display
 	$tags = array_merge ( $tags, $_tags );
+}
+elseif ( $method == 'add' )
+{
+	$response = $mod->save_news( $db_columns, $value );
 	
-	
-	
+	if ( is_string( $response ) && !is_bool( $response ) )
+	{
+		$tags['alert'] = $response;
+	}	
 }
 
 

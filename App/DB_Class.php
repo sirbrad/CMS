@@ -4,7 +4,7 @@ class DB_Class {
 	
 	private $_conn,
 			$_query,
-			$_where;
+			$_where = array ();
 	
 	private static $_instance = NULL;
 	
@@ -204,6 +204,7 @@ class DB_Class {
 			{
 				$where = ' WHERE '  . implode( ' AND ', $this->_where );
 			}
+			
 			
 			$stmt = $this->_conn->prepare( 'UPDATE ' . $table . ' SET ' . implode ( ', ', $update ) . ' ' . $where . ' ' );
 			

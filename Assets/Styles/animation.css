@@ -40,7 +40,7 @@
 }
 
 [data-animation="fadeout"] {	
-	-webkit-animation: fadeout 0.3s ease;
-	-moz-animation: fadeout 0.3s ease;
+	-webkit-animation: fadeout 0.2s ease;
+	-moz-animation: fadeout 0.2s ease;
 	opacity:0;
 }

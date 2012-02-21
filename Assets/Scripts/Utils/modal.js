@@ -1,9 +1,10 @@
-define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle'], function(require, jQuery, docHeight, appliedStyle){
+define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle', 'Utils/getEl'], function(require, jQuery, docHeight, appliedStyle, getId){
 	
 	var frag = document.createDocumentFragment(),
 		overlay = document.createElement('div');
 		elem = document.createElement('div'),
-		bod = document.body;
+		bod = document.body,
+		cancel = getId('cancel');
 	
 	overlay.className = 'overlay';
 	// Set height
@@ -48,10 +49,13 @@ define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle'], fun
 		
 	}
 	
-	jQuery(overlay).bind('click', function(e){
+	// Events to close window
+	jQuery(overlay).bind('click', closeWindow);
+	jQuery(cancel).bind('click', function(e) {
 		
 		closeWindow();
-			
+		
+		e.preventDefault();
 	});
 		
 	

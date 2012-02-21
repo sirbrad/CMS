@@ -43,6 +43,7 @@ class phmagick{
     private $log = array();
 
     function __construct($sourceFile='', $destinationFile=''){
+		
         $this->originalFile = $sourceFile;
 
         $this->source = $sourceFile ;

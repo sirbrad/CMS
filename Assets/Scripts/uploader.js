@@ -63,8 +63,8 @@ define(['Utils/getEl', 'Utils/jquery'], function( getEl ) {
 					
 					// Call to display image function
 					display_image(
-						"<p><strong>" + file.name + ":</strong><br />" +
-						'<img src="' + e.target.result + '" /></p>'
+					
+						'<img src="' + e.target.result + '" />'
 					);
 					
 					// Set the hidden imagename field to the image name.

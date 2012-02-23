@@ -1,13 +1,14 @@
 <article class="article">
     <h1 class="heading gradbar">Page tile</h1>
+    
     <form class="module form cf" method="post" action="" id="form" enctype="multipart/form-data">
-        <p>Incase you need to explain a few things before the <strong>inputs</strong> you can just use a simple p tag. It is <a href="#">styled</a> to just co-operate with its surroundings.</p>
-        <p>You can even add multiple lines if you wish, sometimes it's best when it's broken up.</p>
+    [ALERT]
+        [SWITCH]
         <h2 class="title">Title for description</h2>
         <p>Thought it would be good to style a title just incase a point needs to be outlined!</p>
         <label class="label" for="">Label</label>
         <input type="input" name="news_title" value="[NEWS_TITLE]" class="input"  />
-        <input type="hidden" name="imagename" id="imagename" value="" />
+        <input type="hidden" name="news_imgname" id="imagename" value="" />
     	<label class="label" for="img">Image</label>
         <span class="img" id="img-preview"></span>
         <ol class="hoz btns img-opts">
@@ -31,7 +32,7 @@
             <label for="twitter" class="gradbar abbr">@</label>
         </span>
         <span class="container">
-            <input type="checkbox" [NEWS_ON] id="cool" class="btn checkb" />
+            <input type="checkbox" [NEWS_ON] name="news_on" value="1" id="cool" class="btn checkb" />
             <label class="" for="cool">Would you like me to do something cool for you?</label>
         </span>
         

@@ -19,6 +19,8 @@ define ( 'DIRECTORY', 'Github/CMS' );
 // The brand name of the site
 define ( 'SITE_NAME', 'Brad/Ash CMS' );
 
+define ( 'PROJECT', 'cms' );
+
 
 /** Auto loading of classes **/
 

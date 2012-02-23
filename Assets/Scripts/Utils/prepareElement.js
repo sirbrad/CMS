@@ -10,14 +10,17 @@ define(function(){
 			superParent,
 			btn,
 			checkOptions;
+			
 		
 		// Work out and store our submit btn
 		while (len--) {
 			if (input[len].type === 'submit') {
+				
 				btn = input[len];
 			}
 			
 			if (input[len].checked) {
+				
 				btn.removeAttribute('disabled');
 				break;
 			} else {
@@ -25,10 +28,10 @@ define(function(){
 			}
 		}
 		
+		
 		// Check the user has interacted with our input
 		if (targ.tagName.toLowerCase() === 'input') {
 			
-		
 			superParent = targ.parentNode.parentNode.parentNode;
 			
 			if (targ.checked) {

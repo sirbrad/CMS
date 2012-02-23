@@ -53,6 +53,13 @@ input[type="submit"] {
 	padding:1.9% 0;
 }
 
+.ie8 .edit-opts input[type=checkbox],
+.ie7 .edit-opts input[type=checkbox] {
+	display:block;
+	position:absolute;
+	left:-999em;	
+}
+
 
 /* 3. IE7 Issues
  **********************************************************************/
@@ -85,4 +92,20 @@ input[type="submit"] {
 
 .ie7 .edit-opts .btn {
 	max-height:17px;
+}
+
+.ie7 .prepare {
+	padding-left:0;	
+}
+
+.ie7 .prepare p:first-child {
+	padding-left:3em;	
+}
+
+.ie7 .elem-add .prepare p:first-child {
+	background:url(../Images/Css/ie-prepare-add.png) 0 center no-repeat;
+}
+
+.ie7 .elem-del .prepare p:first-child {
+	background:url(../Images/Css/ie-prepare-del.png) 0 center no-repeat;
 }

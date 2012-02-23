@@ -41,15 +41,8 @@ class Data_model extends Super_model {
 		if ( is_array ( $to_set ) )
 		{
 			foreach ( $to_set as $key => $value )
-			{
-				if ( $private )
-				{
-					$set = '_'.$key; 
-					$this->{$set} = $value;
-				}
-				else
-					$this->{$key} = $value;
-			}
+				// Check to see if their private properties
+				$private ? $this->{'_'.$key} = $value: $this->{$key} = $value;
 		}
 		else
 		{
@@ -77,12 +70,7 @@ class Data_model extends Super_model {
 				// loop through the returned query result to get the column name and value
 				// to assign a column name to the tags array
 				foreach ( $rows as $key => $value )
-				{
-					if ( $value == 1 )
-						$this->_tags[ $key ] = ' checked';
-					else
-						$this->_tags[ $key ] = $value;
-				}
+					$this->_tags[ $key ] = $value == 1 ? ' checked' : $value;
 			}
 			
 			return $this;
@@ -100,10 +88,7 @@ class Data_model extends Super_model {
 		foreach ( $this->_columns as $col )
 		{
 			// Checks if a column is urltitle to assign a friendly url
-			if ( substr ( $col, -8, strlen ( $col ) == 'urltitle' ) )
-				$fields[ $col ] = friendly_url ( $_POST[ $col ] );
-			else
-				$fields[ $col ] = $_POST[ $col ];
+			$fields[ $col ] = substr ( $col, -8, strlen ( $col ) ) == 'urltitle' ? friendly_url ( $_POST[ $col ] ): $_POST[ $col ];
 		}
 	
 		if ( !!$this->_id )

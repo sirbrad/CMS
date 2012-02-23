@@ -6,7 +6,8 @@ class Data_model extends Super_model {
 			$_id,
 			$_table,
 			$_id_column,
-			$_tags = array ();
+			$_tags = array (),
+			$_project = PROJECT;
 			
 	/**
 	 * Initialises the class
@@ -26,7 +27,7 @@ class Data_model extends Super_model {
 		if ( !!$this->_id )
 			$this->get_data ();
 			
-		return array ( $reponse_msg, $this->_tags );
+		return $this->_tags;
 	}
 	
 	/**
@@ -66,7 +67,7 @@ class Data_model extends Super_model {
 		// Build string of the columns to return
 		$select = implode ( ', ', $this->_columns );
 		
-		$query = $this->db->get ( 'SELECT ' . $select . ' FROM ' . $this->_table . ' WHERE ' . $this->_id_column . ' = "' . $this->_id . '"' );
+		$query = $this->db->get ( 'SELECT ' . $select . ' FROM ' . $this->_project.'_'.$this->_table . ' WHERE ' . $this->_id_column . ' = "' . $this->_id . '"' );
 		
 		if ( $this->db->num_rows () > 0 )
 		{
@@ -107,12 +108,12 @@ class Data_model extends Super_model {
 			
 		if ( !!$this->_identifier )
 		{
-			$this->db->where( $this->_id_column, $this->_id )->update( $this->_table, $fields );
+			$this->db->where( $this->_id_column, $this->_id )->update( $this->_project.'_'.$this->_table, $fields );
 			$msg = 'updated';
 		}
 		else
 		{
-			$nums = $this->db->insert( $this->_table, $fields );
+			$nums = $this->db->insert( $this->_project.'_'.$this->_table, $fields );
 			
 			// Check that an insert has happened
 			if ( $nums > 0 )
@@ -123,7 +124,9 @@ class Data_model extends Super_model {
 		
 		unset ( $fields );
 		
-		return '<div class="fbk success"><p>Item has been ' . $msg . '.</p></div>';
+		$this->_tags['alert'] = '<div class="fbk success"><p>Item has been ' . $msg . '.</p></div>';
+		
+		return $this;
 	}
 
 }

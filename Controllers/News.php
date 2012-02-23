@@ -35,36 +35,25 @@ $template = 'Templates/example_news';
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
+$mod = new Data_model;
 
-$mod = new News_model ();
+$attributes = array ( 'table' => 'news', 
+					  'columns' => $db_columns, 
+					  'id_column' => 'news_id', 
+					  'id' => $value );
 
 // Pick up the controller method - this time edit.
 if ( $method == 'edit' && !!$value )
 {
-	
-	// Load the relevent model that you want
-	$response = $mod->save_news( $db_columns, $value );
-	
-	if ( is_string( $response ) && !is_bool( $response ) )
-	{
-		$tags['alert'] = $response;
-	}
-	
-	$_tags = $mod->get_values ( $value );
-	
-	// As the model gathered up tags we merge the two tag arrays to display
-	$tags = array_merge ( $tags, $_tags );
-	
+	$tags['switch'] = '<p>You are viewing the editing view!</p>';
 }
 elseif ( $method == 'add' || !isset ( $value ) ) // I have set this to an or, so that it indexes to 'add' if they do not provide it. 
 {
-	$response = $mod->save_news( $db_columns, $value );
-	
-	if ( is_string( $response ) && !is_bool( $response ) )
-		$tags['alert'] = $response;
-		
-		
+	$tags['switch'] = '<p>You are viewing the adding view</p>';
 }
+
+$_tags = $mod->init ( $attributes );
+$tags = array_merge ( $tags, $_tags );	
 
 
 // This loads the view. Have to have this method to load the view

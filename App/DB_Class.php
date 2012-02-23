@@ -3,7 +3,8 @@
 class DB_Class {
 	
 	private $_conn,
-			$_query;
+			$_query,
+			$_where = array ();
 	
 	private static $_instance = NULL;
 	
@@ -27,13 +28,39 @@ class DB_Class {
 		if ( !!$string )
 		{
 			$string = str_replace( "\r\n", "", $string );
-			$string = mysql_escape_string( $string );
 			$string = stripslashes( $string );
+			$string = mysql_escape_string( $string );
 			return $string;
 		}
 		else
 		{
 			return FALSE;	
+		}
+	}
+	
+	public function get_where ()
+	{
+		return $this->_where;	
+	}
+	
+	public function where( $col, $val = "" )
+	{
+		if( $col == '' )
+		{
+			return TRUE;
+		}
+		else
+		{
+			$where = $col;
+
+			if ( !!$val )
+			{
+				$where = $col .' = "'. $this->escape ( $val ) .'"';
+			}
+
+			array_push ( $this->_where, $where );
+
+			return $this;
 		}
 	}
 	
@@ -182,6 +209,7 @@ class DB_Class {
 			{
 				$where = ' WHERE '  . implode( ' AND ', $this->_where );
 			}
+			
 			
 			$stmt = $this->_conn->prepare( 'UPDATE ' . $table . ' SET ' . implode ( ', ', $update ) . ' ' . $where . ' ' );
 			

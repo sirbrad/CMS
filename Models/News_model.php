@@ -4,28 +4,57 @@ class News_model extends Super_model {
 	
 	public function get_values ( $value = "" )
 	{
-		$query = $this->_db->get ( 'SELECT * FROM cms_news WHERE news_id = "' . $value . '"' );
-		
-		$tags = array ();
-		
-		if ( $this->_db->num_rows() > 0 )
+		if ( !!$value )
 		{
-			foreach ( $query as $rows )
+			$query = $this->db->get ( 'SELECT * FROM cms_news WHERE news_id = "' . $value . '"' );
+			
+			$tags = array ();
+			
+			if ( $this->db->num_rows() > 0 )
 			{
-				foreach ( $rows as $key => $value )
+				foreach ( $query as $rows )
 				{
-					if ( $value == 1 )
-						$tags[ $key ] = ' checked';
-					else
-						$tags[ $key ] = $value;
+					foreach ( $rows as $key => $value )
+					{
+						if ( $value == 1 )
+							$tags[ $key ] = ' checked';
+						else
+							$tags[ $key ] = $value;
+					}
 				}
+				return $tags;
 			}
-			return $tags;
 		}
-		else
+	}
+	
+	public function save_news ( $cols, $id )
+	{
+		if ( !!$_POST )
 		{
-			die ( 'Query returned zero results for News item ' . $value . ': Go back or find the correct variable' );	
+			$_save_cols = array ();
+			
+			foreach ( $cols as $col )
+			{
+				$_save_cols[ $col ] = $_POST[ $col ];		
+			}
+			
+			if ( !!$id )
+			{
+				$this->db->where( 'news_id', $id )->update( 'cms_news', $_save_cols );
+				
+				return '<div class="fbk success"><p>Item has been updated.</p></div>';
+			}
+			else
+			{
+				$num = $this->db->insert ( 'cms_news', $_save_cols );
+				
+				if ( $num > 0 )
+					return '<div class="fbk success"><p>Item has been inserted.</p></div>';
+				else 
+					return FALSE;
+			}
 		}
+		
 	}
 
 }

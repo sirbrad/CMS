@@ -31,15 +31,18 @@ foreach ( $db_columns as $_col )
 // The template to view - this can change depending on the controller method.
 $template = 'Templates/example_news';
 
+// Get the uri values/parameters
 $method = $_router->get_controller_method ();
+$value = $_router->get_method_value ();
+
 
 $mod = new News_model ();
 
 // Pick up the controller method - this time edit.
-if ( $method == 'edit' )
+if ( $method == 'edit' && !!$value )
 {
-	$value = $_router->get_method_value ();
 	
+	// Load the relevent model that you want
 	$response = $mod->save_news( $db_columns, $value );
 	
 	if ( is_string( $response ) && !is_bool( $response ) )
@@ -51,18 +54,19 @@ if ( $method == 'edit' )
 	
 	// As the model gathered up tags we merge the two tag arrays to display
 	$tags = array_merge ( $tags, $_tags );
+	
 }
-elseif ( $method == 'add' )
+elseif ( $method == 'add' || !isset ( $value ) ) // I have set this to an or, so that it indexes to 'add' if they do not provide it. 
 {
 	$response = $mod->save_news( $db_columns, $value );
 	
 	if ( is_string( $response ) && !is_bool( $response ) )
-	{
 		$tags['alert'] = $response;
-	}	
+		
 }
 
 
+// This loads the view. Have to have this method to load the view
 $_templater->set_content ( $template, $tags );
 
 ?>

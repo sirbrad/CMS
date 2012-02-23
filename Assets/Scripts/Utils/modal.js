@@ -1,10 +1,11 @@
 define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle', 'Utils/getEl'], function(require, jQuery, docHeight, appliedStyle, getId){
 	
 	var frag = document.createDocumentFragment(),
-		overlay = document.createElement('div');
+		overlay = document.createElement('div'),
 		elem = document.createElement('div'),
 		bod = document.body,
-		cancel = getId('cancel');
+		cancel = getId('cancel'), 
+		formName;
 	
 	overlay.className = 'overlay';
 	// Set height
@@ -52,19 +53,30 @@ define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle', 'Uti
 	
 	// Events to close window
 	jQuery(overlay).bind('click', function(e){
+		
 		var targ = e.target;
 		
-		if (targ.href.split('#')[1] === 'confirm') {
+		if (targ.className === 'overlay' || targ.id === 'cancel') {
 			
-			console.log(document.form)
+			closeWindow();
+				
+		} else if (targ.tagName.toLowerCase() === 'a') {
 			
+			// Had to do two if's because checking .split on
+			// every targ was throwing errors
+			if (targ.href.split('#')[1] === 'confirm') {
+				
+				// submit form
+				document.forms[formName].submit();
+				
+			}
 		}
 		
 		e.preventDefault();
 		
 	});
 	
-	return function(opts) {
+	return function(opts, form) {
 		
 		require(['tpl!Templates/modal.tpl'], function(template){
 			var modalOptions = template({ 
@@ -73,6 +85,8 @@ define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle', 'Uti
 			})
 			
 			elem.innerHTML = modalOptions;
+			
+			formName = form.name;
 			
 			// Display our modal
 			showWindow();

@@ -14,6 +14,11 @@ $tags['include_header'] = get_include ( 'header' );
 
 $template = 'Templates/template';
 
+if ( !!$_POST['delete'] )
+{
+	die ( print_r ( $_POST['delete'] ) );	
+}
+
 $method = $_router->get_controller_method ();
 
 $_templater->set_content ( $template, $tags );

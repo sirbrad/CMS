@@ -1,76 +1,55 @@
-define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/prepareElement', 'Utils/modal'], function(jQuery, getId, es, prepare, modal) {
+define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/modal'], function(jQuery, getId, es, modal) {
 	
 	
+	var container = document.getElementsByTagName('form'),
+		superParent,
+		btn; 
 	
-	/*var container = getId('pageList'),
-		checkboxes = container.getElementsByTagName('input'),
-		len = checkboxes.length,
-		btn = getId('btn'),
-		arr = [];
-		
 	
-	// Need to check if input is checked on load. Firefox
-	// decides to keep inputs checked on reload
 	jQuery(container).bind('click', function(e){
 		var targ = e.target,
-			superParent;
+			input = this.getElementsByTagName('input'),
+			len = input.length,
+			checkOptions;
+			
 		
-		len = checkboxes.length;
+		// Work out and store our submit btn
+		while (len--) {
+			if (input[len].type === 'submit') {
+				
+				btn = input[len];
+			}
+			
+			if (input[len].checked) {
+				
+				btn.removeAttribute('disabled');
+				break;
+			} else {
+				btn.setAttribute('disabled', 'disabled');
+			}
+		}
 		
-		// Annoying problem: Because we a re using a label, the click
-		// event gets initiated twice. Dur. This simple check lets us
-		// skip the event being shouted from the label.
-		if (targ.tagName.toLowerCase() === 'input') {
+		
+		// Check the user has interacted with our input
+		if (targ.tagName.toLowerCase() === 'input' && targ.type === 'checkbox') {
 			
 			superParent = targ.parentNode.parentNode.parentNode;
 			
-			if (targ.checked) {
-				superParent.className = 'prepare';
-			} else {
-				superParent.className = '';
-			}
+			superParent.className = targ.checked ? 'prepare' : '';
 			
-			
-			// If user indicates they wish to delete 1 or more list items
-			// un-disable submit button.
-			while (len--) {
-				if (checkboxes[len].checked) {
-					btn.removeAttribute('disabled');
-					break;
-				} else {
-					btn.setAttribute('disabled', 'disabled');
-				}
-			}
 			
 		}
 		
-		
-		
+		if (targ.getAttribute('data-modal')) {
+			
+			modal({
+				title: 'Confirm',
+				message: 'Are you sure you wish to <strong>delete</strong> the following pages;'
+			}, this);
+			
+			
+			e.preventDefault();
+		}
 	});
-	
-	jQuery(btn).bind('click', function(e){
-		var lis = container.getElementsByTagName('li'),
-			liLen = lis.length;
-			
-		// Must make sure arr is reset each click
-		arr = [];
-			
-		while (liLen--) {
-			
-			if (lis[liLen].className === 'prepare') {
-				arr.push(lis[liLen].children[0].children[0]);	
-			}
-		}
-		
-		modal({
-			title: 'Confirm',
-			message: 'Are you sure you wish to <strong>delete</strong> the following pages;',
-			items: arr
-		});
-		
-		//this.setAttribute('disabled'); // need this if we dont overlay a darken bkg
-	
-		e.preventDefault();	
-	});*/
 	
 });

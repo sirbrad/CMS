@@ -105,8 +105,8 @@ class Data_model extends Super_model {
 			else
 				$fields[ $col ] = $_POST[ $col ];
 		}
-			
-		if ( !!$this->_identifier )
+	
+		if ( !!$this->_id )
 		{
 			$this->db->where( $this->_id_column, $this->_id )->update( $this->_project.'_'.$this->_table, $fields );
 			$msg = 'updated';

@@ -47,12 +47,13 @@ if ( $method == 'edit' && !!$value )
 {
 	$tags['switch'] = '<p>You are viewing the editing view!</p>';
 }
-elseif ( $method == 'add' || !isset ( $value ) ) // I have set this to an or, so that it indexes to 'add' if they do not provide it. 
+elseif ( $method == 'add' || !isset ( $value ) ) 
 {
 	$tags['switch'] = '<p>You are viewing the adding view</p>';
 }
 
-$_tags = $mod->init ( $attributes );
+$_tags = $mod->init ( $attributes, $tags );
+
 $tags = array_merge ( $tags, $_tags );	
 
 

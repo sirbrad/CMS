@@ -1,5 +1,9 @@
 <?php
-
+/**
+* A class for fetching and saving data
+*
+* @author Ashley Banks 2012
+*/
 class Data_model extends Super_model {
 	
 	private $_columns = array (),

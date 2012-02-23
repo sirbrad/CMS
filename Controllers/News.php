@@ -35,14 +35,15 @@ $template = 'Templates/example_news';
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
-$mod = new Data_model;
+
 
 $attributes = array ( 'table' => 'news', 
 					  'columns' => $db_columns, 
 					  'id_column' => 'news_id', 
 					  'id' => $value );
 
-// Pick up the controller method - this time edit.
+// This is to show the different types of application views you can have,
+// Just determined by the uri segment.
 if ( $method == 'edit' && !!$value )
 {
 	$tags['switch'] = '<p>You are viewing the editing view!</p>';
@@ -52,7 +53,9 @@ elseif ( $method == 'add' || !isset ( $value ) )
 	$tags['switch'] = '<p>You are viewing the adding view</p>';
 }
 
-$_tags = $mod->init ( $attributes, $tags );
+$data_mod = new Data_model;
+
+$_tags = $data_mod->init ( $attributes, $tags );
 
 $tags = array_merge ( $tags, $_tags );	
 

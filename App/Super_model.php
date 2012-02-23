@@ -1,9 +1,12 @@
 <?php
 /**
+* ( This isn't really a super model in the respect of a hero,
+	just a super class for all models :) )
+*
 * All Main models extend this that need access
 * to the database.
 */
-class Super_model {
+abstract class Super_model {
 	
 	protected $db;
 

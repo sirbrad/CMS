@@ -28,8 +28,8 @@ class DB_Class {
 		if ( !!$string )
 		{
 			$string = str_replace( "\r\n", "", $string );
-			$string = mysql_escape_string( $string );
 			$string = stripslashes( $string );
+			$string = mysql_escape_string( $string );
 			return $string;
 		}
 		else

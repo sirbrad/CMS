@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/specifics.css" />
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/animation.css" />
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/extend.css" />
+    [FOREACH styles as b]
+    [b.style]
+    [/FOREACH]
     <!--[if IE]>
     	<link rel="stylesheet" href="Assets/Styles/IE.css" />
     <![endif]-->

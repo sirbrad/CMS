@@ -15,6 +15,10 @@ $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 $tags['script'] = 'uploader';
 
+// Set up the stylesheets dynamically
+$_arr = new Arrays;
+$tags['styles'] = $_arr->stylesheets ( 'style1,style2' );
+
 // Set up the database columns at the start - used for saving and whatever
 $db_columns = array ( 'news_title',
 					  'news_content',

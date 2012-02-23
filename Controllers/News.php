@@ -35,8 +35,6 @@ $template = 'Templates/example_news';
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
-
-
 $attributes = array ( 'table' => 'news', 
 					  'columns' => $db_columns, 
 					  'id_column' => 'news_id', 

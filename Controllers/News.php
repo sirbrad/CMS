@@ -39,14 +39,16 @@ $mod = new News_model ();
 if ( $method == 'edit' )
 {
 	$value = $_router->get_method_value ();
-	// Load the relevent model that you want
+	
 	$response = $mod->save_news( $db_columns, $value );
 	
 	if ( is_string( $response ) && !is_bool( $response ) )
 	{
 		$tags['alert'] = $response;
 	}
+	
 	$_tags = $mod->get_values ( $value );
+	
 	// As the model gathered up tags we merge the two tag arrays to display
 	$tags = array_merge ( $tags, $_tags );
 }

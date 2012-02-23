@@ -17,6 +17,10 @@
 	position:relative;
 	
 	-webkit-transition:padding-left 0.2s ease;
+	-moz-transition:padding-left 0.2s ease;
+	-ms-transition:padding-left 0.2s ease;
+	-o-transition:padding-left 0.2s ease;
+	transition:padding-left 0.2s ease;
 }
 
 .listing > li + li {
@@ -60,6 +64,10 @@
 .edit-opts label {
 	font-size:1em;
 	margin-bottom:0;
+}
+
+.solo span {
+	margin-top:2px;
 }
 
 .edit-opts .btn {

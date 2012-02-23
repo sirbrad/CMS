@@ -6,6 +6,6 @@
     </ol>
     <ol class="hoz btns">
         <li><a id="cancel" href="#" class="btn f-btn">Cancel</a></li>
-        <li><a href class="btn e-btn err-btn">Confirm</a></li>
+        <li><a href="#confirm" class="btn e-btn err-btn">Confirm</a></li>
     </ol>
 </div>

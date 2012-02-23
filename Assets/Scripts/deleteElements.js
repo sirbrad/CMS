@@ -5,7 +5,10 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/modal'], functio
 		len = checkboxes.length,
 		btn = getId('btn'),
 		arr = [];
+		
 	
+	// Need to check if input is checked on load. Firefox
+	// decides to keep inputs checked on reload
 	jQuery(container).bind('click', function(e){
 		var targ = e.target,
 			superParent;
@@ -26,7 +29,6 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/modal'], functio
 			}
 			
 			
-			
 			// If user indicates they wish to delete 1 or more list items
 			// un-disable submit button.
 			while (len--) {
@@ -34,7 +36,7 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/modal'], functio
 					btn.removeAttribute('disabled');
 					break;
 				} else {
-					btn.setAttribute('disabled');
+					btn.setAttribute('disabled', 'disabled');
 				}
 			}
 			

@@ -16,12 +16,13 @@ define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle', 'Uti
 	
 	function showWindow() {
 		
-		
 		overlay.appendChild(elem);
 		frag.appendChild(overlay);
 		
 		// Append frag to our body
 		bod.appendChild(frag);
+		
+		cancel = getId('cancel');
 	}
 	
 	function closeWindow() {
@@ -46,18 +47,22 @@ define(['require', 'jquery', 'Utils/getDocHeight', 'Utils/getAppliedStyle', 'Uti
 		}, 10);
 		
 		//console.log(appliedStyle(overlay, 'opacity'))
-		
 	}
 	
+	
 	// Events to close window
-	jQuery(overlay).bind('click', closeWindow);
-	jQuery(cancel).bind('click', function(e) {
+	jQuery(overlay).bind('click', function(e){
+		var targ = e.target;
 		
-		closeWindow();
+		if (targ.href.split('#')[1] === 'confirm') {
+			
+			console.log(document.form)
+			
+		}
 		
 		e.preventDefault();
-	});
 		
+	});
 	
 	return function(opts) {
 		

@@ -39,8 +39,20 @@
 	}
 }
 
+@-moz-keyframes fadeout {
+	0% {
+		opacity:1;	
+	}
+	
+	100% {
+		opacity:0;	
+	}
+}
+
 [data-animation="fadeout"] {	
 	-webkit-animation: fadeout 0.2s ease;
 	-moz-animation: fadeout 0.2s ease;
 	opacity:0;
 }
+
+

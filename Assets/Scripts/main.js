@@ -5,4 +5,4 @@ require.config({
 	}
 });
 
-require(['deleteElements']);
+require(['manageElements']);

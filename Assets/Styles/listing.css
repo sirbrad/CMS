@@ -31,18 +31,28 @@
 	padding-left:3em;	
 }
 
-.prepare:before {
-	content:'';
+.elem-add .prepare:before {
+	background-position:0 -37px;
+	height:19px;
+	width:24px;	
+}
+
+.elem-del .prepare:before {
 	background-position:0 -17px;
 	height:20px;
-	left:0;
-	position:absolute;
-	top:48%;
 	width:20px;	
 }
 
+.prepare:before {
+	content:'';
+	left:0;
+	position:absolute;
+	top:48%;
+}
+
 .listing p {
-	margin:0;	
+	margin:0;
+	max-width:80%;	
 }
 
 .listing p:first-child a{

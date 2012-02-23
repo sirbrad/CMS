@@ -1,6 +1,7 @@
 define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/prepareElement', 'Utils/modal'], function(jQuery, getId, es, prepare, modal) {
 	
 	
+	
 	/*var container = getId('pageList'),
 		checkboxes = container.getElementsByTagName('input'),
 		len = checkboxes.length,

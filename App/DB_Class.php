@@ -38,6 +38,11 @@ class DB_Class {
 		}
 	}
 	
+	public function get_where ()
+	{
+		return $this->_where;	
+	}
+	
 	public function where( $col, $val = "" )
 	{
 		if( $col == '' )

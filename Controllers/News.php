@@ -63,6 +63,7 @@ elseif ( $method == 'add' || !isset ( $value ) ) // I have set this to an or, so
 	if ( is_string( $response ) && !is_bool( $response ) )
 		$tags['alert'] = $response;
 		
+		
 }
 
 

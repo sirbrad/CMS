@@ -6,11 +6,11 @@ class News_model extends Super_model {
 	{
 		if ( !!$value )
 		{
-			$query = $this->_db->get ( 'SELECT * FROM cms_news WHERE news_id = "' . $value . '"' );
+			$query = $this->db->get ( 'SELECT * FROM cms_news WHERE news_id = "' . $value . '"' );
 			
 			$tags = array ();
 			
-			if ( $this->_db->num_rows() > 0 )
+			if ( $this->db->num_rows() > 0 )
 			{
 				foreach ( $query as $rows )
 				{
@@ -40,13 +40,13 @@ class News_model extends Super_model {
 			
 			if ( !!$id )
 			{
-				$this->_db->where( 'news_id', $id )->update( 'cms_news', $_save_cols );
+				$this->db->where( 'news_id', $id )->update( 'cms_news', $_save_cols );
 				
 				return '<div class="fbk success"><p>Item has been updated.</p></div>';
 			}
 			else
 			{
-				$num = $this->_db->insert ( 'cms_news', $_save_cols );
+				$num = $this->db->insert ( 'cms_news', $_save_cols );
 				
 				if ( $num > 0 )
 					return '<div class="fbk success"><p>Item has been inserted.</p></div>';

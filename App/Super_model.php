@@ -5,11 +5,11 @@
 */
 class Super_model {
 	
-	protected $_db;
+	protected $db;
 
 	public function __Construct ()
 	{
-		$this->_db = DB_Class::getInstance ();
+		$this->db = DB_Class::getInstance ();
 	}
 	
 }

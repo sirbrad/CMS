@@ -117,6 +117,12 @@ class DB_Class {
 		
 	}
 	
+	public function query ( $query )
+	{
+		$stmt = $this->_conn->prepare( $query );
+		$stmt->execute();
+	}
+	
 	public function num_rows ()
 	{
 		if ( isset( $this->_query ) )

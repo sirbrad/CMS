@@ -10,7 +10,11 @@ class Listing_model extends Super_model {
 	public function init ( $parameters = array () )
 	{
 		$this->setter( $parameters );
-		return $this->get_results ();
+		
+		if ( !!$_POST['delete'] )
+			$alert = $this->delete_items ( $_POST['delete'] );
+		
+		return array ( $this->get_results (), $alert );
 	}
 	
 	private function setter ( $to_set, $private = TRUE )
@@ -60,6 +64,16 @@ class Listing_model extends Super_model {
 		}
 		
 		return $result;
+	}
+	
+	private function delete_items ( $items )
+	{
+		foreach ( $items as $id )
+			$this->db->query ( 'DELETE FROM ' . $this->_project . '_' .$this->_table . ' WHERE ' . $this->_table . '_id = "' . $id . '"' );	
+			
+		return  '<div class="fbk error">
+					<p>The item(s) you selected have now been deleted. They shall not be returning.</p>
+				</div>';
 	}
 
 }

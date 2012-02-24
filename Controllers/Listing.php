@@ -13,15 +13,26 @@ $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 $tags['script'] = 'main';
 
-$tags['edit_page'] = 'news/edit';
+$template = 'listing';
 
+$list_type = $_router->get_controller_method ();
+
+if ( $list_type == 'news' )
+{
+	$tags['edit_page'] = 'news/edit';
+	$table = 'news';
+}
+
+/** Initiate the list model and build the result list **/
 $listing = new Listing_model;
+$params = array ( 'table' => $table );
+list ( $tags['results'], $response ) = $listing->init ( $params );
 
-$params = array ( 'table' => 'news' );
+if ( !!$response )
+	$tags['alert'] = $response;
 
-$tags['results'] = $listing->init ( $params );
-
-$template = 'Templates/listing';
+/** Then load the view **/
+$template = 'Templates/' . $template;
 $_templater->set_content ( $template, $tags );
 
 ?>

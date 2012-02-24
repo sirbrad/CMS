@@ -10,6 +10,7 @@
  *
  * All based on [ ] tags
  * 
+ * @author Ashley Banks
  * Version: 1.2.1
 */
 
@@ -145,9 +146,7 @@ class Templater {
 			return $this;
 		}
 		else
-		{
 			return FALSE;	
-		}
 	}
 
 	/**

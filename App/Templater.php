@@ -141,6 +141,7 @@ class Templater {
 		$mtch = preg_replace( '/\s+/', ' ', $mtch );
 		$mtch = explode ( ' ', $mtch );
 		
+		
 
 		// The content between the Foreach tags to loop through and build a string to output.
 
@@ -150,6 +151,8 @@ class Templater {
 		//$_for_content = str_replace ( ' ', '', $_for_content);
 		$_for_content = trim ( $_for_content );
 		$_for_content = explode ( ',', $_for_content );
+		
+		
 		
 		// Set loop content - this is the narrowed down tags from above.
 
@@ -166,9 +169,9 @@ class Templater {
 		// As its pushed in twice because of the regex we will take the second without the spacing.
 
 		$_loop_content = $_loop_content[1];
-
+		
 		// Loop the tag array for the foreach loop function
-
+		
 		foreach ( $tag_array as $row )
 		{
 			// Set default values - this is so they strings and array start again
@@ -179,17 +182,21 @@ class Templater {
 			$new_for_tags = array ();
 			$for_tags = '';
 			
-			
 			// Loop through the items we want to replace and build up an array to 
 			// use for the string replace
-
+			
 			for ( $i = 0; $i < count( $mtch ); $i++ )
 			{
 				$item = $mtch[$i];
 				
+				// As some conjongaulled unwanted shit gets into the matches
+				// We check that we are only finding tags within [] 's !!!
+				preg_match ( '#\\[(.+)\\]#s', $item, $mtchhhh );	
+				$item = $mtchhhh[0];
+				
 				$item = explode ( '['.$array_tag, $item );
 				$item = str_replace ( array ( '.', ']' ), '', $item[1] );
-
+				
 				// Build up the tags to replace
 
 				$for_tags .= '['.$array_tag.'.'.$item.'],';
@@ -222,7 +229,7 @@ class Templater {
 			}
 			
 		}
-
+		
 		// Set the content
 
 		$this->_main_content = preg_replace ( '#\\[FOREACH ' . $array . ' as ' . $array_tag . '](.+)\\[/FOREACH\\]#s', $content, $this->_main_content );

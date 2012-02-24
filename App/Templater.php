@@ -9,6 +9,8 @@
  * - Standard Tags
  *
  * All based on [ ] tags
+ * 
+ * Version: 1.2.1
 */
 
 class Templater {

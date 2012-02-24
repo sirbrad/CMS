@@ -13,23 +13,13 @@ $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 $tags['script'] = 'main';
 
-$query = 'SELECT * FROM cms_news ORDER BY news_title ASC';
+$tags['edit_page'] = 'news/edit';
 
-$query = $_db->get ( $query );
+$listing = new Listing_model;
 
-$results = array ();
+$params = array ( 'table' => 'news' );
 
-foreach ( $query as $row )
-{
-	$results[] = array ( 
-						 'news_id' => $row['news_id'],
-						 'news_title' => $row['news_title'],
-						 'news_date' => date ( 'd/m/Y', strtotime( $row['news_date'] ) ) );
-}
-
-$tags['results'] = $results;
-
-
+$tags['results'] = $listing->init ( $params );
 
 $template = 'Templates/listing';
 $_templater->set_content ( $template, $tags );

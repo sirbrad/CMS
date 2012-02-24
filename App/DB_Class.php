@@ -224,6 +224,13 @@ class DB_Class {
 		}
 	}
 	
+	public function describe_table ( $table )
+	{
+		$describe = $this->_conn->prepare( "DESCRIBE $table" );
+		$describe->execute();
+		return $describe->fetchAll( PDO::FETCH_COLUMN );
+	}
+	
 	private function __clone () { }
 
 

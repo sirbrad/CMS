@@ -4,9 +4,9 @@
         <ol class="listing">
         [FOREACH results as b]
             <li>
-                <p><a href="[b.news_id]">[b.news_title]</a><small>Last edited: [b.news_date]</small></p>
+                <p><a href="/[DIRECTORY]/[EDIT_PAGE]/[b.news_id]">[b.news_title]</a><small>Last edited: [b.news_date]</small></p>
                 <ol class="hoz btns edit-opts">
-                    <li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
+                    <li><a href="/[DIRECTORY]/[EDIT_PAGE]/[b.news_id]" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
                     <li><input type="checkbox" name="delete[[b.news_id]]" value="about" id="delete_[b.news_id]" /><label for="delete_[b.news_id]" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
                 </ol>
             </li>

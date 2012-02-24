@@ -4,10 +4,7 @@ $_router = Router::getInstance ();
 $_templater = Templater::getInstance ();
 $_db = DB_Class::getInstance ();
 
-include ( 'App/Helpers/Common.php' );
-
 /** Page attributes default **/
-$tags['include_header'] = get_include ( 'header' );
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;

@@ -3,12 +3,6 @@
 $_router = Router::getInstance (); // Routes the uri
 $_templater = Templater::getInstance (); // Load this if you want the templater
 
-// Include any files or helpers needed
-include ( 'App/Helpers/Common.php' );
-
-// This can just go in the header really - but an example of how to load an include
-$tags['include_header'] = get_include ( 'header' );
-
 // Standard tags that should be set
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;

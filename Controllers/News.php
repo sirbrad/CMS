@@ -14,6 +14,7 @@ $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 $tags['script'] = 'uploader';
+$tags['add_another'] = TRUE;
 
 // Set up the stylesheets dynamically
 $_arr = new Arrays;

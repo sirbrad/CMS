@@ -37,11 +37,8 @@ class Listing_model extends Super_model {
 	{
 		// Check to see if columns have been set, otherwise we just grab the description of the table given
 		if ( sizeof ( $this->_columns ) == 0 )
-		{
 			// Now these are the columns to query and list
-			$desc = $this->db->describe_table ( $this->_project . '_' .$this->_table );
-			$this->_columns = $desc;
-		}
+			$this->_columns = $this->db->describe_table ( $this->_project . '_' .$this->_table );
 		
 		$columns = implode ( ', ', $this->_columns );
 		

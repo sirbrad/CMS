@@ -77,6 +77,12 @@ class Templater {
 
 				$this->_handle_foreach( $match[1], $match[3] );	
 			}
+			elseif ( substr ( $matches[ 1 ][ $i ], 0, 2 ) == 'IF' )
+			{
+				$match = explode ( ' ', $matches[ 1 ][ $i ] );
+
+				$this->_conditional( $match[1] );	
+			}
 			else
 			{
 				// If its not a foreach tag or other stuff we can set the ordinary tags.
@@ -88,6 +94,18 @@ class Templater {
 				}
 			}
 		}
+	}
+	
+	private function _conditional ( $c )
+	{
+		$condition = $this->_template_tags[ strtolower ( $c ) ];
+		
+		preg_match ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $this->_main_content, $matches );
+		
+		if ( $condition )
+			$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $matches[1], $this->_main_content );
+		else
+			$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', '', $this->_main_content );
 	}
 
 	/**

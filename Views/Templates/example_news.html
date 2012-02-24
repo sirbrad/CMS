@@ -1,8 +1,14 @@
 <article class="article">
+	<!-- These are conditional tags that the PHP renders - rely on boolean TRUE / FALSE values -->
+	[IF ADD_ANOTHER]
+	<a href="/[DIRECTORY]/news/add" class="fbk add">
+       <p>Add another item</p>
+    </a>
+    [/ENDIF]
     <h1 class="heading gradbar">Page tile</h1>
-    
     <form class="module form cf" method="post" action="" id="form" enctype="multipart/form-data">
-    [ALERT]
+    	<input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+    	[ALERT]
         [SWITCH]
         <h2 class="title">Title for description</h2>
         <p>Thought it would be good to style a title just incase a point needs to be outlined!</p>
@@ -36,6 +42,6 @@
             <label class="" for="cool">Would you like me to do something cool for you?</label>
         </span>
         
-        <input type="submit" class="btn" value="Submit" />
+        <input type="submit" name="save" class="btn" value="Submit" />
     </form>
 </article>

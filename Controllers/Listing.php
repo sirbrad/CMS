@@ -27,7 +27,7 @@ if ( $list_type == 'news' )
 
 /** Initiate the list model and build the result list **/
 $listing = new Listing_model;
-$params = array ( 'table' => $table );
+$params = array ( 'table' => $table, 'order_by' => 'news_date DESC' );
 list ( $tags['results'], $response ) = $listing->init ( $params );
 
 if ( !!$response )

@@ -80,7 +80,10 @@ class Data_model extends Super_model {
 				// loop through the returned query result to get the column name and value
 				// to assign a column name to the tags array
 				foreach ( $rows as $key => $value )
-					$this->_tags[ $key ] = $value == 1 ? ' checked' : $value != '' ? $value : ' ';
+					if ( $value == 1 )
+						$this->_tags[ $key ] = ' checked';
+					else
+						$this->_tags[ $key ] = $value != '' ? $value : ' ';
 					/**
 					 * The above checks for an int - that way we know whether to set it to checked ( for radios and checkboxes )
 					 * ALSO:

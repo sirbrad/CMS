@@ -188,22 +188,18 @@ class Templater {
 			for ( $i = 0; $i < count( $mtch ); $i++ )
 			{
 				$item = $mtch[$i];
+				// Check that what we are grabbing are actual tags in  [ ]
+				preg_match ( '#\\[(.+)\\]#s', $mtch[$i], $mtchhhh );
 				
-				// As some conjongaulled unwanted shit gets into the matches
-				// We check that we are only finding tags within [] 's !!!
-				preg_match ( '#\\[(.+)\\]#s', $item, $mtchhhh );	
-				$item = $mtchhhh[0];
+				$item = $mtchhhh[1];
+				// If there is a match we go fourth, not to clog the array up with shit.
+				if ( !!$item )
+				{
+					// Set the for tags and the values to replace.
+					$for_tags .= '['.$item.'],';
+					$for_values .= $row[str_replace( $array_tag.'.', '',  $item )] . '^';
+				}
 				
-				$item = explode ( '['.$array_tag, $item );
-				$item = str_replace ( array ( '.', ']' ), '', $item[1] );
-				
-				// Build up the tags to replace
-
-				$for_tags .= '['.$array_tag.'.'.$item.'],';
-
-				// Build up the values to replace tags
-
-				$for_values .= $row[$item] . '^';
 			}
 			
 			

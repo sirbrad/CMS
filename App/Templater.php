@@ -136,9 +136,11 @@ class Templater {
 		
 		preg_match ( '#\\[FOREACH ' . $array . ' as ' . $array_tag . '](.+)\\[/FOREACH\\]#s', $this->_main_content, $matches2 );	
 		
-		$mtch = trim ( strip_tags ( $matches2[1] ) );
+		$mtch = trim ( $matches2[1] );
+		$mtch = strip_tags ( $mtch );
 		$mtch = preg_replace( '/\s+/', ' ', $mtch );
 		$mtch = explode ( ' ', $mtch );
+		
 
 		// The content between the Foreach tags to loop through and build a string to output.
 
@@ -154,7 +156,7 @@ class Templater {
 		$_loop_content = array();
 
 		// Push into array so we don't have aload of junk
-
+	
 		foreach ( $_for_content as $_c )
 		{
 			if ( !in_array ( $_c, $_loop_content ) )
@@ -176,13 +178,15 @@ class Templater {
 			$for_values = '';
 			$new_for_tags = array ();
 			$for_tags = '';
-
+			
+			
 			// Loop through the items we want to replace and build up an array to 
 			// use for the string replace
 
 			for ( $i = 0; $i < count( $mtch ); $i++ )
 			{
 				$item = $mtch[$i];
+				
 				$item = explode ( '['.$array_tag, $item );
 				$item = str_replace ( array ( '.', ']' ), '', $item[1] );
 
@@ -192,13 +196,15 @@ class Templater {
 
 				// Build up the values to replace tags
 
-				$for_values .= $row[$item] . ',';
+				$for_values .= $row[$item] . '^';
 			}
+			
 			
 			// Explode the strings in array to pass through the str_replace
 
 			$for_tags = explode ( ',', $for_tags );
-			$for_values = explode ( ',', substr ( $for_values, 0, -1 ) );
+			$for_values = explode ( '^', substr ( $for_values, 0, -1 ) );
+			
 
 			foreach ( $for_tags as $t )
 			{

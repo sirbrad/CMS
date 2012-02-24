@@ -1,0 +1,17 @@
+<article class="article">
+    <h1 class="heading gradbar">Listing</h1>
+    <form class="module cf elem-del" name="delete-listing" method="post" action="">
+        <ol class="listing">
+        [FOREACH results as b]
+            <li>
+                <p><a href="#">[b.news_title]</a><small>Last edited: [b.news_date]</small></p>
+                <ol class="hoz btns edit-opts">
+                    <li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
+                    <li><input type="checkbox" name="delete[]" value="about" id="delete" /><label for="delete" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
+                </ol>
+            </li>
+        [/FOREACH]
+        </ol>
+        <input type="submit" class="btn btn-dis" value="Delete" name="delete-btn" disabled="disabled" data-modal="true" />
+    </form>
+</article>

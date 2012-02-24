@@ -75,7 +75,7 @@ a.fbk:active {
 	background: linear-gradient(top,  rgba(143,200,0,1) 0%,rgba(143,200,0,1) 100%); /* W3C */
 }
 
-.warning {
+.add {
 	background: rgb(90, 90, 90); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(90, 90, 90, 0.95) 0%, rgba(70, 70, 70, 0.95) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(90, 90, 90, 0.95)), color-stop(100%,rgba(70, 70, 70, 0.95))); /* Chrome,Safari4+ */
@@ -92,7 +92,6 @@ a.fbk:active {
 	width:18px;
 }
 
-
 .success:before {
 	background-position:0 -75px;
 	height:17px;
@@ -100,36 +99,10 @@ a.fbk:active {
 	width:20px;
 }
 
-
-.warning:before {
+.add:before {
 	background-position:-18px -56px;
 	height:19px;
 	float:left;
 	width:19px;
 }
 
-
-/*.fbk {
-	color:#fff;
-	font-weight:bold;
-	padding:02.8571429%; /* 10 / 350 *
-	position:absolute;
-	text-align:center;
-	text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3);
-	width:94.2857143%; /* 330 / 350 *
-	
-	-webkit-border-top-left-radius: 0.3em;
-	-webkit-border-top-right-radius: 0.3em;
-	-moz-border-radius-topleft: 0.3em;
-	-moz-border-radius-topright: 0.3em;
-	border-top-left-radius: 0.3em;
-	border-top-right-radius: 0.3em;
-}
-
-.error {
-	background-color:rgba(214, 71, 28, 0.9);
-}
-
-.success {
-	background:#0F0;
-}*/

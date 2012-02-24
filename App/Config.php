@@ -14,7 +14,7 @@ define ( 'DB_PASSWORD', 'root' );
 define ( 'CONTROLLER_SEG', 2 );
 
 // The working directory, if none have blank
-define ( 'DIRECTORY', 'Github/CMS' ); 
+define ( 'DIRECTORY', 'GitHub/CMS' ); 
 
 // The brand name of the site
 define ( 'SITE_NAME', 'Brad/Ash CMS' );

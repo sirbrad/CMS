@@ -113,7 +113,10 @@ class Data_model extends Super_model {
 		
 		unset ( $fields );
 		
-		$this->_tags['alert'] = '<div class="fbk success"><p>Item has been ' . $msg . '.</p></div>';
+		$this->_tags['alert'] = '<div class="fbk success">
+									<p>Congratulations! The item has been ' . $msg . '.</p>
+								</div>';
+		
 		
 		return $this;
 	}

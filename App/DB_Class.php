@@ -163,6 +163,11 @@ class DB_Class {
 			
 			foreach ( $data as $key => $value )
 			{
+				if ( substr ( $value, 0, 1 ) == ' ' )
+					$value = str_replace ( substr ( $value, 0, 1 ), '', $value );
+				else
+					$value = $value;
+					
 				$stmt->bindParam( ':' . $key , $this->escape( $value ) );	
 			}
 			

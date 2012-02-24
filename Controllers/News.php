@@ -42,13 +42,13 @@ $value = $_router->get_method_value ();
 
 $attributes = array ( 'table' => 'news', 
 					  'columns' => $db_columns, 
-					  'id_column' => 'news_id', 
-					  'id' => $value );
+					  'id_column' => 'news_id' );
 
 // This is to show the different types of application views you can have,
 // Just determined by the uri segment.
 if ( $method == 'edit' && !!$value )
 {
+	$attributes['id'] = $value;
 	$tags['switch'] = '<p>You are viewing the editing view!</p>';
 	$tags['add_another'] = TRUE;
 }
@@ -59,7 +59,15 @@ elseif ( $method == 'add' || !isset ( $value ) )
 
 $data_mod = new Data_model;
 
-$_tags = $data_mod->init ( $attributes, $tags );
+list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
+
+if ( !!$_id )
+{
+	$tags['hidden_id'] = $_id;
+	$tags['add_another'] = TRUE;
+}
+else
+	$tags['hidden_id'] = ' ';	
 
 $tags = array_merge ( $tags, $_tags );	
 

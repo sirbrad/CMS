@@ -65,11 +65,15 @@ class Listing_model extends Super_model {
 	
 	private function delete_items ( $items )
 	{
+		$count = 0;
 		foreach ( $items as $id )
+		{
 			$this->db->query ( 'DELETE FROM ' . $this->_project . '_' .$this->_table . ' WHERE ' . $this->_table . '_id = "' . $id . '"' );	
+			$count++;
+		}
 			
 		return  '<div class="fbk error">
-					<p>The item(s) you selected have now been deleted. They shall not be returning.</p>
+					<p>The ' . $count . ' item(s) you selected have now been deleted. They shall not be returning.</p>
 				</div>';
 	}
 

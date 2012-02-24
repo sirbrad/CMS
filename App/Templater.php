@@ -89,7 +89,7 @@ class Templater {
 				// If its not a foreach tag or other stuff we can set the ordinary tags.
 				// Stops it from trying to replace and bloat shit that aint there.
 
-				if ( substr ( $matches[ 1 ][ $i ], 0, 7 ) !== 'FOREACH' || substr ( $matches[ 1 ][ $i ], 0, 2 ) !== '.' || substr ( $matches[ 1 ][ $i ], 0, 1 ) !== '/'  )
+				if ( substr ( $matches[ 1 ][ $i ], 0, 7 ) !== 'FOREACH' &&  substr ( $matches[ 1 ][ $i ], 0, 2 ) !== 'IF' && substr ( $matches[ 1 ][ $i ], 0, 2 ) !== '.' && substr ( $matches[ 1 ][ $i ], 0, 1 ) !== '/'  )
 				{
 					$this->set_tags ( $matches[1] );
 				}
@@ -110,11 +110,21 @@ class Templater {
 			{
 				$replace = $this->_template_tags[ strtolower ( $tag ) ];
 				
-				if ( !!$replace )
-					$this->_main_content = str_replace ( '[' . $tag . ']', $replace, $this->_main_content );
-					
-				elseif ( $tag == 'DIRECTORY' && $replace == '' )
-					$this->_main_content = str_replace ( '[' . $tag . ']', '', $this->_main_content );
+				//die ( print_r ( $this->_template_tags ) );
+				
+				if ( !!$replace  )
+				{	
+					if ( $replace == ' ' )
+						$this->_main_content = str_replace ( '[' . $tag . ']', '', $this->_main_content );
+					elseif ( $replace == '' )
+						$this->_main_content = str_replace ( '[' . $tag . ']', '', $this->_main_content );
+					elseif ( preg_match("#\\[(.+)\\]#s", $replace ) === 1 )
+						$this->_main_content = str_replace ( '[' . $tag . ']', '', $this->_main_content );
+					else
+						$this->_main_content = str_replace ( '[' . $tag . ']', $replace, $this->_main_content );
+				}
+				else
+					continue;
 
 			}
 			return $this;

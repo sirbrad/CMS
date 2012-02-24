@@ -25,14 +25,20 @@ class Data_model extends Super_model {
 	{
 		$this->setter( $attributes );
 		
-		if ( !!$_POST )
-			$reponse_msg = $this->save ();	
+		if ( !!$_POST['save'] )
+		{
+			if ( !!$_POST['hidden_id'] && $_POST['hidden_id'] != ' ' )
+				$this->_id = $_POST['hidden_id'];
+				
+			$reponse_msg = $this->save ();
+		}
 			
 		if ( !!$this->_id )
 			$this->get_data ();
 			
-		return $this->_tags;
+		return array ( $this->_tags, $this->_id );
 	}
+	
 	
 	/**
 	 * Quickly sets class properties
@@ -74,7 +80,16 @@ class Data_model extends Super_model {
 				// loop through the returned query result to get the column name and value
 				// to assign a column name to the tags array
 				foreach ( $rows as $key => $value )
-					$this->_tags[ $key ] = $value == 1 ? ' checked' : $value;
+					$this->_tags[ $key ] = $value == 1 ? ' checked' : $value != '' ? $value : ' ';
+					/**
+					 * The above checks for an int - that way we know whether to set it to checked ( for radios and checkboxes )
+					 * ALSO:
+					 * 		It's a bit of a hack, but so that we don't see the template tags if a value is empty we assign,
+					 * 		a blank value to the value - so that the templater picks this up and removes it....arse over tit but
+					 * 		it gets the damn thing working!!!!!
+					 *
+					 */
+					
 			}
 			
 			return $this;
@@ -94,7 +109,7 @@ class Data_model extends Super_model {
 			// Checks if a column is urltitle to assign a friendly url
 			$fields[ $col ] = substr ( $col, -8, strlen ( $col ) ) == 'urltitle' ? friendly_url ( $_POST[ $col ] ): $_POST[ $col ];
 		}
-	
+		
 		if ( !!$this->_id )
 		{
 			$this->db->where( $this->_id_column, $this->_id )->update( $this->_project.'_'.$this->_table, $fields );
@@ -106,12 +121,15 @@ class Data_model extends Super_model {
 			
 			// Check that an insert has happened
 			if ( $nums > 0 )
+			{
 				$msg = 'inserted';
+				$this->_id = $nums;
+			}
 			else
 				return FALSE;
 		}
 		
-		unset ( $fields );
+		//unset ( $fields );
 		
 		$this->_tags['alert'] = '<div class="fbk success">
 									<p>Congratulations! The item has been ' . $msg . '.</p>

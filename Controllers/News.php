@@ -14,7 +14,7 @@ $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 $tags['script'] = 'uploader';
-$tags['add_another'] = TRUE;
+$tags['add_another'] = FALSE;
 
 // Set up the stylesheets dynamically
 $_arr = new Arrays;
@@ -50,6 +50,7 @@ $attributes = array ( 'table' => 'news',
 if ( $method == 'edit' && !!$value )
 {
 	$tags['switch'] = '<p>You are viewing the editing view!</p>';
+	$tags['add_another'] = TRUE;
 }
 elseif ( $method == 'add' || !isset ( $value ) ) 
 {

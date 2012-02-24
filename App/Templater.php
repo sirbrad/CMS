@@ -95,18 +95,6 @@ class Templater {
 			}
 		}
 	}
-	
-	private function _conditional ( $c )
-	{
-		$condition = $this->_template_tags[ strtolower ( $c ) ];
-		
-		preg_match ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $this->_main_content, $matches );
-		
-		if ( $condition )
-			$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $matches[1], $this->_main_content );
-		else
-			$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', '', $this->_main_content );
-	}
 
 	/**
 	 * Swaps the tags for ordinary tags
@@ -133,6 +121,32 @@ class Templater {
 		else
 		{
 			return FALSE;
+		}
+	}
+	
+	/**
+	 * Handles conditonal tags within the view.
+	 * This relies on TRUE / FALSE statements, so the conditions must be set in the PHP
+	 * @param string $c - the key in the tag that has been sent
+	 */
+	private function _conditional ( $c )
+	{
+		if ( !!$c )
+		{
+			$condition = $this->_template_tags[ strtolower ( $c ) ];
+			
+			preg_match ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $this->_main_content, $matches );
+			
+			if ( $condition )
+				$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $matches[1], $this->_main_content );
+			else
+				$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', '', $this->_main_content );
+			
+			return $this;
+		}
+		else
+		{
+			return FALSE;	
 		}
 	}
 

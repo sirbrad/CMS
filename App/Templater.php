@@ -137,7 +137,7 @@ class Templater {
 		preg_match ( '#\\[FOREACH ' . $array . ' as ' . $array_tag . '](.+)\\[/FOREACH\\]#s', $this->_main_content, $matches2 );	
 		
 		$mtch = trim ( $matches2[1] );
-		$mtch = strip_tags ( $mtch );
+		//$mtch = strip_tags ( $mtch );
 		$mtch = preg_replace( '/\s+/', ' ', $mtch );
 		$mtch = explode ( ' ', $mtch );
 		
@@ -171,7 +171,7 @@ class Templater {
 		$_loop_content = $_loop_content[1];
 		
 		// Loop the tag array for the foreach loop function
-		
+	
 		foreach ( $tag_array as $row )
 		{
 			// Set default values - this is so they strings and array start again
@@ -188,30 +188,31 @@ class Templater {
 			for ( $i = 0; $i < count( $mtch ); $i++ )
 			{
 				$item = $mtch[$i];
+				
 				// Check that what we are grabbing are actual tags in  [ ]
-				preg_match ( '#\\[(.+)\\]#s', $mtch[$i], $mtchhhh );
+				preg_match ( '#\\[' . $array_tag . '.(.+)\\]#s', $mtch[$i], $mtchhhh );
+				
 				
 				$item = $mtchhhh[1];
+				
 				// If there is a match we go fourth, not to clog the array up with shit.
 				if ( !!$item )
 				{
 					// Set the for tags and the values to replace.
-					$for_tags .= '['.$item.'],';
-					$for_values .= $row[str_replace( $array_tag.'.', '',  $item )] . '^';
+					$item = str_replace( ']', '', $item ); // Had to replace this string because it was being a dick. Now I don't think I need the additional check
+					$for_tags .= '['.$array_tag.'.'.$item.'],';
+					$for_values .= $row[$item] . '^';
 				}
-				
+					
 			}
-			
-			
 			// Explode the strings in array to pass through the str_replace
 
 			$for_tags = explode ( ',', $for_tags );
 			$for_values = explode ( '^', substr ( $for_values, 0, -1 ) );
 			
-
 			foreach ( $for_tags as $t )
 			{
-				if ( !in_array ( $t, $new_for_tags )  )
+				if ( !in_array ( $t, $new_for_tags ) && !!$t )
 					array_push ( $new_for_tags, $t );
 			}
 			

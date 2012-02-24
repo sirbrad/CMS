@@ -21,7 +21,9 @@ $results = array ();
 
 foreach ( $query as $row )
 {
-	$results[] = array ( 'news_title' => $row['news_title'],
+	$results[] = array ( 
+						 'news_id' => $row['news_id'],
+						 'news_title' => $row['news_title'],
 						 'news_date' => date ( 'd/m/Y', strtotime( $row['news_date'] ) ) );
 }
 

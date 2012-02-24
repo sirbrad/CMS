@@ -6,7 +6,8 @@
  **********************************************************************/
  
 .spr,
-.prepare:before {
+.prepare:before,
+.fbk:before {
 	background-color:transparent;
 	background-image:url('../Images/Css/Sprite.png');
 	background-repeat:no-repeat;

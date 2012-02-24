@@ -139,6 +139,7 @@ class Templater {
 		$mtch = trim ( $matches2[1] );
 		//$mtch = strip_tags ( $mtch );
 		$mtch = preg_replace( '/\s+/', ' ', $mtch );
+		$mtch = str_replace( '"', ' ', $mtch );
 		$mtch = explode ( ' ', $mtch );
 		
 		

@@ -16,7 +16,7 @@ class Arrays {
 		
 		foreach ( $stylesheets as $style )
 		{
-			$styles[]['style'] = '<link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/' . $style . '.css" />';
+			$styles[]['stylesheet'] = $style;
 		}
 		
 		return $styles;

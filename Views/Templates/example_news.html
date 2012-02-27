@@ -57,19 +57,6 @@
             [/dropdowns FOREACH]
             </ol>
         </div>
-        <p class="heading gradbar">Assign Dropdowns</p>
-        <div class="module cf elem-add" data-module="module">
-            <ol class="listing">
-            [FOREACH dropdowns2 as c]
-                <li>
-                    <p><a href="/[DIRECTORY]/dropdowns/[c.dropdowns_id]">[c.dropdowns_title]</a><small>As seen of brads face</small></p>
-                    <ol class="hoz btns edit-opts solo">
-                        <li><input type="checkbox"  name="news_dropdowns[]" [c.dropdowns_checked] id="add2[c.dropdowns_id]" value="[c.dropdowns_id]" /><label for="add2[c.dropdowns_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
-                    </ol>
-                </li>
-            [/dropdowns2 FOREACH]
-            </ol>
-        </div>
 
         <input type="submit" name="save" class="btn" value="Save" />
     </form>

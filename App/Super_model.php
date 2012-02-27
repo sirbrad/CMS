@@ -6,7 +6,7 @@
 * All Main models extend this that need access
 * to the database.
 */
-abstract class Super_model {
+class Super_model {
 	
 	protected $db;
 

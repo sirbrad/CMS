@@ -26,14 +26,15 @@ $tags['show_categories'] = FALSE;
 
 $attributes = array ( 'table' => 'blog', 
 					  'columns' => $_db_columns, 
-					  'id_column' => 'blog_id' );
+					  'id_column' => 'blog_id',
+					  'id' => $value );
+
 					  
 $data_mod = new Data_model;
 
 list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
 
 $tags['categories'] = $data_mod->get_widgets ( 'categories', 'blog' );
-
 
 if ( sizeof ( $tags['categories'] ) > 0 )
 	$tags['show_categories'] = TRUE;

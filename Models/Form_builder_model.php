@@ -13,9 +13,18 @@ class Form_builder_model extends Super_model {
 			$this->_build ( $table );	
 	}
 	
+	/**
+	 * Returns a given tables columns - except for the primary key column
+	 */
 	public function get_table_cols ( $table )
 	{
 		$table_cols = $this->db->describe_table ( PROJECT.'_'.$table );
+		
+		// Ensure we do not include the primary key in the array.	
+		for ( $i = 0; $i < sizeof ( $table_cols ); $i++ )
+			if ( substr ( $table_cols[ $i ], -2, strlen ( $table_cols[ $i ] ) ) == 'id' ) 
+				unset( $table_cols[ 0 ] ); 
+		
 		return $table_cols;
 	}
 	

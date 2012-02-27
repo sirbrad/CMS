@@ -12,7 +12,7 @@ $tags['add_another'] = FALSE;
 
 // Set up the stylesheets dynamically
 $_arr = new Arrays;
-$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'style1','style2' ), 'stylesheet' );
+//$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'style1','style2' ), 'stylesheet' );
 
 // Set up the database columns at the start - used for saving and whatever
 $db_columns = array ( 'news_title',

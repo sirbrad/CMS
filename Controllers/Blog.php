@@ -19,7 +19,7 @@ $value = $_router->get_method_value ();
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
-//$tags['script'] = 'main';
+$tags['script'] = 'main';
 $tags['add_another'] = FALSE;
 $tags['show_categories'] = FALSE;
 

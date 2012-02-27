@@ -10,20 +10,30 @@
     <div class="module form cf" > 
     	<input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
     	[ALERT]
-        [IF SHOW_CATEGORIES]
-        <label class="label" for="blog_category">Blog category</label>
-        <select name="blog_catgeory" id="blog_category">
-        	[FOREACH blog_categories as cat]
-            <option value="[cat.value]">[cat.title]</option>
-            [/blog_categories FOREACH]
-        </select>
-       	[/ENDIF SHOW_CATEGORIES]
+        
         <label class="label" for="blog_title">Blog title</label>
         <input type="input" name="blog_title" value="[BLOG_TITLE]" class="input"  />
         <label class="label" for="blog_content">Blog Content</label>
         <textarea name="blog_content" id="blog_content">[BLOG_CONTENT]</textarea>
         
-        <input type="submit" name="save" class="btn" value="Save" />
+      
     </form>
     </div>
+    
+    [IF SHOW_CATEGORIES]
+    <p class="heading gradbar">Assign Tags</p>
+    <div class="module cf elem-add" data-module="module">
+        <ol class="listing">
+        [FOREACH categories as cat]
+            <li>
+                <p><a href="/[DIRECTORY]/dropdowns/[cat.categories_id]">[cat.categories_title]</a><small>As seen of brads face</small></p>
+                <ol class="hoz btns edit-opts solo">
+                    <li><input type="checkbox"  name="news_dropdowns[]" [cat.categories_checked] id="add[cat.categories_id]" value="[cat.categories_id]" /><label for="add[cat.categories_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
+                </ol>
+            </li>
+        [/categories FOREACH]
+        </ol>
+    </div>
+    [/ENDIF SHOW_CATEGORIES]
+    <input type="submit" name="save" class="btn" value="Save" />
 </article>

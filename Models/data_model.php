@@ -104,7 +104,7 @@ class Data_model extends Super_model {
 				// loop through the returned query result to get the column name and value
 				// to assign a column name to the tags array
 				foreach ( $rows as $key => $value )
-					if ( $value == 1  )
+					if ( $value == 1 && substr ( $key, -strlen( $key ), strlen ( $key ) ) == 'ON' )
 						$this->_tags[ $key ] = 'checked="checked"';
 					else
 						$this->_tags[ $key ] = $value != '' ? $value : ' ';

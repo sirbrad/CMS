@@ -21,6 +21,8 @@ $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 //$tags['script'] = 'main';
 $tags['add_another'] = FALSE;
+$tags['show_categories'] = FALSE;
+
 
 $attributes = array ( 'table' => 'blog', 
 					  'columns' => $_db_columns, 
@@ -29,6 +31,12 @@ $attributes = array ( 'table' => 'blog',
 $data_mod = new Data_model;
 
 list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
+
+$tags['categories'] = $data_mod->get_widgets ( 'categories', 'blog' );
+
+
+if ( sizeof ( $tags['categories'] ) > 0 )
+	$tags['show_categories'] = TRUE;
 
 if ( !!$_id )
 {

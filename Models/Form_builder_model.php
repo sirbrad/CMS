@@ -13,6 +13,9 @@ class Form_builder_model extends Super_model {
 			$this->_build ( $table );	
 	}
 	
+	/**
+	 * Returns a given tables columns - except for the primary key column
+	 */
 	public function get_table_cols ( $table )
 	{
 		$table_cols = $this->db->describe_table ( PROJECT.'_'.$table );

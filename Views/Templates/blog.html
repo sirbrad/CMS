@@ -1,0 +1,29 @@
+<article class="article">
+	[IF ADD_ANOTHER]
+	<a href="/[DIRECTORY]/news/add" class="fbk add">
+       <p>Add another item</p>
+    </a>
+    [/ENDIF ADD_ANOTHER]
+    <h1 class="heading gradbar">Blog Article</h1>
+    <form method="post" action="" id="form" enctype="multipart/form-data">
+    <input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+    <div class="module form cf" > 
+    	<input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+    	[ALERT]
+        [IF SHOW_CATEGORIES]
+        <label class="label" for="blog_category">Blog category</label>
+        <select name="blog_catgeory" id="blog_category">
+        	[FOREACH blog_categories as cat]
+            <option value="[cat.value]">[cat.title]</option>
+            [/blog_categories FOREACH]
+        </select>
+       	[/ENDIF SHOW_CATEGORIES]
+        <label class="label" for="blog_title">Blog title</label>
+        <input type="input" name="blog_title" value="[BLOG_TITLE]" class="input"  />
+        <label class="label" for="blog_content">Blog Content</label>
+        <textarea name="blog_content" id="blog_content">[BLOG_CONTENT]</textarea>
+        
+        <input type="submit" name="save" class="btn" value="Save" />
+    </form>
+    </div>
+</article>

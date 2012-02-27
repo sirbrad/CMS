@@ -6,7 +6,8 @@
  * Handles the templating, functionality atm:
  *
  * - Foreach Loops
- * - Standard Tags
+ * - Standard Tags Replacement
+ * - Conditional Statements - Boolean
  *
  * All based on [ ] tags
  * 
@@ -66,7 +67,7 @@ class Templater {
 		for( $i = 0; $i < count( $matches[ 1 ] ); $i++ )
 		{
 			// If a tag is a FOREACH we loop through the results by the given tag
-
+			
 			if ( substr ( $matches[ 1 ][ $i ], 0, 7 ) == 'FOREACH' )
 			{
 				// get the Array to loop
@@ -78,6 +79,7 @@ class Templater {
 
 				$this->_handle_foreach( $match[1], $match[3] );	
 			}
+			
 			elseif ( substr ( $matches[ 1 ][ $i ], 0, 2 ) == 'IF' )
 			{
 				$match = explode ( ' ', $matches[ 1 ][ $i ] );
@@ -177,7 +179,7 @@ class Templater {
 		
 		// get everything between the foreach tags ( basically the tags to replace )
 		
-		preg_match ( '#\\[FOREACH ' . $array . ' as ' . $array_tag . '](.+)\\[/FOREACH\\]#s', $this->_main_content, $matches2 );	
+		preg_match ( '#\\[FOREACH ' . $array . ' as ' . $array_tag . '](.+)\\[/' . $array . ' FOREACH\\]#s', $this->_main_content, $matches2 );	
 		
 		$mtch = trim ( $matches2[1] );
 		//$mtch = strip_tags ( $mtch );
@@ -186,16 +188,14 @@ class Templater {
 		$mtch = explode ( ' ', $mtch );
 		
 		
-
 		// The content between the Foreach tags to loop through and build a string to output.
 
 		$_for_content = implode ( ',', $matches2 );
 		$_for_content = str_replace ( '[FOREACH ' . $array . ' as ' . $array_tag . ']', '', $_for_content );
-		$_for_content = str_replace ( '[/FOREACH]', '', $_for_content );
+		$_for_content = str_replace ( '[/' . $array . ' FOREACH]', '', $_for_content );
 		//$_for_content = str_replace ( ' ', '', $_for_content);
 		$_for_content = trim ( $_for_content );
 		$_for_content = explode ( ',', $_for_content );
-		
 		
 		
 		// Set loop content - this is the narrowed down tags from above.
@@ -249,6 +249,7 @@ class Templater {
 				}
 					
 			}
+			
 			// Explode the strings in array to pass through the str_replace
 
 			$for_tags = explode ( ',', $for_tags );
@@ -273,7 +274,7 @@ class Templater {
 		
 		// Set the content
 
-		$this->_main_content = preg_replace ( '#\\[FOREACH ' . $array . ' as ' . $array_tag . '](.+)\\[/FOREACH\\]#s', $content, $this->_main_content );
+		$this->_main_content = preg_replace ( '#\\[FOREACH ' . $array . ' as ' . $array_tag . '](.+)\\[/' . $array . ' FOREACH\\]#s', $content, $this->_main_content );
 		
 	}
 

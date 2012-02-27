@@ -3,24 +3,29 @@
 class Arrays {
 	
 	/**
-	 * Sets up an array of stylesheets to display
-	 * @param string $string - the list of stylesheets, this needs to be comma seperated but.
-	 * @param string $iterator - what the string is exploded by default comma.
-	 * @return array
+	 * Builds a multi one dimensional array 
+	 * 		exmample:  array ( array ( 'stylesheet' => 'style1' ), array ( 'stylesheet' => 'style2' ) );
+	 *
+	 * @param mixed $items - the array of css of values 
+	 * @param string $key_title - the title of the key in the arrays
+	 * @param optional iterator - if a string this is what is exploded
+	 * @retun array
 	 */
-	public function stylesheets ( $string, $iterator = ',' )
+	public function mutli_one_dimension ( $items, $key_title, $iterator = ',' )
 	{
-		$stylesheets = explode ( $iterator, str_replace ( ' ', '', trim ( $string ) ) );
+		if ( !is_array ( $items ) )
+			$items = explode ( $iterator, str_replace ( ' ', '', trim ( $items ) ) );
 		
-		$styles = array ();
+		$_array = array ();
 		
-		foreach ( $stylesheets as $style )
+		foreach ( $items as $value )
 		{
-			$styles[]['style'] = '<link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/' . $style . '.css" />';
+			$_array[][ $key_title ] = $value;
 		}
 		
-		return $styles;
+		return $_array;	
 	}
+	
 	
 }
 

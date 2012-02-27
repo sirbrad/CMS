@@ -28,10 +28,34 @@
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/specifics.css" />
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/animation.css" />
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/extend.css" />
+    [FOREACH styles as style]
+    <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/[style.stylesheet].css" />
+    [/styles FOREACH]
     <!--[if IE]>
     	<link rel="stylesheet" href="Assets/Styles/IE.css" />
     <![endif]-->
     <script src="/[DIRECTORY]/Assets/Scripts/Utils/respond.min.js"></script>
 <body>
-	[INCLUDE_HEADER]
+	<header class="gradbar">
+        <div class="contain cf">
+            <a class="logo" href="/">Company Logo</a>
+            <ol class="hoz btns glob-nav">
+                <li><a href="#" class="btn f-btn selected">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a></li>
+                <li><a href="#" class="btn m-btn">Visit Site</a></li>
+                <li><a href="#" class="btn e-btn">Log Out</a></li>
+            </ol>
+            <nav class="nav nav-des">
+                <ol class="">
+                    <li><a class="active" href="#"><span class="spr i-das"></span>Dashboard</a></li>
+                    <li><a href="/GitHub/CMS/listing/news"><span class="spr i-pag"></span>Pages</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                </ol>
+            </nav>
+        </div>
+    </header>
     <div class="contain body cf">

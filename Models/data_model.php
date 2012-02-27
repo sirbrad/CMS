@@ -61,6 +61,30 @@ class Data_model extends Super_model {
 		
 		return $this;
 	}
+	
+	public function get_widgets ( $type, $table )
+	{
+		$query = $this->db->get( 'SELECT * FROM ' . $this->_project . '_' . $type . '' );
+		
+		$saved_widgets = explode ( ',', $this->_tags[ $table.'_'.$type ] );
+		
+		$widgs = array ();
+		
+		if ( $this->db->num_rows () > 0 )
+		{
+			foreach ( $query as $row )
+			{
+				$checked = in_array ( $row[ $type.'_id'], $saved_widgets ) ? 'checked="checked"' : ' ';
+				
+				$widgs[] = array ( $type.'_title' => $row[ $type.'_title' ] ,
+								   $type.'_id' => $row[ $type.'_id' ],
+								   $type.'_checked' => $checked );
+			}
+		}
+			
+		return $widgs;
+			
+	}
 		
 	/**
 	 * Gets the data and builds up the array of tags
@@ -80,8 +104,8 @@ class Data_model extends Super_model {
 				// loop through the returned query result to get the column name and value
 				// to assign a column name to the tags array
 				foreach ( $rows as $key => $value )
-					if ( $value == 1 )
-						$this->_tags[ $key ] = ' checked';
+					if ( $value == 1  )
+						$this->_tags[ $key ] = 'checked="checked"';
 					else
 						$this->_tags[ $key ] = $value != '' ? $value : ' ';
 					/**
@@ -109,8 +133,12 @@ class Data_model extends Super_model {
 		
 		foreach ( $this->_columns as $col )
 		{
-			// Checks if a column is urltitle to assign a friendly url
-			$fields[ $col ] = substr ( $col, -8, strlen ( $col ) ) == 'urltitle' ? friendly_url ( $_POST[ $col ] ): $_POST[ $col ];
+			if ( is_array ( $_POST[ $col ] ) )
+				$fields[ $col ] = implode ( ",", $_POST[ $col ] );
+			else
+				// Checks if a column is urltitle to assign a friendly url
+				$fields[ $col ] = substr ( $col, -8, strlen ( $col ) ) == 'urltitle' ? friendly_url ( $_POST[ $col ] ): $_POST[ $col ];
+			
 		}
 		
 		if ( !!$this->_id )

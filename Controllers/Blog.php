@@ -34,7 +34,6 @@ list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
 
 $tags['categories'] = $data_mod->get_widgets ( 'categories', 'blog' );
 
-
 if ( sizeof ( $tags['categories'] ) > 0 )
 	$tags['show_categories'] = TRUE;
 

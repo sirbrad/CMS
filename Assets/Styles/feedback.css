@@ -26,6 +26,8 @@
 	transition:box-shadow 0.3s ease;
 }
 
+/* We used a. to target only ones with anchors. */
+
 a.fbk:hover,
 a.fbk:focus {
 	text-decoration:none;
@@ -85,11 +87,41 @@ a.fbk:active {
 	background: linear-gradient(top,  rgba(90, 90, 90, 0.95) 0%,rgba((70, 70, 70, 0.95)) 100%); /* W3C */
 }
 
+.no-boxshadow .error {
+	background:url(../Images/Css/bg-error-ie.png) left bottom repeat-x #FC2D18;
+	border-top:1px solid #F9422D;
+}
+
+.no-boxshadow .success {
+	background:url(../Images/Css/bg-success-ie.png) left bottom repeat-x #8FC800;
+	border-top:1px solid #97C919;
+}
+
+.no-boxshadow .add {
+	background:url(../Images/Css/bg-add-ie.png) left bottom repeat-x #606060;
+	border-top:1px solid #6F6F6F;
+}
+
 .error:before {
 	background-position:0 -56px;
 	height:19px;
 	float:left;
 	width:18px;
+}
+
+a.error:hover,
+a.error:focus {
+	background:#BC160C;
+}
+
+a.success:hover,
+a.success:focus {
+	background:#73A100;
+}
+
+a.add:hover,
+a.add:focus {
+	background:#484848;
 }
 
 .success:before {

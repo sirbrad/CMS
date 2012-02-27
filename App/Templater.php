@@ -66,7 +66,7 @@ class Templater {
 		for( $i = 0; $i < count( $matches[ 1 ] ); $i++ )
 		{
 			// If a tag is a FOREACH we loop through the results by the given tag
-
+			
 			if ( substr ( $matches[ 1 ][ $i ], 0, 7 ) == 'FOREACH' )
 			{
 				// get the Array to loop
@@ -78,6 +78,7 @@ class Templater {
 
 				$this->_handle_foreach( $match[1], $match[3] );	
 			}
+			
 			elseif ( substr ( $matches[ 1 ][ $i ], 0, 2 ) == 'IF' )
 			{
 				$match = explode ( ' ', $matches[ 1 ][ $i ] );
@@ -186,7 +187,6 @@ class Templater {
 		$mtch = explode ( ' ', $mtch );
 		
 		
-
 		// The content between the Foreach tags to loop through and build a string to output.
 
 		$_for_content = implode ( ',', $matches2 );
@@ -195,7 +195,6 @@ class Templater {
 		//$_for_content = str_replace ( ' ', '', $_for_content);
 		$_for_content = trim ( $_for_content );
 		$_for_content = explode ( ',', $_for_content );
-		
 		
 		
 		// Set loop content - this is the narrowed down tags from above.
@@ -249,6 +248,7 @@ class Templater {
 				}
 					
 			}
+			
 			// Explode the strings in array to pass through the str_replace
 
 			$for_tags = explode ( ',', $for_tags );

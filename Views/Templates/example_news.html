@@ -51,12 +51,26 @@
                 <li>
                     <p><a href="/[DIRECTORY]/dropdowns/[b.dropdowns_id]">[b.dropdowns_title]</a><small>As seen of brads face</small></p>
                     <ol class="hoz btns edit-opts solo">
-                        <li><input type="checkbox" id="add" name="news_dropdowns[]" value="[b.dropdowns_id]" [b.dropdowns_checked] /><label for="add" class="btn"><span class="spr i-tic">Add</span></label></li>
+                        <li><input type="checkbox"  name="news_dropdowns[]" [b.dropdowns_checked] id="add[b.dropdowns_id]" value="[b.dropdowns_id]" /><label for="add[b.dropdowns_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
                     </ol>
                 </li>
-            [/FOREACH]
+            [/dropdowns FOREACH]
             </ol>
         </div>
+        <p class="heading gradbar">Assign Dropdowns</p>
+        <div class="module cf elem-add">
+            <ol class="listing">
+            [FOREACH dropdowns2 as c]
+                <li>
+                    <p><a href="/[DIRECTORY]/dropdowns/[c.dropdowns_id]">[c.dropdowns_title]</a><small>As seen of brads face</small></p>
+                    <ol class="hoz btns edit-opts solo">
+                        <li><input type="checkbox"  name="news_dropdowns[]" [c.dropdowns_checked] id="add[c.dropdowns_id]" value="[c.dropdowns_id]" /><label for="add[c.dropdowns_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
+                    </ol>
+                </li>
+            [/dropdowns2 FOREACH]
+            </ol>
+        </div>
+
         <input type="submit" name="save" class="btn" value="Save" />
     </form>
 </article>

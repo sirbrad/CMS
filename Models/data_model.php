@@ -75,7 +75,7 @@ class Data_model extends Super_model {
 			foreach ( $query as $row )
 			{
 				$checked = in_array ( $row[ $type.'_id'], $saved_widgets ) ? 'checked="checked"' : ' ';
-					 
+				
 				$widgs[] = array ( $type.'_title' => $row[ $type.'_title' ] ,
 								   $type.'_id' => $row[ $type.'_id' ],
 								   $type.'_checked' => $checked );

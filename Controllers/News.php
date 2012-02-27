@@ -58,6 +58,7 @@ list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
 
 $tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', 'news' );
 
+$tags['dropdowns2'] = $data_mod->get_widgets ( 'dropdowns', 'news' );
 
 
 if ( !!$_id )

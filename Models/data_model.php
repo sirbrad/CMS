@@ -62,6 +62,11 @@ class Data_model extends Super_model {
 		return $this;
 	}
 	
+	/**
+	 * Gathers up the widgets so we can loop through and display in the view.
+	 * @param string $type - the type of widget i.e Dropdowns / Downloads
+	 * @param string $table - the table of the widget we are getting from - for example news
+	 */
 	public function get_widgets ( $type, $table )
 	{
 		$query = $this->db->get( 'SELECT * FROM ' . $this->_project . '_' . $type . '' );
@@ -104,7 +109,7 @@ class Data_model extends Super_model {
 				// loop through the returned query result to get the column name and value
 				// to assign a column name to the tags array
 				foreach ( $rows as $key => $value )
-					if ( $value == 1 && substr ( $key, -strlen( $key ), strlen ( $key ) ) == 'ON' )
+					if ( $value == 1 && substr ( $key, -2, strlen ( $key ) ) == 'on' )
 						$this->_tags[ $key ] = 'checked="checked"';
 					else
 						$this->_tags[ $key ] = $value != '' ? $value : ' ';

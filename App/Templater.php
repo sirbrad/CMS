@@ -6,7 +6,8 @@
  * Handles the templating, functionality atm:
  *
  * - Foreach Loops
- * - Standard Tags
+ * - Standard Tags Replacement
+ * - Conditional Statements - Boolean
  *
  * All based on [ ] tags
  * 

@@ -13,7 +13,7 @@
 	background: -o-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(255,255,255,1) 6%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(255,255,255,1) 6%); /* IE10+ */
 	background: linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(255,255,255,1) 6%); /* W3C */
-	margin:15% auto 0;
+	margin:18% auto 0;
 	max-width:350px;
 	position:relative;
 	width:90%;
@@ -57,6 +57,8 @@
 .login .input {
 	font-size:1.5em; /* 18 / 12 */
 	max-width:290px;
+	padding-bottom:3.5%;
+	padding-top:3.5%;
 }
 
 .inputs div:first-child .input:nth-child(1) {

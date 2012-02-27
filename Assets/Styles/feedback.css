@@ -139,3 +139,15 @@ a.add:focus {
 	width:19px;
 }
 
+
+/* 2. Additional Page Styles
+ **********************************************************************/
+ 
+.login .fbk {
+	left:0;
+	padding-left:4%;
+	padding-right:4%;
+	position:absolute;
+	top:-26%;
+	width:93%;
+}

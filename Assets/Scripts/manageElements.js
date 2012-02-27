@@ -19,7 +19,6 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/modal'], functio
 		
 		len = elem.length;
 		
-		
 		while (len--) {
 			
 			if (elem[len].getAttribute('data-module')) {
@@ -34,7 +33,7 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling', 'Utils/modal'], functio
 			}
 		}
 		
-		// Had to reset len??
+		// Seems loops will execute one last time to check evaluation of 'len'
 		len = 0;
 		
 		

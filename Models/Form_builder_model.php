@@ -6,18 +6,25 @@ class Form_builder_model extends Super_model {
 			$_text_areas = array (),
 			$_image_upload = array ();
 			
-	public function __Construct ( $table )
+	public function __Construct ( $table = "" )
 	{
 		parent::__Construct();
-		$this->_build ( $table );	
+		if ( !!$table )
+			$this->_build ( $table );	
+	}
+	
+	public function get_table_cols ( $table )
+	{
+		$table_cols = $this->db->describe_table ( PROJECT.'_'.$table );
+		return $table_cols;
 	}
 	
 	/**
 	 * Build the arrays of form elements, depending on the type of column name 
 	 */
-	public function _build ( $table )
+	private function _build ( $table )
 	{
-		$table_cols = $this->db->describe_table ( PROJECT.'_'.$table );
+		$table_cols = $this->get_table_cols ( $table );
 		
 		foreach ( $table_cols as $col )
 		{

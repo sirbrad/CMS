@@ -9,6 +9,7 @@ $template = 'Templates/generic';
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
+/** Set up default page tags **/
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;

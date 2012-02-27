@@ -148,12 +148,12 @@ class Templater {
 		{
 			$condition = $this->_template_tags[ strtolower ( $c ) ];
 			
-			preg_match ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $this->_main_content, $matches );
+			preg_match ( '#\\[IF ' . $c . '](.+)\\[/ENDIF ' . $c . ']#s', $this->_main_content, $matches );
 			
 			if ( $condition )
-				$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', $matches[1], $this->_main_content );
+				$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF ' . $c . ']#s', $matches[1], $this->_main_content );
 			else
-				$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF]#s', '', $this->_main_content );
+				$this->_main_content = preg_replace ( '#\\[IF ' . $c . '](.+)\\[/ENDIF ' . $c . ']#s', '', $this->_main_content );
 			
 			return $this;
 		}

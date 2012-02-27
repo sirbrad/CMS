@@ -148,6 +148,7 @@ class Data_model extends Super_model {
 		
 		if ( !!$this->_id )
 		{
+			
 			$this->db->where( $this->_id_column, $this->_id )->update( $this->_project.'_'.$this->_table, $fields );
 			$msg = 'updated';
 		}

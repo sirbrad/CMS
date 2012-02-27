@@ -26,7 +26,9 @@ $tags['show_categories'] = FALSE;
 
 $attributes = array ( 'table' => 'blog', 
 					  'columns' => $_db_columns, 
-					  'id_column' => 'blog_id' );
+					  'id_column' => 'blog_id',
+					  'id' => $value );
+
 					  
 $data_mod = new Data_model;
 

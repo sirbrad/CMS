@@ -12,8 +12,8 @@
         </ol>
         <nav class="nav nav-des">
             <ol class="">
-                <li><a class="active" href="#">Dashboard</a></li>
-                <li><a href="#">Pages</a></li>
+                <li><a class="active" href="#"><span class="spr i-das"></span>Dashboard</a></li>
+                <li><a href="/GitHub/CMS/listing/news"><span class="spr i-pag"></span>Pages</a></li>
                 <li><a href="#">Downloads</a></li>
                 <li><a href="#">Dashboard</a></li>
             </ol>

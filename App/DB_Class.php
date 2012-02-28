@@ -28,14 +28,19 @@ class DB_Class {
 		if ( !!$string )
 		{
 			$string = str_replace( "\r\n", "", $string );
-			$string = mysql_escape_string( $string );
 			$string = stripslashes( $string );
+			$string = mysql_escape_string( $string );
 			return $string;
 		}
 		else
 		{
 			return FALSE;	
 		}
+	}
+	
+	public function get_where ()
+	{
+		return $this->_where;	
 	}
 	
 	public function where( $col, $val = "" )
@@ -112,6 +117,12 @@ class DB_Class {
 		
 	}
 	
+	public function query ( $query )
+	{
+		$stmt = $this->_conn->prepare( $query );
+		$stmt->execute();
+	}
+	
 	public function num_rows ()
 	{
 		if ( isset( $this->_query ) )
@@ -152,6 +163,11 @@ class DB_Class {
 			
 			foreach ( $data as $key => $value )
 			{
+				if ( substr ( $value, 0, 1 ) == ' ' )
+					$value = str_replace ( substr ( $value, 0, 1 ), '', $value );
+				else
+					$value = $value;
+					
 				$stmt->bindParam( ':' . $key , $this->escape( $value ) );	
 			}
 			
@@ -217,6 +233,13 @@ class DB_Class {
 			trigger_error( "Table and Data must be set to update an entry within Database", E_USER_ERROR );
 			return FALSE;
 		}
+	}
+	
+	public function describe_table ( $table )
+	{
+		$describe = $this->_conn->prepare( "DESCRIBE $table" );
+		$describe->execute();
+		return $describe->fetchAll( PDO::FETCH_COLUMN );
 	}
 	
 	private function __clone () { }

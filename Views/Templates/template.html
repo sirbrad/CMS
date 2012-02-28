@@ -1,4 +1,74 @@
 <article class="article">
+	<a class="fbk error">
+    	<p>WOW! This is a error msg</p>
+    </a>
+	<a class="fbk success">
+    	<p>WAHOO! Well done this is a success msg</p>
+    </a>
+	<a href="#" class="fbk add">
+    	<p>Would you like to add another page?</p>
+    </a>
+	<h1 class="heading gradbar">Apply widgets</h1>
+    <form class="module cf elem-add" name="namesomething">
+    	<ol class="listing">
+        	<li>
+            	<p><a href="#">Cool dropdown topoic</a><small>as seen on index.html, brad-pitt.html</small></p>
+                <ol class="hoz btns edit-opts solo">
+                    <li><input type="checkbox" id="add" /><label for="add" class="btn"><span class="spr i-tic">Add</span></label></li>
+                </ol>
+            </li>
+        	<li>
+            	<p><a href="#">Cool dropdown topoic</a><small>as seen on index.html, brad-pitt.html</small></p>
+                <ol class="hoz btns edit-opts solo">
+                    <li><input type="checkbox" id="add1" /><label for="add1" class="btn"><span class="spr i-tic">Add</span></label></li>
+                </ol>
+            </li>
+        	<li>
+            	<p><a href="#">Cool dropdown topoic</a><small>as seen on index.html, brad-pitt.html</small></p>
+                <ol class="hoz btns edit-opts solo">
+                    <li><input type="checkbox" id="add2" /><label for="add2" class="btn"><span class="spr i-tic">Add</span></label></li>
+                </ol>
+            </li>
+    	</ol>
+        <input type="submit" class="btn btn-dis" value="Update" disabled="disabled" />
+    </form>
+    <h1 class="heading gradbar">Listing</h1>
+    <form class="module cf elem-del" name="delete-listing" method="post" action="">
+	<a class="fbk add">
+    	<p>WATCH IT. This is a warning whcih i might use for inviting the user to add stuff</p>
+    </a>
+    	<ol class="listing">
+        	<li>
+            	<p><a href="#">About.html</a><small>Last edited: 12/02/2012</small></p>
+                <ol class="hoz btns edit-opts">
+                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
+                    <li><input type="checkbox" name="delete[]" value="about" id="delete" /><label for="delete" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
+                </ol>
+            </li>
+        	<li>
+            	<p><a href="#">George-clooney.html</a><small>Last edited: 12/02/2012</small></p>
+                <ol class="hoz btns edit-opts">
+                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
+                    <li><input type="checkbox" name="delete[]" value="george clooney" id="delete1" /><label for="delete1" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
+                </ol>
+            </li>
+        	<li>
+            	<p><a href="#">Brad-pitt.html</a><small>Last edited: 12/02/2012</small></p>
+                <ol class="hoz btns edit-opts">
+                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
+                    <li><input type="checkbox" name="delete[]" value="brads a dick" id="delete2" /><label for="delete2" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
+                </ol>
+            </li>
+        	<li>
+            	<p><a href="#">Ashley-banks69ner.html</a><small>Last edited: 12/02/2012</small></p>
+                <ol class="hoz btns edit-opts">
+                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
+                    <li><input type="checkbox" name="delete[]" value="ash is god" id="delete3" /><label for="delete3" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
+                </ol>
+            </li>
+        </ol>
+        <input type="submit" class="btn btn-dis" value="Delete" name="delete-btn" disabled="disabled" data-modal="true" />
+    </form>
 	<h1 class="heading gradbar">Downloads</h1>
     <section class="module cf">
     	<ol class="listing">
@@ -9,40 +79,6 @@
                 </ol>
             </li>
     	</ol>
-    </section>
-    <h1 class="heading gradbar">Listing</h1>
-    <section class="module cf">
-    	<ol id="pageList" class="listing">
-        	<li>
-            	<p><a href="#">About.html</a><small>Last edited: 12/02/2012</small></p>
-                <ol class="hoz btns edit-opts">
-                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
-                    <li><input type="checkbox" id="delete" /><label for="delete" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
-                </ol>
-            </li>
-        	<li>
-            	<p><a href="#">George-clooney.html</a><small>Last edited: 12/02/2012</small></p>
-                <ol class="hoz btns edit-opts">
-                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
-                    <li><input type="checkbox" id="delete1" /><label for="delete1" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
-                </ol>
-            </li>
-        	<li>
-            	<p><a href="#">Brad-pitt.html</a><small>Last edited: 12/02/2012</small></p>
-                <ol class="hoz btns edit-opts">
-                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
-                    <li><input type="checkbox" id="delete2" /><label for="delete2" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
-                </ol>
-            </li>
-        	<li>
-            	<p><a href="#">Ashley-banks69ner.html</a><small>Last edited: 12/02/2012</small></p>
-                <ol class="hoz btns edit-opts">
-                	<li><a href="#" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
-                    <li><input type="checkbox" id="delete3" /><label for="delete3" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
-                </ol>
-            </li>
-        </ol>
-        <input type="submit" id="btn" class="btn btn-del" value="Delete" disabled="disabled" />
     </section>
     <h1 class="heading gradbar">Page tile</h1>
     <form class="module form cf">
@@ -95,18 +131,3 @@
         <input type="submit" class="btn" value="Submit">
     </form>
 </article>
-
-<!--<div class="modal">
-	<p class="heading gradbar">Confirm</p>
-        <div class="module cf">
-        <p>Are you sure you wish to <strong>delete</strong> the following pages;</p>
-        <ol class="list">
-            <li>About.html</li>
-            <li>Bradleyfewisking.html</li>
-        </ol>
-        <ol class="hoz btns">
-        	<li><a href="#" class="btn f-btn">Cancel</a></li>
-        	<li><a href class="btn e-btn err-btn">Confirm</a></li>
-        </ol>
-    </div>
-</div>-->

@@ -1,0 +1,22 @@
+<article class="article">
+	[IF ADD_ANOTHER]
+	<a href="/[DIRECTORY]/news/add" class="fbk add">
+       <p>Add another item</p>
+    </a>
+    [/ENDIF]
+    <h1 class="heading gradbar">[PAGE_HEADER]</h1>
+    <form method="post" action="" id="form" enctype="multipart/form-data">
+    <div class="module form cf" >
+    	<input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+    	[ALERT]
+        [FOREACH text_inputs as input]
+        <label class="label" for="">[input.input_title]</label>
+        <input type="input" name="[input.input_name]" value="" class="input"  />
+        [/text_inputs FOREACH]
+        [FOREACH text_areas as textarea]
+        <label class="label" for="[textarea.textarea_title]">[textarea.textarea_title]</label>
+        <textarea name="[textarea.textarea_name]" id="[textarea.textarea_title]"></textarea>
+        [/text_areas FOREACH]
+        <input type="submit" name="save" class="btn" value="Save" />
+    </form>
+</article>

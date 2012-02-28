@@ -3,17 +3,16 @@
 $_router = Router::getInstance (); // Routes the uri
 $_templater = Templater::getInstance (); // Load this if you want the templater
 
-// Include any files or helpers needed
-include ( 'App/Helpers/Common.php' );
-
-// This can just go in the header really - but an example of how to load an include
-$tags['include_header'] = get_include ( 'header' );
-
 // Standard tags that should be set
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
-$tags['script'] = 'uploader';
+$tags['script'] = 'main';
+$tags['add_another'] = FALSE;
+
+// Set up the stylesheets dynamically
+$_arr = new Arrays;
+//$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'style1','style2' ), 'stylesheet' );
 
 // Set up the database columns at the start - used for saving and whatever
 $db_columns = array ( 'news_title',
@@ -21,7 +20,8 @@ $db_columns = array ( 'news_title',
 					  'news_imgname',
 					  'news_link',
 					  'news_twitter',
-					  'news_on' );
+					  'news_on',
+					  'news_dropdowns' );
 
 // Set the tags in the view to nothing until assigned.
 // This means we do not need to views for adding and editing! 
@@ -38,31 +38,40 @@ $value = $_router->get_method_value ();
 $mod = new News_model ();
 
 // Pick up the controller method - this time edit.
+
+$attributes = array ( 'table' => 'news', 
+					  'columns' => $db_columns, 
+					  'id_column' => 'news_id' );
+
+// This is to show the different types of application views you can have,
+// Just determined by the uri segment.
+
 if ( $method == 'edit' && !!$value )
 {
-	
-	// Load the relevent model that you want
-	$response = $mod->save_news( $db_columns, $value );
-	
-	if ( is_string( $response ) && !is_bool( $response ) )
-	{
-		$tags['alert'] = $response;
-	}
-	
-	$_tags = $mod->get_values ( $value );
-	
-	// As the model gathered up tags we merge the two tag arrays to display
-	$tags = array_merge ( $tags, $_tags );
-	
+	$attributes['id'] = $value;
+	$tags['switch'] = '<p>You are viewing the editing view!</p>';
+	$tags['add_another'] = TRUE;
 }
-elseif ( $method == 'add' || !isset ( $value ) ) // I have set this to an or, so that it indexes to 'add' if they do not provide it. 
+elseif ( $method == 'add' || !isset ( $value ) ) 
 {
-	$response = $mod->save_news( $db_columns, $value );
-	
-	if ( is_string( $response ) && !is_bool( $response ) )
-		$tags['alert'] = $response;
-		
+	$tags['switch'] = '<p>You are viewing the adding view</p>';
 }
+
+$data_mod = new Data_model;
+
+list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
+
+$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', 'news' );
+
+if ( !!$_id )
+{
+	$tags['hidden_id'] = $_id;
+	$tags['add_another'] = TRUE;
+}
+else
+	$tags['hidden_id'] = ' ';	
+
+$tags = array_merge ( $tags, $_tags );	
 
 
 // This loads the view. Have to have this method to load the view

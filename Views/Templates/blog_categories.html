@@ -1,0 +1,17 @@
+<article class="article">
+	[IF ADD_ANOTHER]
+	<a href="/[DIRECTORY]/blog/categories" class="fbk add">
+       <p>Add another item</p>
+    </a>
+    [/ENDIF ADD_ANOTHER]
+    <h1 class="heading gradbar">Blog Category</h1>
+    <form method="post" action="" id="form" enctype="multipart/form-data">
+    <input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+    <div class="module form cf" > 
+    	[ALERT]
+        <label class="label" for="categories_title">Category title</label>
+        <input type="input" name="categories_title" value="[CATEGORIES_TITLE]" class="input"  />
+    </div>
+    <input type="submit" name="save" class="btn" value="Save" />
+    </form>
+</article>

@@ -1,10 +1,16 @@
 <article class="article">
-    <h1 class="heading gradbar">Page tile</h1>
-    
-    <form class="module form cf" method="post" action="" id="form" enctype="multipart/form-data">
-    [ALERT]
-        <p>Incase you need to explain a few things before the <strong>inputs</strong> you can just use a simple p tag. It is <a href="#">styled</a> to just co-operate with its surroundings.</p>
-        <p>You can even add multiple lines if you wish, sometimes it's best when it's broken up.</p>
+	<!-- These are conditional tags that the PHP renders - rely on boolean TRUE / FALSE values -->
+	[IF ADD_ANOTHER]
+	<a href="/[DIRECTORY]/news/add" class="fbk add">
+       <p>Add another item</p>
+    </a>
+    [/ENDIF ADD_ANOTHER]
+    <h1 class="heading gradbar">News Information</h1>
+    <form method="post" action="" id="form" enctype="multipart/form-data">
+    <div class="module form cf" >
+    	<input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+    	[ALERT]
+        [SWITCH]
         <h2 class="title">Title for description</h2>
         <p>Thought it would be good to style a title just incase a point needs to be outlined!</p>
         <label class="label" for="">Label</label>
@@ -37,6 +43,21 @@
             <label class="" for="cool">Would you like me to do something cool for you?</label>
         </span>
         
-        <input type="submit" class="btn" value="Submit" />
+       </div> 
+       <p class="heading gradbar">Assign Dropdowns</p>
+   	   <div class="module cf elem-add" data-module="module">
+            <ol class="listing">
+            [FOREACH dropdowns as b]
+                <li>
+                    <p><a href="/[DIRECTORY]/dropdowns/[b.dropdowns_id]">[b.dropdowns_title]</a><small>As seen of brads face</small></p>
+                    <ol class="hoz btns edit-opts solo">
+                        <li><input type="checkbox"  name="news_dropdowns[]" [b.dropdowns_checked] id="add[b.dropdowns_id]" value="[b.dropdowns_id]" /><label for="add[b.dropdowns_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
+                    </ol>
+                </li>
+            [/dropdowns FOREACH]
+            </ol>
+        </div>
+
+        <input type="submit" name="save" class="btn" value="Save" />
     </form>
 </article>

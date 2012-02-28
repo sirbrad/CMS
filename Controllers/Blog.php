@@ -57,6 +57,7 @@ if ( $method == 'categories' )
 
 if ( $method == 'listing' )
 {
+	
 	$table = $value == 'categories' ? 'categories' : 'blog';
 	
 	$template = 'Templates/blog_listing';

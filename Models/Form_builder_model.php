@@ -18,6 +18,7 @@ class Form_builder_model extends Super_model {
 	 */
 	public function get_table_cols ( $table )
 	{
+		
 		$table_cols = $this->db->describe_table ( PROJECT.'_'.$table );
 		
 		// Ensure we do not include the primary key in the array.	

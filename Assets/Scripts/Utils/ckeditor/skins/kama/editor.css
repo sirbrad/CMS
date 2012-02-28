@@ -13,14 +13,4 @@
 
 
 /* 2. Layout
- **********************************************************************/
-
-#cke_wysiwyg {
-	visibility: inherit; /* To show wysiwyg */
-}
-
-.cke_skin_kama {
-	background:grey;
-	clear: left;
-	display:block;
-}
+ **********************************************************************

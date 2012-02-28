@@ -182,6 +182,10 @@ function force_download ( $filename )
 	}		
 }
 
+/**
+ * I don't ever have to use it but it seemed like a handy function
+ * Credit to Mike Smith for this little function.
+ */
 function format_string ( $the_string )
 {
 	for ( $i = 0; $i < func_num_args()-1; $i++ )

@@ -13,7 +13,7 @@ class Listing_model extends Super_model {
 		
 		if ( !!$_POST['delete'] )
 			$alert = $this->delete_items ( $_POST['delete'] );
-		
+	
 		return array ( $this->get_results (), $alert );
 	}
 	
@@ -41,7 +41,7 @@ class Listing_model extends Super_model {
 			$this->_columns = $this->db->describe_table ( $this->_project . '_' .$this->_table );
 		
 		$columns = implode ( ', ', $this->_columns );
-		
+
 		if ( !!$this->_order_by )
 			$order_by = 'ORDER BY ' . $this->_order_by;
 		
@@ -55,11 +55,10 @@ class Listing_model extends Super_model {
 			$cols = array ();
 			// Loop through the columns to get the column names to build the result array
 			for ( $i = 0; $i < sizeof ( $this->_columns ); $i++ )
-				$cols[ $this->_columns[ $i ] ] = $row[ $this->_columns[ $i ] ];
+				$cols[ str_replace ( $this->_table.'_', '', $this->_columns[ $i ] ) ] = $row[ $this->_columns[ $i ] ];
 			
 			$result[] = $cols;
 		}
-		
 		return $result;
 	}
 	

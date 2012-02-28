@@ -23,7 +23,9 @@ class Form_builder_model extends Super_model {
 		// Ensure we do not include the primary key in the array.	
 		for ( $i = 0; $i < sizeof ( $table_cols ); $i++ )
 			if ( substr ( $table_cols[ $i ], -2, strlen ( $table_cols[ $i ] ) ) == 'id' ) 
-				unset( $table_cols[ 0 ] ); 
+				unset( $table_cols[ $i ] ); 
+			if ( substr ( $table_cols[ $i ], -4, strlen ( $table_cols[ $i ] ) ) == 'date' ) 
+				unset( $table_cols[ $i ] );
 		
 		return $table_cols;
 	}

@@ -119,6 +119,14 @@
 	border:1px solid #C7C7C7;
 }
 
+.cke_editor {
+	width:100%;
+}
+
+.cke_contents {
+	background-color:rgba(15, 15, 15, 0.5);	
+}
+
 
 
 /* 5. Icons

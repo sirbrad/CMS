@@ -35,7 +35,6 @@ $template = 'Templates/example_news';
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
-
 $mod = new News_model ();
 
 // Pick up the controller method - this time edit.

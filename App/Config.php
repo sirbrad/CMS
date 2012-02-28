@@ -11,10 +11,10 @@ define ( 'DB_PASSWORD', 'root' );
 /** Site Configs **/
 
 // The segment of the Controller in the URI
-define ( 'CONTROLLER_SEG', 2 );
+define ( 'CONTROLLER_SEG', 1 );
 
 // The working directory, if none have blank
-define ( 'DIRECTORY', 'Github/CMS' ); 
+define ( 'DIRECTORY', 'CMS' ); 
 
 // The brand name of the site
 define ( 'SITE_NAME', 'Brad/Ash CMS' );

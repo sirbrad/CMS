@@ -113,15 +113,18 @@
 	overflow:hidden;
 }
 
-.inputs div {
-	-webkit-transition:top 1s ease, opacity 0.5s ease;
+.inputs > div {
+	-webkit-transition:margin-top 2s ease, opacity 0.3s ease;	
 }
 
 .moveoff {
+	float:left;
+	margin-top:-200px;
 	opacity:0;
-	position:absolute;
-	top:-200px;
+	width:100%;
 }
 
 .movein {
+	float:left;
+	width:100%;
 }

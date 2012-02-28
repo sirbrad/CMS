@@ -14,13 +14,14 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling'], function(jQuery, getId
 		superParent.style.minHeight = parent.clientHeight + 'px';
 		
 		
-		console.log(superParent)
 		
 		// We need to just jQuery to calculate the
 		// height of a hidden element.
 		height = jQuery(nextElem).height() + 'px';
-		/*nextElem.style.height = '0px';
-		nextElem.style.display = 'block';*/
+		
+		parent.className = 'moveoff';
+		jQuery(superParent).animate({minHeight: height}, 300)
+		nextElem.className = 'movein';
 		
 	
 		

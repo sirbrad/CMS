@@ -135,8 +135,15 @@
 .cke_button_bold .cke_icon {
 	background-position:0 -114px;
 	height:10px;
-	width:9px;	
+	width:9px;
 }	
+
+/*.cke_button_bold .cke_icon:before {
+	content:'B';
+	display:inline-block;
+	float:left;
+	text-indent:0;	
+}*/
 
 .cke_button_italic .cke_icon {
 	background-position:-9px -114px;
@@ -155,5 +162,19 @@
 	height:14px;
 	position:relative;
 	top:1px;
+	width:20px;	
+}
+
+.cke_button_link .cke_icon {
+	background-position:-20px -130px;
+	height:15px;
+	position:relative;
+	top:1px;
+	width:15px;	
+}
+
+.cke_button_source .cke_icon {
+	background-position:0 -145px;
+	height:11px;
 	width:20px;	
 }

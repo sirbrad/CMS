@@ -6,6 +6,7 @@ $_templater = Templater::getInstance (); // Load this if you want the templater
 
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
+$tags['script'] = 'login';
 
 $template = 'Templates/index';
 

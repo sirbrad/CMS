@@ -4,4 +4,4 @@ require.config({
 	}
 });
 
-require(['manageElements']);
+require(['formswitch']);

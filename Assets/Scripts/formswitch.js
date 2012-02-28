@@ -2,6 +2,11 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling'], function(jQuery, getId
 	
 	var container = document.forms[0];
 	
+	// Set the containing form's padding top
+	// to be the height of the first div
+	
+	//container.style.paddingTop = container.children[0].clientHeight +'px';
+	
 	
 	
 	function swap(elem) {
@@ -11,7 +16,7 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling'], function(jQuery, getId
 			nextElem = (es.nextElementSibling(parent)) ? nextElem = es.nextElementSibling(parent) : nextElem = es.prevElementSibling(parent),
 			height;
 			
-		superParent.style.minHeight = parent.clientHeight + 'px';
+		//superParent.style.maxHeight = parent.clientHeight + 'px';
 		
 		
 		
@@ -19,9 +24,21 @@ define(['jquery', 'Utils/getEl', 'Utils/elementSibling'], function(jQuery, getId
 		// height of a hidden element.
 		height = jQuery(nextElem).height() + 'px';
 		
-		parent.className = 'moveoff';
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*parent.className = 'moveoff';
 		jQuery(superParent).animate({minHeight: height}, 300)
-		nextElem.className = 'movein';
+		
+		nextElem.
+		nextElem.className = 'movein';*/
 		
 	
 		

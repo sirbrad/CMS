@@ -1,0 +1,33 @@
+html, body
+{ color:#000; font:normal small Arial, Verdana, sans-serif; }
+
+pre, code
+{ font-family:Consolas, "Courier New", Courier, monospace; color:#00C; }
+
+p, h1, h2, h3, h4, h5, h6
+{ margin:0 0 0.5em; }
+
+h1
+{ font-size:25px; }
+
+h2
+{ font-size:22px; }
+
+h3, h4, h5, h6
+{ font-size:18px; }
+
+hr
+{ background-color:#959AC3; border:0; color:#959AC3; height:1px; }
+
+ul, dl, dt, dd
+{ margin:0; padding:0; }
+
+.cke_show_borders ul {
+	list-style:disc inside;
+	margin:10px 0 30px;
+}
+
+.cke_show_borders ul li {
+	margin:0 0 0.6em 0;
+
+}

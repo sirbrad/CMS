@@ -1,0 +1,23 @@
+<article class="article">
+	[IF SHOW_ADD]
+	<a href="/[DIRECTORY]/[EDIT_PAGE]/" class="fbk add">
+       <p>Add a new item to this list.</p>
+    </a>
+    [/ENDIF SHOW_ADD]
+    <h1 class="heading gradbar">Listing</h1>
+    <form class="module cf elem-del" name="delete-listing" method="post" action="" data-module="module">
+     [ALERT]
+        <ol class="listing">
+        [FOREACH results as blog]
+            <li>
+                <p><a href="/[DIRECTORY]/[EDIT_PAGE]/[blog.id]">[blog.title]</a><small>Last edited: [blog.date]</small></p>
+                <ol class="hoz btns edit-opts">
+                    <li><a href="/[DIRECTORY]/[EDIT_PAGE]/[blog.id]" class="btn f-btn"><span class="spr i-penc">Edit</span></a></li>
+                    <li><input type="checkbox" name="delete[[blog.id]]" value="[blog.id]" id="delete_[blog.id]" /><label for="delete_[blog.id]" class="btn e-btn"><span class="spr i-bin">Delete</span></label></li>
+                </ol>
+            </li>
+        [/results FOREACH]
+        </ol>
+        <input type="submit" class="btn btn-dis" value="Delete" name="delete-btn" disabled="disabled" data-modal="true" />
+    </form>
+</article>

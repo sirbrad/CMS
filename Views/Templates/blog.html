@@ -1,20 +1,19 @@
 <article class="article">
 	[IF ADD_ANOTHER]
-	<a href="/[DIRECTORY]/news/add" class="fbk add">
-       <p>Add another item</p>
+	<a href="/[DIRECTORY]/blog/add" class="fbk add">
+       <p>Add a new blog post.</p>
     </a>
     [/ENDIF ADD_ANOTHER]
     <h1 class="heading gradbar">Blog Article</h1>
     <form method="post" action="" id="form" enctype="multipart/form-data">
     <input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
     <div class="module form cf" > 
-    	<input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
     	[ALERT]
         
         <label class="label" for="blog_title">Blog title</label>
         <input type="input" name="blog_title" value="[BLOG_TITLE]" class="input"  />
-        <label class="label" for="blog_content">Blog Content</label>
-        <textarea name="blog_content" id="blog_content">[BLOG_CONTENT]</textarea>
+        <label class="label" for="wysiwyg">Blog Content</label>
+        <textarea name="blog_content" id="wysiwyg" class="wysiwyg">[BLOG_CONTENT]</textarea>
       
     
     </div>
@@ -22,10 +21,13 @@
     [IF SHOW_CATEGORIES]
     <p class="heading gradbar">Assign Tags</p>
     <div class="module cf elem-add" data-module="module">
+	<a href="/[DIRECTORY]/blog/categories" class="fbk add">
+       <p>Add a new category.</p>
+    </a>
         <ol class="listing">
         [FOREACH categories as cat]
             <li>
-                <p><a href="/[DIRECTORY]/dropdowns/[cat.categories_id]">[cat.categories_title]</a><small>As seen of brads face</small></p>
+                <p><a href="/[DIRECTORY]/blog/categories/[cat.categories_id]">[cat.categories_title]</a><small></small></p>
                 <ol class="hoz btns edit-opts solo">
                     <li><input type="checkbox"  name="blog_categories[]" [cat.categories_checked] id="add[cat.categories_id]" value="[cat.categories_id]" /><label for="add[cat.categories_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
                 </ol>

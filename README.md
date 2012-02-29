@@ -1,9 +1,11 @@
-# To do
+# To do List
 
 #### Front end
-* Finish template 600px +
+* Style wysiwyg
 * Build nav
-* Fix up editing template cross browser/device
+* Login, validation & interaction
+* Uploader?
 
 #### Back end
-* EVERYTHING [@banksy89 ](https://github.com/banksy89)
+* Uploader?
+* Front end outputted files

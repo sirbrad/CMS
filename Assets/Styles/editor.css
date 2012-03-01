@@ -35,6 +35,7 @@
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-width: 0 1px 1px;
 	margin-bottom: 3em;
+	padding-top:0.4em;
 	position: relative;
 	-webkit-border-bottom-right-radius: 0.35em;
 	-webkit-border-bottom-left-radius: 0.35em;
@@ -44,7 +45,7 @@
 	border-bottom-left-radius: 0.35em;
 	-webkit-box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
 	-moz-box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
-	box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);*/
+	box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
 }
 
 
@@ -61,11 +62,10 @@
 
 
 
-/* 4. Buttons
+/* 4. Toolbar
  **********************************************************************/
  
-.cke_button a,
-.cke_rcombo a {
+.cke_toolbox {
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(234,234,234,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(234,234,234,1))); /* Chrome,Safari4+ */
@@ -74,11 +74,28 @@
 	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* W3C */
 	border:1px solid rgba(0, 0, 0, 0.15);
-	border-left:0;
-	font-weight:bold;
+	position:relative;
+	top:1px;
+	z-index:1;	
+	
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+}
+
+.cke_toolbar_end {
+	background:red;
+	display:block;
+	width:100%;
+}
+ 
+.cke_button a,
+.cke_rcombo a {
+	border-right:1px solid rgba(0, 0, 0, 0.15);
 	color:#333;
 	cursor:pointer;
 	display:inline-block;
+	font-weight:bold;
 	min-width:16px;
 	padding:7px 14px;
 	text-align:center;
@@ -124,28 +141,17 @@
 	box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.3);
 }
 
-.cke_button .cke_disabled {
-	opacity:0.5;
+.cke_disabled .cke_icon {
+	opacity:0.2;
 }
 
 .cke_rcombo a {
-	border:1px solid rgba(0, 0, 0, 0.15);
-	
 	-webkit-border-top-left-radius: 0.25em;
 	-webkit-border-bottom-left-radius: 0.25em;
 	-moz-border-radius-topleft: 0.25em;
 	-moz-border-radius-bottomleft: 0.25em;
 	border-top-left-radius: 0.25em;
 	border-bottom-left-radius: 0.25em;
-}
-
-.cke_button .cke_button_source {
-	-webkit-border-top-right-radius: 0.25em;
-	-webkit-border-bottom-right-radius: 0.25em;
-	-moz-border-radius-topright: 0.25em;
-	-moz-border-radius-bottomright: 0.25em;
-	border-top-right-radius: 0.25em;
-	border-bottom-right-radius: 0.25em;
 }
 
 .no-cssgradients .cke_button a {

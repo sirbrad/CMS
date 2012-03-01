@@ -19,7 +19,7 @@
 			uiColor: '#eee',
 			format_tags:'p;h1;h2',
 			contentsCss:'/GitHub/CMS/Assets/Styles/ck-editor.css',
-			toolbar: global.admin_editor.ui || [['Format','-','Bold','Italic','-','NumberedList','BulletedList','-','Link','Unlink', 'Source']]
+			toolbar: global.admin_editor.ui || [['Format','Bold','Italic','NumberedList','BulletedList','Link','Unlink', 'Source']]
 		});
 	
 	});

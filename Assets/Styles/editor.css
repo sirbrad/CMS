@@ -29,16 +29,19 @@
  **********************************************************************/
  
 .cke_voice_label,
-.cke_label {
+.cke_label,
+.cke_toolbox_collapser {
 	display:none;	
 }
+
 
 
 
 /* 4. Buttons
  **********************************************************************/
  
-.cke_button a {
+.cke_button a,
+.cke_rcombo a {
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(234,234,234,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(234,234,234,1))); /* Chrome,Safari4+ */
@@ -52,7 +55,9 @@
 	color:#333;
 	cursor:pointer;
 	display:inline-block;
+	min-width:16px;
 	padding:7px 14px;
+	text-align:center;
 	text-shadow:0 -1px 0 rgba(255, 255, 255, 0.4);
 	-webkit-border-radius:0;
 	-moz-border-radius:0;
@@ -94,7 +99,7 @@
 	opacity:0.5;
 }
 
-.cke_button .cke_button_bold {
+.cke_rcombo a {
 	border:1px solid rgba(0, 0, 0, 0.15);
 	
 	-webkit-border-top-left-radius: 0.25em;
@@ -128,6 +133,11 @@
 
 .cke_contents {
 	background-color:rgba(15, 15, 15, 0.5);	
+}
+
+.cke_rcombo a {
+	color:#000;
+	font-weight:bold;
 }
 
 

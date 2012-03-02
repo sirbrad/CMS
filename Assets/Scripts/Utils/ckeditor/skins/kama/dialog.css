@@ -19,9 +19,11 @@ body .cke_dialog {
 	visibility: visible;
 }
 
-.cke_1 .cke_wrapper, .cke_1_dialog .cke_dialog_contents, .cke_1_dialog a.cke_dialog_tab, .cke_1_dialog .cke_dialog_footer
+/* .cke_1 .cke_wrapper, .cke_1_dialog .cke_dialog_contents, .cke_1_dialog a.cke_dialog_tab, .cke_1_dialog .cke_dialog_footer */
+
+.cke_1 .cke_wrapper
 {
-	background:none !important;	
+	background:#fff !important;	 /* clear random backgorund img bug */
 }
 
 
@@ -53,13 +55,25 @@ body .cke_dialog {
 	box-shadow:0 1px 1px rgba(0, 0, 0, 0.03);
 }
 
+.cke_dialog_page_contents,
+.cke_dialog_tabs,
+.cke_dialog_footer {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-width: 0 1px;
+}
+
 .cke_dialog_page_contents {
+	left:-1px;
+	position:relative;
+	top:-1px;
+}
+
+/*.cke_dialog_page_contents {
 	background-color:#fff;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-width: 0 1px 1px;
 	margin-bottom: 3em;
 	max-width:100%;
-	padding:1em;
 	position: relative;
 	-webkit-border-bottom-right-radius: 0.35em;
 	-webkit-border-bottom-left-radius: 0.35em;
@@ -70,13 +84,86 @@ body .cke_dialog {
 	-webkit-box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
 	-moz-box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
 	box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
+}*/
+
+.cke_dialog_page_contents > table {
+	margin:1em;
+}
+
+
+/* 3. Toolbar
+ **********************************************************************/
+
+.cke_dialog_tabs {
+	background-color:#fff;
+	padding:1em;
+}
+
+.cke_dialog_contents {
+	
 }
 
 
 
-/* 3. Footer
+/* 4. Buttons
+ **********************************************************************/
+ 
+.cke_dialog_tab {
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(234,234,234,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(234,234,234,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* W3C */
+	border:1px solid rgba(0, 0, 0, 0.15);
+	border-left:none;
+	color:#333;
+	cursor:pointer;
+	display:inline-block;
+	font-weight:bold;
+	min-width:16px;
+	padding:7px 14px;
+	text-align:center;
+	text-shadow:0 -1px 0 rgba(255, 255, 255, 0.4);
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	-webkit-box-shadow:inset 1px -1px 0 rgba(255, 255, 255, 0.5);
+	-moz-box-shadow:inset 1px -1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow:inset 1px -1px 0 rgba(255, 255, 255, 0.5);
+	
+	-webkit-transition:box-shadow 0.2s ease;
+	-moz-transition:box-shadow 0.2s ease;
+	-ms-transition:box-shadow 0.2s ease;
+	-o-transition:box-shadow 0.2s ease;
+	-webkit-transition:box-shadow 0.2s ease;
+}
+
+.cke_dialog_tab:hover,
+.cke_dialog_tab:focus {
+	text-decoration:none;	
+	
+	-webkit-box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);
+	box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* 5. Footer
  **********************************************************************/
 
 .cke_dialog_footer {
+	border-width: 0 1px 1px;
+	padding:1em;
+	position:relative;
+	top:-2px;
 	
+	-webkit-border-bottom-right-radius: 0.35em;
+	-webkit-border-bottom-left-radius: 0.35em;
+	-moz-border-radius-bottomright: 0.35em;
+	-moz-border-radius-bottomleft: 0.35em;
+	border-bottom-right-radius: 0.35em;
+	border-bottom-left-radius: 0.35em;
 }

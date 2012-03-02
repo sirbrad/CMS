@@ -35,12 +35,17 @@ $template = 'Templates/example_news';
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
+$mod = new News_model ();
+
+// Pick up the controller method - this time edit.
+
 $attributes = array ( 'table' => 'news', 
 					  'columns' => $db_columns, 
 					  'id_column' => 'news_id' );
 
 // This is to show the different types of application views you can have,
 // Just determined by the uri segment.
+
 if ( $method == 'edit' && !!$value )
 {
 	$attributes['id'] = $value;

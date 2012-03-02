@@ -30,6 +30,7 @@ class DB_Class {
 			$string = str_replace( "\r\n", "", $string );
 			$string = stripslashes( $string );
 			$string = mysql_escape_string( $string );
+		    $string = stripslashes( $string );
 			return $string;
 		}
 		else

@@ -89,7 +89,7 @@
 	padding:1.9% 0;
 }
 
-.cke_skin_kama {
+#cke_wysiwyg {
 	display:inline-block;
 	width:76.4696707% !important; 	/* 447 / 577.. I realise I've repeated this from the inputs, but have to use important:( */
 }

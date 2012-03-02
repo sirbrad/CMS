@@ -16,7 +16,7 @@
  **********************************************************************/
 
 
-.cke_skin_kama {
+#cke_wysiwyg {
 	clear: left;
 	display:block;
 	visibility: inherit !important; /* To show wysiwyg */

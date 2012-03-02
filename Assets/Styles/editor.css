@@ -15,8 +15,6 @@
 /* 2. Layout
  **********************************************************************/
 
-#cke_wysiwyg {
-}
 
 .cke_skin_kama {
 	clear: left;
@@ -221,4 +219,16 @@
 	background-position:0 -128px;
 	height:11px;
 	width:22px;	
+}
+
+/* 6. Bottom
+ **********************************************************************/
+
+.cke_path {
+	padding-top:1em;	
+}
+
+.cke_path a {
+	font-weight:bold;
+	margin-right:1em;	
 }

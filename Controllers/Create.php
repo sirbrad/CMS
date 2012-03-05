@@ -17,7 +17,7 @@ $tags['script'] = 'main';
 
 if ( !!$_POST['save'] )
 {
-	$table_name = $_db->escape ( str_replace ( " ", "_", $_POST['name'] ) );
+	$table_name = $_db->escape ( str_replace ( " ", "_", strtolower ( $_POST['name'] ) ) );
 	
 	$sql = 'CREATE TABLE ' . PROJECT . '_' . $table_name . ' ('; 
 	
@@ -35,6 +35,8 @@ if ( !!$_POST['save'] )
 			else
 				$sql .= '' . $table_name . '_' . $att . ' VARCHAR( 150 ) NOT NULL,';
 	}
+	
+	$sql .= '' . $table_name . '_date TIMESTAMP NOT NULL,';
 	
 	$sql .= 'PRIMARY KEY ( ' . $table_name .'_id' . ' ) )';
 	

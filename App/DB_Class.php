@@ -131,6 +131,11 @@ class DB_Class {
 		}
 	}
 	
+	public function list_tables ()
+	{
+		return $this->_conn->query ( 'SHOW TABLES' );	
+	}
+	
 	public function num_rows ()
 	{
 		if ( isset( $this->_query ) )

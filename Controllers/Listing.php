@@ -2,7 +2,9 @@
 /** Load these in order of importance **/
 $_router = Router::getInstance (); 
 $_templater = Templater::getInstance ();
-$_db = DB_Class::getInstance ();
+
+$_men = new Menu_model();
+$tags['side_menu'] = $_men->get_menu();
 
 /** Page attributes default **/
 $tags['alert'] = ' ';

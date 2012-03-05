@@ -2,6 +2,8 @@
 /** Load these in order of importance **/
 $_router = Router::getInstance (); // Routes the uri
 $_templater = Templater::getInstance (); // Load this if you want the templater
+$_men = new Menu_model();
+$tags['side_menu'] = $_men->get_menu();
 
 // Standard tags that should be set
 $tags['alert'] = ' ';

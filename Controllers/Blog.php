@@ -4,6 +4,8 @@ $_router = Router::getInstance ();
 $_templater = Templater::getInstance ();
 $_db = DB_Class::getInstance ();
 $_fb = new Form_builder_model;
+$_men = new Menu_model();
+$tags['side_menu'] = $_men->get_menu();
 
 $template = 'Templates/blog';
 

@@ -30,6 +30,7 @@ class DB_Class {
 			$string = str_replace( "\r\n", "", $string );
 			$string = stripslashes( $string );
 			$string = mysql_escape_string( $string );
+		    $string = stripslashes( $string );
 			return $string;
 		}
 		else
@@ -119,8 +120,15 @@ class DB_Class {
 	
 	public function query ( $query )
 	{
-		$stmt = $this->_conn->prepare( $query );
-		$stmt->execute();
+		try 
+		{
+			$stmt = $this->_conn->prepare( $query );
+			$stmt->execute();
+		}
+		catch ( PDOException $e )
+		{
+			echo $e->getMessage ();
+		}
 	}
 	
 	public function num_rows ()

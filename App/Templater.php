@@ -47,6 +47,7 @@ class Templater {
 		if ( $use_footer )
 			$this->_main_content .= file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Views/overall_footer.html' ); flush();
 		
+		
 		$this->_template_tags = $tags;
 
 		$this->find_tags ();

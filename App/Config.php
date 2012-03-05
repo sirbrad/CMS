@@ -2,7 +2,7 @@
 
 /** Database Details **/
 define ( 'DB_HOST', 'localhost' );
-define ( 'DB_NAME', 'cms_news' );
+define ( 'DB_NAME', 'cms_2012' );
 define ( 'DB_USER', 'root' );
 define ( 'DB_PASSWORD', 'root' );
 

@@ -4,7 +4,9 @@ class Form_builder_model extends Super_model {
 	
 	private $_text_inputs = array (),
 			$_text_areas = array (),
-			$_image_upload = array ();
+			$_image_upload = array (),
+			$_dropdowns = bool,
+			$_downloads = bool;
 			
 	public function __Construct ( $table = "" )
 	{
@@ -47,6 +49,8 @@ class Form_builder_model extends Super_model {
 				case 'title': case 'link': $info = array ( 'input_title' => ucwords ( $type ), 'input_name' => $col ); $this->_text_inputs[] = $info; break;
 				case 'content': $info = array ( 'textarea_title' => ucwords ( $type ), 'textarea_name' => $col ); $this->_text_areas[] = $info; break;
 				case 'imgname': $this->_image_upload[]['imgname'] = $col; break;	
+				case 'dropdowns' : $this->_dropdowns = TRUE;
+				case 'downloads' : $this->_downloads = TRUE;
 				//default: $text_inputs[] = $col; break;
 			}
 		}	
@@ -76,6 +80,16 @@ class Form_builder_model extends Super_model {
 	public function get_imageuploads ()
 	{
 		return $this->_image_upload;	
+	}
+	
+	public function get_dropdowns ()
+	{
+		return $this->_dropdowns;	
+	}
+	
+	public function get_downloads ()
+	{
+		return $this->_downloads;	
 	}
 	
 }

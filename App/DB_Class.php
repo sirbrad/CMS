@@ -120,8 +120,15 @@ class DB_Class {
 	
 	public function query ( $query )
 	{
-		$stmt = $this->_conn->prepare( $query );
-		$stmt->execute();
+		try 
+		{
+			$stmt = $this->_conn->prepare( $query );
+			$stmt->execute();
+		}
+		catch ( PDOException $e )
+		{
+			echo $e->getMessage ();
+		}
 	}
 	
 	public function num_rows ()

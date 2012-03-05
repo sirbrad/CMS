@@ -12,6 +12,7 @@ $value = $_router->get_method_value ();
 /** Set up default page tags **/
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
+$tags['table'] = $method;
 $tags['site_name'] = SITE_NAME;
 $tags['page_header'] = !!$value ? ucwords ( str_replace ( "_", " ", $value ) ) : ucwords ( str_replace ( "_", " ", $method ) );
 $tags['script'] = 'main';

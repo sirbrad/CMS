@@ -9,19 +9,17 @@ $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
 $tags['script'] = 'main';
-$tags['show_add'] = FALSE;
+
+$tags['show_add'] = TRUE;
 
 $template = 'listing';
 
 $list_type = $_router->get_controller_method ();
 
-if ( $list_type == 'news' )
-{
-	$tags['edit_page'] = 'news/edit';
-	$tags['show_add'] = TRUE;
-	$table = 'news';
-	$order_by = 'news_date DESC';
-}
+$tags['edit_page'] = $list_type.'/edit';
+$table = $list_type;
+$order_by = $table.'_date DESC';
+
 
 /** Initiate the list model and build the result list **/
 $listing = new Listing_model;

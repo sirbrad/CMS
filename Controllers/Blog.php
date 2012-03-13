@@ -5,6 +5,9 @@ $_templater = Templater::getInstance ();
 $_db = DB_Class::getInstance ();
 $_fb = new Form_builder_model;
 $_men = new Menu_model();
+$_arr = new Arrays;
+$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'upload' ), 'stylesheet' );
+
 $tags['side_menu'] = $_men->get_menu();
 
 $template = 'Templates/blog';
@@ -39,6 +42,9 @@ if ( $method == 'add' || $method == 'edit' )
 	list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
 	
 	$tags['categories'] = $data_mod->get_widgets ( 'categories', 'blog' );
+	
+	if ( !!$_tags['blog_imgname'] && $_tags['blog_imgname'] != ' ' )
+		$_tags['blog_imgname'] = '<img src="/' . DIRECTORY .'/Assets/Uploads/Images/' . $_tags['blog_imgname'] . '">'; 
 	
 	if ( sizeof ( $tags['categories'] ) > 0 )
 		$tags['show_categories'] = TRUE;

@@ -24,4 +24,8 @@ require(['require', 'Utils/getEl'], function(require, getId){
 		});
 	}
 	
+	if (getId('upload')) {
+		require(['upload']);
+	}
+	
 });

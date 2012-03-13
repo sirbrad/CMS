@@ -7,11 +7,24 @@
     <h1 class="heading gradbar">Blog Article</h1>
     <form method="post" action="" id="form" enctype="multipart/form-data">
     <input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+    <input type="hidden" name="blog_imgname" id="imgname"  />
     <div class="module form cf" > 
     	[ALERT]
         
         <label class="label" for="blog_title">Blog title</label>
         <input type="input" name="blog_title" value="[BLOG_TITLE]" class="input"  />
+        
+        <label class="label" for="img">Image</label>
+       	<span class="img" id="img-preview">[BLOG_IMGNAME]</span>
+        <ol class="hoz btns img-opts">
+            <li><input type="file" name="images" id="upload" multiple="true" accept="image/*" />
+				<a href="#" class="btn f-btn" id="upload-link">Browse Files</a></li>
+            <li id="clear-files"></li>
+            <li id="upload-files"></li>
+            <li><img src="/[DIRECTORY]/Assets/Images/Gif/ajax-loader.gif" id="ajax-loader" style="display:none;" /></li>
+        </ol>
+        
+        
         <label class="label" for="wysiwyg">Blog Content</label>
         <textarea name="blog_content" id="wysiwyg" class="wysiwyg">[BLOG_CONTENT]</textarea>
       

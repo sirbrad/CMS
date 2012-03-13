@@ -79,7 +79,7 @@ define( function() {
 
 			confirm.addEventListener("click", uploadFiles, false);
 		}
-		*/
+		
 		// We only need to create the 'clear' button once	
 		if (!doc.getElementById("clear")) {
 			var clear = doc.createElement("input");
@@ -94,6 +94,7 @@ define( function() {
 				window.location.reload();
 			}, false);
 		}
+		*/
 	} 
 
 	function createImage (source, fileobj) {

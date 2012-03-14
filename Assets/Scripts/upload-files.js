@@ -165,7 +165,7 @@ define( function() {
 		// This seems like a massive hack.
 		// By resetting the form data we don't consistently keep
 		// adding the already uploaded files.
-		formdata = new FormData()
+		formdata = new FormData();
 		
 	}// JavaScript Document
 	

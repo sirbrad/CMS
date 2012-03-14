@@ -7,14 +7,22 @@ class Directories {
 	
 	public function get_extension ( $file )
 	{
-		$path_parts = pathinfo ( $file );
-		return $path_parts['extension'];
+		if ( !!$file )
+		{
+			$path_parts = pathinfo ( $file );
+			return $path_parts['extension'];
+		}
+		else
+			return FALSE;	
 	}
 	
 	public function set_allowed ( array $allow )
 	{
-		$this->_allow = $allow;
-		return $this;
+		if ( !!$allow && is_array ( $allow ) )
+		{
+			$this->_allow = $allow;
+			return $this;
+		}
 	}
 	
 	public function get_images ( $directory )
@@ -23,7 +31,7 @@ class Directories {
 		return $this->_files;
 	}
 	
-	private function build_array_files ( $directory )
+	public function build_array_files ( $directory )
 	{
 		if ( is_dir ( $directory ) )
 		{
@@ -33,14 +41,24 @@ class Directories {
 				{
 					if ( $file != '.' && $file != '..' )
 					{	
-						if ( is_array ( $this->_allow ) && in_array ( $this->get_extension ( $file ), $this->_allow ) )
+						if ( is_array ( $this->_allow ) )
+						{
+							if ( is_array ( $this->_allow ) && in_array ( $this->get_extension ( $file ), $this->_allow ) )
+								$this->_files[] = $file;
+						}
+						else
+						{
 							$this->_files[] = $file;
+						}
 					}
 				}
 				closedir ( $dh );
 			}
+			return $this;
 		}
-		return $this;
+		else
+			return FALSE;
+		
 	}
 	
 }

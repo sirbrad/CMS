@@ -16,9 +16,7 @@ foreach ($_FILES["images"]["error"] as $key => $error)
 		$response = '/' . DIRECTORY . '/Assets/Uploads/Images/;'.$_FILES['images']['name'][$key];
 	} 
 	else 
-	{
 		$response = $error;
-	}
 }
 
 echo $response;

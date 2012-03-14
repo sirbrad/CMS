@@ -5,8 +5,8 @@ class Form_builder_model extends Super_model {
 	private $_text_inputs = array (),
 			$_text_areas = array (),
 			$_image_upload = array (),
-			$_dropdowns = bool,
-			$_downloads = bool;
+			$_dropdowns = FALSE,
+			$_downloads = FALSE;
 			
 	public function __Construct ( $table = "" )
 	{

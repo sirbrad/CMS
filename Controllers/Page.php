@@ -19,6 +19,8 @@ $tags['site_name'] = SITE_NAME;
 $tags['page_header'] = !!$value ? ucwords ( str_replace ( "_", " ", $value ) ) : ucwords ( str_replace ( "_", " ", $method ) );
 $tags['script'] = 'main';
 $tags['add_another'] = FALSE;
+$tags['show_dropdowns'] = FALSE;
+$tags['show_downloads'] = FALSE;
 
 $_fb = new Form_builder_model( $method );
 

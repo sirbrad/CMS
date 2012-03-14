@@ -15,6 +15,7 @@ define( function() {
 	}
 
 	function init() {
+		
 		formdata = new FormData()
 		
 		link = doc.getElementById("file-upload-link"),
@@ -55,10 +56,10 @@ define( function() {
 						
 					};
 					
-					
-					
 					reader.readAsDataURL(file);
 				} 
+				
+				
 
 				if (formdata) {
 					/*
@@ -68,11 +69,17 @@ define( function() {
 						we're actually appending it to that array, instead of overwriting the image property.
 					 */
 					formdata.append("files[]", file);
-					uploadFiles(file);
+					// Display the files as they come in...
+					createFileDisplay('',file);
+					
 				}
+				
+				
 				
 			} 
 		}
+		// Take in the finished away and save and move the files
+		uploadFiles(file);
 		
 	} 
 
@@ -104,8 +111,7 @@ define( function() {
 					  
 		fileContent.innerHTML = '<p>' +
 						'<input type="hidden" name="att_name[]" value="' + response[0] + '" />' +
-						'<input type="text" name="att_title[]" value="' + file.fileName + '" class="att_title" />' +
-		 				'<input type="button" name="deleteattachment" class="deleteattachment" value="Delete">' +
+						'<input type="text" name="att_title[]" value="' + file.fileName + '" class="att_title" />'  +
 					  '</p>';
 					 
 					  	  
@@ -148,15 +154,18 @@ define( function() {
 	      		if ((this.status >= 200 && this.status < 300) || this.status == 304) {
 					 
 	        		if (this.responseText != "") {
-						console.log(xhr.responseText);
-						createFileDisplay(xhr.responseText,files);
-						
+						// Not sure what to do here now i've done everything I need to do
 					}
 				}
 			}
 		};
 
 		xhr.send(formdata);
+		
+		// This seems like a massive hack.
+		// By resetting the form data we don't consistently keep
+		// adding the already uploaded files.
+		formdata = new FormData()
 		
 	}// JavaScript Document
 	

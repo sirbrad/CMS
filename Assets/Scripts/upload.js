@@ -68,6 +68,32 @@ define( function() {
 			} 
 		}
 		
+		// We only need to create the 'upload' button once	
+		if (!doc.getElementById("confirm")) {
+			var confirm = doc.createElement("input");
+				confirm.type = "submit";
+				confirm.value = "Upload these files";
+				confirm.id = "confirm";
+
+			doc.body.appendChild(confirm);
+
+			confirm.addEventListener("click", uploadFiles, false);
+		}
+
+		// We only need to create the 'clear' button once	
+		if (!doc.getElementById("clear")) {
+			var clear = doc.createElement("input");
+				clear.type = "button";
+				clear.value = "Clear these files";
+				clear.id = "clear";
+
+			doc.body.appendChild(clear);
+
+			clear.addEventListener("click", function(){
+				window.location.reload();
+			}, false);
+		}
+		
 	} 
 
 	function createImage (source, fileobj) {

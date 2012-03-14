@@ -1,14 +1,20 @@
 <article class="article">
-    <h1 class="heading gradbar">Test Uploading</h1>
+	
+    <h1 class="heading gradbar">Blog Article</h1>
     <form method="post" action="" id="form" enctype="multipart/form-data">
-    	<input type="hidden" name="imagename" id="imagename" value="" />
-    	<label class="label" for="img">Image</label>
-        <span class="img" id="img-preview"></span>
+    <div class="module form cf" > 
+    	
         <ol class="hoz btns img-opts">
-            <li><input type="file" name="Filedata" class="btn f-btn" id="fileselect" value="Upload" /></li>
-            <li><input type="submit" class="btn e-btn"  value="Continue" /></li>
-            <li><img src="/[DIRECTORY]/Assets/Images/Gif/ajax-loader.gif" id="ajax-loader" style="display:none;" /></li>
+        	<li><input type="file" name="files" id="file-upload" multiple="true" accept="application/pdf" />
+				<input type="button" class="btn f-btn" id="file-upload-link" value="Browse Files" /></li>
+            <li><input type="button" name="removeImg" class="btn e-btn removeFile" value="Remove" /></li>
         </ol>
+        
+        <div id="filearea"></div>
+        
+    </div>
+    
     </form>
+      
     
 </article>

@@ -14,11 +14,11 @@ define( function() {
 		document.getElementById("browsers").style.display = "block";
 	}
 
-	function init(){
+	function init() {
 		formdata = new FormData()
 		
-		link = doc.getElementById("upload-link"),
-		input = doc.getElementById("upload");
+		link = doc.getElementById("file-upload-link"),
+		input = doc.getElementById("file-upload");
 
 		// Now we know the browser supports the required features we can display the 'browse' button
 		link.style.display = "inline-block";
@@ -44,14 +44,19 @@ define( function() {
 		
 		for (var i = 0, len = this.files.length; i < len; i++) {
 			file = this.files[i];
-		
-			if (!!file.type.match(/image.*/)) {
+			
+			if (!!file.type.match(/pdf.*/)) {
+				
 				if (window.FileReader) {
+					
 					reader = new FileReader();
+					
 					reader.onloadend = function (e) { 
-						uploadFiles()
-						//createImage(e.target.result, e);
+						
 					};
+					
+					
+					
 					reader.readAsDataURL(file);
 				} 
 
@@ -62,7 +67,8 @@ define( function() {
 						By adding the square-brackets to the end, we make sure each time we append another value, 
 						we're actually appending it to that array, instead of overwriting the image property.
 					 */
-					formdata.append("images[]", file);
+					formdata.append("files[]", file);
+					uploadFiles(file);
 				}
 				
 			} 
@@ -70,26 +76,11 @@ define( function() {
 		
 	} 
 
-	function createImage (source, fileobj) {
-		
-		// As I changed it so that the image is displayed from the actual saved one
-		// Don't think I need this anymore
-		/*
-		var element = doc.createElement("img");
-			element.file = fileobj;
-			element.className = "thumbnail";
-			element.src = source,
-			element = element;
-		*/
-		// We store the file object as a property of the image (for use later)
-		
-		imgPreview.innerHTML = '<img src="' + source + '">';
-	}
 
 	var progressBar = (function(){
 		var bar = doc.createElement("div"),
 			progress = doc.createElement("div"),
-			container = doc.getElementById("upload-link");
+			container = doc.getElementById("file-upload-link");
 
 		bar.id = "bar";
 		progress.className = "progress";
@@ -105,22 +96,38 @@ define( function() {
 		}
 	}());
 
-	function uploadFiles(){
+	function createFileDisplay(response,file) {
+		
+		var fileArea = doc.getElementById("filearea"),
+			fileContent = document.createElement('div')
+			response = response.split(';');
+					  
+		fileContent.innerHTML = '<p>' +
+						'<input type="hidden" name="att_name[]" value="' + response[0] + '" />' +
+						'<input type="text" name="att_title[]" value="' + file.fileName + '" class="att_title" />' +
+		 				'<input type="button" name="deleteattachment" class="deleteattachment" value="Delete">' +
+					  '</p>';
+					 
+					  	  
+		fileArea.appendChild(fileContent);
+	}
+	
+	function uploadFiles(files){
 		
 		var xhr = new XMLHttpRequest();
 		
 		function progressListener (e) {
-			console.log("progressListener: ", e);
+			//console.log("progressListener: ", e);
 			if (e.lengthComputable) {
 				var percentage = Math.round((e.loaded * 100) / e.total);
 				progressBar(percentage);
-				console.log("Percentage loaded: ", percentage);
+				//console.log("Percentage loaded: ", percentage);
 			}
 		};
 
 		function finishUpload (e) {
 			progressBar(100);
-			console.log("Finished Percentage loaded: 100");
+			//console.log("Finished Percentage loaded: 100");
 		};
 
 		// XHR2 has an upload property with a 'progress' event
@@ -131,7 +138,7 @@ define( function() {
 
 		
 		// Begin uploading of file
-		xhr.open("POST", "/GitHub/CMS/AJAX_uploader");
+		xhr.open("POST", "/GitHub/CMS/AJAX_file_uploader");
 
 	    xhr.onreadystatechange = function(e){
 	    	console.info("readyState: ", this.readyState);
@@ -139,18 +146,11 @@ define( function() {
 	    	if (this.readyState == 4) {
 				
 	      		if ((this.status >= 200 && this.status < 300) || this.status == 304) {
+					 
 	        		if (this.responseText != "") {
-						// Display the image and set the hidden fields
-						var resp = xhr.responseText.split(';'),
-							path = resp[0],
-							img = resp[1]
-							form = document.forms.form,
-							imgfield = form.imgname;
+						console.log(xhr.responseText);
+						createFileDisplay(xhr.responseText,files);
 						
-						createImage(path+img, e);
-						imgfield.value = img;
-						// Next step is to assign the name of the image to the hidden field
-						// imgname
 					}
 				}
 			}

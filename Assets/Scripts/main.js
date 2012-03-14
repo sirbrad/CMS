@@ -28,4 +28,8 @@ require(['require', 'Utils/getEl'], function(require, getId){
 		require(['upload']);
 	}
 	
+	if (getId('file-upload')) {
+		require(['upload-files']);
+	}
+	
 });

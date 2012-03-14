@@ -17,7 +17,7 @@
         <label class="label" for="img">Image</label>
        	<span class="img" id="img-preview">[BLOG_IMGNAME]</span>
         <ol class="hoz btns img-opts">
-            <li><input type="file" name="images" id="upload" multiple="true" accept="image/*" />
+            <li><input type="file" name="images" id="upload" accept="image/*" />
 				<input type="button" class="btn f-btn" id="upload-link" value="Browse Files"></li>
             <li><input type="button" name="removeImg" id="removeImg" class="btn e-btn" value="Remove" /></li>
             <li id="clear-files"></li>
@@ -28,6 +28,12 @@
         
         <label class="label" for="wysiwyg">Blog Content</label>
         <textarea name="blog_content" id="wysiwyg" class="wysiwyg">[BLOG_CONTENT]</textarea>
+        
+        <ol class="hoz btns img-opts">
+        	<li><input type="file" name="images" id="file-upload" accept="file/*" />
+				<input type="button" class="btn f-btn" id="file-upload-link" value="Browse Files"></li>
+            <li><input type="button" name="removeImg" class="btn e-btn removeFile" value="Remove" /></li>
+        </ol>
       
     
     </div>

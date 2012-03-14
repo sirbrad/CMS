@@ -29,12 +29,30 @@ class Test_database extends UnitTestCase {
 		$this->assertNotNull( $row );
 	}
 	
-	public function getAssocArray ()
+	public function TestGetAssocArray ()
 	{
 		$query = $this->db->get ( 'SELECT tests_id FROM framework_tests' );
 		
 		$this->assertTrue( $query );
 		$this->assertNotNull( $query );
+	}
+	
+	/**
+	 * Test for an empty query. Expect to get an exception back
+	 */
+	public function testEmptyQuery ()
+	{
+		$query = '';
+		$query = $this->db->query ( $query );
+		$this->assertFalse( $query );
+	}
+	
+	public function testListTables ()
+	{
+		$tables = $this->db->list_tables ();
+		
+		// Shall only assert to true, as there may not be any tables.
+		$this->assertTrue( $tables );	
 	}
 	
 }

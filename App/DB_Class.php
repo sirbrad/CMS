@@ -120,15 +120,20 @@ class DB_Class {
 	
 	public function query ( $query )
 	{
-		try 
+		if ( !!$query )
 		{
-			$stmt = $this->_conn->prepare( $query );
-			$stmt->execute();
+			try 
+			{
+				$stmt = $this->_conn->prepare( $query );
+				$stmt->execute();
+			}
+			catch ( PDOException $e )
+			{
+				echo $e->getMessage ();
+			}
 		}
-		catch ( PDOException $e )
-		{
-			echo $e->getMessage ();
-		}
+		else
+			return FALSE;
 	}
 	
 	public function list_tables ()

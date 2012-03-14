@@ -99,14 +99,18 @@ define( function() {
 
 	function createImage (source, fileobj) {
 		
+		// As I changed it so that the image is displayed from the actual saved one
+		// Don't think I need this anymore
+		/*
 		var element = doc.createElement("img");
 			element.file = fileobj;
 			element.className = "thumbnail";
 			element.src = source,
 			element = element;
-		
+		*/
 		// We store the file object as a property of the image (for use later)
-		imgPreview.appendChild(element);
+		
+		imgPreview.innerHTML = '<img src="' + source + '">';
 	}
 
 	var progressBar = (function(){

@@ -38,7 +38,7 @@ class Test_database extends UnitTestCase {
 	}
 	
 	/**
-	 * Test for an empty query. Expect to get an exception back
+	 * Test for an empty query.
 	 */
 	public function testEmptyQuery ()
 	{

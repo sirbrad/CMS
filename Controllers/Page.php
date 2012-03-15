@@ -19,8 +19,8 @@ $tags['table'] = $method;
 $tags['site_name'] = SITE_NAME;
 $tags['page_header'] = ucwords ( str_replace ( "_", " ", $method ) );
 $tags['add_another'] = FALSE;
-$tags['show_dropdowns'] = ' ';
-$tags['show_downloads'] = ' ';
+$tags['show_dropdowns'] = FALSE;
+$tags['show_downloads'] = FALSE;
 $tags['show_image'] = FALSE;
 $tags['hidden_id'] = ' ';
 $tags['input_title_value'] = ' ';
@@ -43,8 +43,8 @@ $_title = $_fb->get_textinputs();
 $_content = $_fb->get_textareas();
 $_url = $_fb->get_urlinputs();
 $tags['image_upload'] = $_fb->get_imageuploads();
-$incdropdowns = $_fb->get_dropdowns();
-$incdownloads = $_fb->get_downloads();
+$tags['show_dropdowns'] = $_fb->get_dropdowns();
+$tags['show_downloads'] = $_fb->get_downloads();
 
 if ( !!$_title )
 	$tags['show_title'] = TRUE;
@@ -57,21 +57,18 @@ if ( !!$_url )
 if ( !!$tags['image_upload'] )
 	$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'upload' ), 'stylesheet' );
 
-if ( $incdropdowns )
-{
+if ( $tags['show_dropdowns'] )	
 	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
-	$tags['show_dropdowns'] = get_include ( 'dropdowns', 'html' );
-}
-	
-if ( $incdownloads )
+
+if ( $tags['show_downloads'] )
 {
-	$tags['downloads'] = $data_mod->get_widgets ( 'downloads', $table );
-	$tags['show_dropdowns'] = get_include ( 'downloads', 'html' );
+	// This table is obviously not created yet so needs to be commented out.
+	$tags['downloads'] = $data_mod->get_widgets ( 'documents', $table );
 }
 	
 if ( !!$tags['image_upload'] )
 	$tags['show_image'] = TRUE;
-	
+
 /** Set up the database handling and columns from here **/
 
 $_db_columns = $_fb->get_table_cols ( $table );

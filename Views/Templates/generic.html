@@ -48,9 +48,43 @@
         [/ENDIF SHOW_URL]
         
     </div>
-    [SHOW_DROPDOWNS]
+    [IF SHOW_DROPDOWNS]
+    <p class="heading gradbar">Assign Dropdowns</p>
+    <div class="module cf elem-add" data-module="module">
+        <a href="/[DIRECTORY]/dropdowns" class="fbk add">
+        <p>Add a new dropdown.</p>
+        </a>
+        <ol class="listing">
+        [FOREACH dropdowns as drop]
+            <li>
+                <p><a href="/[DIRECTORY]/dropdowns/edit/[drop.dropdowns_id]">[drop.dropdowns_title]</a><small>Last Updated: [drop.dropdowns_date]</small></p>
+                <ol class="hoz btns edit-opts solo">
+                    <li><input type="checkbox"  name="[TABLE]dropdowns[]" [drop.dropdowns_checked] id="add[drop.dropdowns_id]" value="[drop.dropdowns_id]" /><label for="add[drop.dropdowns_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
+                </ol>
+            </li>
+        [/dropdowns FOREACH]
+        </ol>
+    </div>
+    [/ENDIF SHOW_DROPDOWNS]
     
-    [SHOW_DOWNLOADS]
+    [IF SHOW_DOWNLOADS]
+    <p class="heading gradbar">Assign Downloads</p>
+    <div class="module cf elem-add" data-module="module">
+        <a href="/[DIRECTORY]/downloads" class="fbk add">
+        <p>Add a new download.</p>
+        </a>
+        <ol class="listing">
+        [FOREACH downloads as down]
+            <li>
+                <p><a href="/[DIRECTORY]/downloads/edit/[down.downloads_id]">[down.downloads_id]</a><small>Last Updated: [down.downloads_date]</small></p>
+                <ol class="hoz btns edit-opts solo">
+                    <li><input type="checkbox"  name="[TABLE]downloads[]" [down.downloads_checked] id="add[down.downloads_id]" value="[down.downloads_id]" /><label for="add[down.downloads_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
+                </ol>
+            </li>
+        [/downloads FOREACH]
+        </ol>
+    </div>
+    [/ENDIF SHOW_DOWNLOADS]
     <input type="submit" name="save" class="btn" value="Save" />
     </form>
 </article>

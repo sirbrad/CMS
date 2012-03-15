@@ -13,7 +13,7 @@ $template = 'Templates/create';
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
 $tags['site_name'] = SITE_NAME;
-$tags['script'] = 'main';
+$tags['script'] = 'create-page';
 
 if ( !!$_POST['save'] )
 {
@@ -24,6 +24,7 @@ if ( !!$_POST['save'] )
 	$sql .= '' . $table_name .'_id' . ' INT UNSIGNED NOT NULL AUTO_INCREMENT,';
 	
 	unset ( $_POST['save'] );
+	unset ( $_POST['name'] );
 	
 	foreach ( $_POST as $att => $value )
 	{
@@ -31,8 +32,19 @@ if ( !!$_POST['save'] )
 			if ( $att == 'content' )
 				$sql .= '' . $table_name . '_' . 'content' . ' TEXT NOT NULL,';
 			elseif ( $att == 'image' )
-				$sql .= '' . $table_name . '_' . 'imgname' . ' VARCHAR( 150 ),';
-			else
+			{
+				// Loop through the number of image uploads they selected.
+				for ( $i = 1; $i <= $_POST['img-no']; $i++ )
+				{
+					if ( $i == 1 )
+						$num = '';
+					else
+						$num = '_'.$i;
+						
+					$sql .= '' . $table_name . '_' . 'imgname' . $num . ' VARCHAR( 150 ),';
+				}
+			}
+			elseif ( $att != 'img-no' )
 				$sql .= '' . $table_name . '_' . $att . ' VARCHAR( 150 ) NOT NULL,';
 	}
 	

@@ -23,9 +23,13 @@ require(['require', 'Utils/getEl'], function(require, getId){
 			require(['Utils/ckeditor/ckeditor-module']);
 		});
 	}
-	
-	if (getId('upload')) {
+	/*
+	if (getId('sinlge-upload')) {
 		require(['upload']);
+	}
+	*/
+	if (getId('multi-upload')) {
+		require(['upload-multi']);
 	}
 	
 	if (getId('file-upload')) {

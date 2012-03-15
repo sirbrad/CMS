@@ -139,17 +139,26 @@ class Data_model extends Super_model {
 		
 		foreach ( $this->_columns as $col )
 		{
+			
+			// NOTE: May have to check this for saving arrays
 			if ( is_array ( $_POST[ $col ] ) )
 				$fields[ $col ] = implode ( ",", $_POST[ $col ] );
 			else
+			{
+				// Check to see if imgname is set and then we just remove the last ;
+				if ( !!$_POST['imgname'] ) 
+				{
+					$img = substr ( $_POST['imgname'], 0, -1 );
+					$fields[ $this->_table .'_imgname' ] = $img;
+				}
 				// Checks if a column is urltitle to assign a friendly url
 				$fields[ $col ] = substr ( $col, -8, strlen ( $col ) ) == 'urltitle' ? friendly_url ( $_POST[ $col ] ): $_POST[ $col ];
+			}
 			
 		}
 		
 		if ( !!$this->_id )
-		{
-			
+		{	
 			$this->db->where( $this->_id_column, $this->_id )->update( $this->_project.'_'.$this->_table, $fields );
 			$msg = 'updated';
 		}

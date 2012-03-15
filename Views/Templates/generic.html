@@ -8,18 +8,43 @@
     <form method="post" action="" id="form" enctype="multipart/form-data">
     <div class="module form cf" > 
     	<input type="hidden" name="hidden_id" value="[HIDDEN_ID]" />
+        <input type="hidden" name="imgname" value="" />
     	[ALERT]
-        [FOREACH image_upload as img]
-        	<p>Image uploader will go here</p>
-        [/image_upload FOREACH]
+ 
         [FOREACH text_inputs as input]
         <label class="label" for="">[input.input_title]</label>
-        <input type="input" name="[input.input_name]" value="" class="input"  />
+        <input type="input" name="[input.input_name]" value="[INPUT_TITLE_VALUE]" class="input"  />
         [/text_inputs FOREACH]
+        
+        <div id="image-list">
+        [FOREACH images as image]
+        	<span class="img"><img src="/[DIRECTORY]/Assets/Uploads/Images/[image.img_name]" /></span>
+        [/images FOREACH]
+        </div>
+        [FOREACH image_upload as img]
+        <label class="label" for="img">Image</label>
+        
+       	
+        <ol class="hoz btns img-opts" id="multi-upload">
+            <li><input type="file" multiple="true" name="images" id="upload" accept="image/*" />
+				<input type="button" class="btn f-btn" id="upload-link" value="Browse Files" /></li>
+            <li><input type="button" name="removeImg" id="removeImg" class="btn e-btn" value="Remove" /></li>
+        </ol>
+        [/image_upload FOREACH]
+        
         [FOREACH text_areas as textarea]
-        <label class="label"  for="id="wysiwyg" class="wysiwyg"">[textarea.textarea_title]</label>
-        <textarea name="[textarea.textarea_name]" class="wysiwyg" id="wysiwyg" class="wysiwyg"></textarea>
+        <label class="label"  for="wysiwyg">[textarea.textarea_title]</label>
+        <textarea name="[textarea.textarea_name]" class="wysiwyg" id="wysiwyg">[INPUT_CONTENT_VALUE]</textarea>
         [/text_areas FOREACH]
+        
+        [FOREACH url_inputs as url]
+        <span class="container">
+            <label class="label" for="url">URL</label>
+            <input id="url" name="[url.url_name]" value="[INPUT_URL_VALUE]" class="input input-abbr" />
+            <label for="url" class="gradbar abbr">http://</label>
+        </span>
+        [/url_inputs FOREACH]
+        
     </div>
     [IF SHOW_DROPDOWNS]
         <p class="heading gradbar">Assign Dropdowns</p>

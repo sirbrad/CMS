@@ -22,7 +22,7 @@ $list_type = $_router->get_controller_method ();
 if ( $list_type == 'dynamic' )
 {
 	$list_type = $_router->get_method_value ();
-	$tags['edit_page'] = 'page/' . $list_type . '/edit';
+	$tags['edit_page'] = 'page/' . $list_type . '/';
 }
 else
 {

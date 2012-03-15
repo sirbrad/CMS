@@ -4,9 +4,10 @@ class Form_builder_model extends Super_model {
 	
 	private $_text_inputs = array (),
 			$_text_areas = array (),
+			$_url_inputs = array (),
 			$_image_upload = array (),
-			$_dropdowns = bool,
-			$_downloads = bool;
+			$_dropdowns = FALSE,
+			$_downloads = FALSE;
 			
 	public function __Construct ( $table = "" )
 	{
@@ -48,10 +49,19 @@ class Form_builder_model extends Super_model {
 			{
 				case 'title': case 'link': $info = array ( 'input_title' => ucwords ( $type ), 'input_name' => $col ); $this->_text_inputs[] = $info; break;
 				case 'content': $info = array ( 'textarea_title' => ucwords ( $type ), 'textarea_name' => $col ); $this->_text_areas[] = $info; break;
-				case 'imgname': $this->_image_upload[]['imgname'] = $col; break;	
-				case 'dropdowns' : $this->_dropdowns = TRUE;
-				case 'downloads' : $this->_downloads = TRUE;
+				case 'url': $info = array ( 'url_title' => ucwords ( $type ), 'url_name' => $col ); $this->_url_inputs[] = $info; break;
+				case 'dropdowns' : $this->_dropdowns = TRUE; break;
+				case 'imgname' : $this->_image_upload[]['imgname'] = $col;break;
+				case 'downloads' : $this->_downloads = TRUE; break;
 				//default: $text_inputs[] = $col; break;
+			}
+			
+			// As you can pick how many images you want to upload we check for imgname and throw them in the array
+			$image = substr ( str_replace ( $table.'_', '', $col ), -strlen ( $col ), -2 );
+			
+			if ( $image == 'imgname' )
+			{
+				$this->_image_upload[]['imgname'] = $col;
 			}
 		}	
 		
@@ -72,6 +82,14 @@ class Form_builder_model extends Super_model {
 	public function get_textareas ()
 	{
 		return $this->_text_areas;	
+	}
+	
+	/**
+	 * Getter method for the text areas
+	 */ 
+	public function get_urlinputs ()
+	{
+		return $this->_url_inputs;	
 	}
 	
 	/**

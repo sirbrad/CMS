@@ -26,10 +26,14 @@ define ( 'PROJECT', 'cms' );
 
 function __autoload ( $class_name ) 
 {
-    include 'App/' . $class_name . '.php';
-	include 'App/Helpers/' . $class_name . '.php';
-	include 'App/Libraries/' . $class_name . '.php';
-	include 'Models/' . $class_name . '.php';
+	if ( file_exists ( '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/App/' . $class_name . '.php' ) )
+    	include '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/App/' . $class_name . '.php';
+	elseif ( file_exists ( '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/App/Helpers/' . $class_name . '.php' ) )
+		include '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/App/Helpers/' . $class_name . '.php';
+	elseif ( file_exists ( '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/App/Libraries/' . $class_name . '.php' ) )
+		include '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/App/Libraries/' . $class_name . '.php';
+	elseif ( file_exists ( '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/Models/' . $class_name . '.php' ) )
+		include '/'.$_SERVER['DOCUMENT_ROOT'] .'/'.DIRECTORY.'/Models/' . $class_name . '.php';
 }
 
 ?>

@@ -120,15 +120,25 @@ class DB_Class {
 	
 	public function query ( $query )
 	{
-		try 
+		if ( !!$query )
 		{
-			$stmt = $this->_conn->prepare( $query );
-			$stmt->execute();
+			try 
+			{
+				$stmt = $this->_conn->prepare( $query );
+				$stmt->execute();
+			}
+			catch ( PDOException $e )
+			{
+				echo $e->getMessage ();
+			}
 		}
-		catch ( PDOException $e )
-		{
-			echo $e->getMessage ();
-		}
+		else
+			return FALSE;
+	}
+	
+	public function list_tables ()
+	{
+		return $this->_conn->query ( 'SHOW TABLES' );	
 	}
 	
 	public function num_rows ()
@@ -156,11 +166,11 @@ class DB_Class {
 	*/
 	public function insert ( $table, $data = array() )
 	{
-		$columns = array();
-		$values = array();
-		
-		if ( !!$table && $data )
+		if ( !!$table && !!$data )
 		{
+			$columns = array();
+			$values = array();
+		
 			foreach ( $data as $key => $value )
 			{
 				array_push( $columns , $key );
@@ -183,9 +193,7 @@ class DB_Class {
 			
 			// Check if any rows were inserted then return last insert ID
 			if ( $stmt->rowCount() == 1 ) 
-			{
 				return $this->_conn->lastInsertId();
-			}
 			else 
 			{
 				$this->pdoError();
@@ -211,7 +219,7 @@ class DB_Class {
 	*/
 	public function update ( $table, $data = array() )
 	{
-		if ( !!$table && $data )
+		if ( !!$table && !!$data )
 		{
 			$update = array();
 			$values = array();

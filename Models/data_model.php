@@ -127,18 +127,25 @@ class Data_model extends Super_model {
 			// As we will be displaying the images in a list, this sets them up into an array
 			// If we decide to use the array. Notice I haven't unset the imgname key, as we could use the 
 			// reference else where if we needed to and keeping the array seperate.
-			$imgs = explode ( ';', $this->_tags[ $this->_table.'_imgname' ] );
-			
-			$_imgs = array ();
-		
-			$count = 0;
-			foreach ( $imgs as $img )
+			if ( !!$this->_tags[ $this->_table.'_imgname' ] && $this->_tags[ $this->_table.'_imgname' ] != ' ' )
 			{
-				$_imgs[] = array ( 'img_name' => $img, 'img_num' => $count );
-				$count++;
+				$imgs = explode ( ';', $this->_tags[ $this->_table.'_imgname' ] );
+				
+				$_imgs = array ();
+			
+				$count = 0;
+				foreach ( $imgs as $img )
+				{
+					if ( !!$img )
+					{
+						$_imgs[] = array ( 'img_name' => $img, 'img_num' => $count );
+					}	
+					$count++;
+				}
+				
+				$this->_tags['images'] = $_imgs;
 			}
 			
-			$this->_tags['images'] = $_imgs;
 			
 			return $this;
 		}

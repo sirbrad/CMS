@@ -1,11 +1,10 @@
 <?php
 /** Load these in order of importance **/
 $_router = Router::getInstance (); 
-$_templater = Templater::getInstance ();
-$_db = DB_Class::getInstance ();
 $_men = new Menu_model();
 $_arr = new Arrays;
 $data_mod = new Data_model;
+$_templater = Templater::getInstance ();
 
 /** Get the method and value from the URI **/
 $method = $_router->get_controller_method ();
@@ -21,11 +20,14 @@ $tags['page_header'] = ucwords ( str_replace ( "_", " ", $method ) );
 $tags['add_another'] = FALSE;
 $tags['show_dropdowns'] = FALSE;
 $tags['show_downloads'] = FALSE;
+$tags['show_image'] = FALSE;
 $tags['hidden_id'] = ' ';
 $tags['input_title_value'] = ' ';
 $tags['input_content_value'] = ' ';
 $tags['input_url_value'] = ' ';
+$tags['hidden_imgname_value'] = ' ';
 $tags['images'] = ' ';
+$tags['multiple_upload'] = ' ';
 
 /** Assign the main page attributes i.e table name, view file and script **/
 $table = $method;
@@ -47,18 +49,23 @@ $tags['show_downloads'] = $_fb->get_downloads();
 if ( !!$tags['image_upload'] )
 	$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'upload' ), 'stylesheet' );
 
-
 if ( $tags['show_dropdowns'] )
 	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
 	
 if ( $tags['show_downloads'] )
 	$tags['downloads'] = $data_mod->get_widgets ( 'downloads', $table );
 	
+if ( !!$tags['image_upload'] )
+	$tags['show_image'] = TRUE;
+	
 	
 
 /** Set up the database handling and columns from here **/
 
 $_db_columns = $_fb->get_table_cols ( $table );
+
+if ( in_array ( $table.'_image_multiple', $_db_columns ) )
+	$tags['multiple_upload'] = 'multiple="true"';
 
 // Set all the columns to default to empty
 foreach ( $_db_columns as $_col )
@@ -70,20 +77,6 @@ $attributes = array ( 'table' => $table,
 					  'id' => $value );
 					  
 list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
-
-if ( !!$_tags )
-{
-	$imgs = explode ( ';', $_tags[ $table.'_imgname' ] );
-	$_imgs = array ();
-}
-
-foreach ( $imgs as $img )
-{
-	$_imgs[] = array ( 'img_name' => $img );
-}
-
-$tags['images'] = $_imgs;
-
 
 /** Change the values not not target the table name but assign the values to a *generic* tag **/
 foreach ( $_tags as $t => $v )
@@ -107,6 +100,13 @@ foreach ( $_tags as $t => $v )
 	{
 		$tags['input_url_value'] = $v;
 		unset ( $_tags[ $table.'_url' ] );
+	}
+	
+	// Replace the url tag value
+	if ( $t == $table.'_imgname' && !!$v )
+	{
+		$tags['hidden_imgname_value'] = $v;
+		unset ( $_tags[ $table.'_imgname' ] );
 	}
 }
 

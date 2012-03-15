@@ -30,6 +30,7 @@ require(['require', 'Utils/getEl'], function(require, getId){
 	*/
 	if (getId('multi-upload')) {
 		require(['upload-multi']);
+		require(['image-delete']);
 	}
 	
 	if (getId('file-upload')) {

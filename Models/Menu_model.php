@@ -26,7 +26,7 @@ class Menu_model extends Super_model {
 			{
 				$page = str_replace ( $_db, "", $t[0] );
 				
-				$this->_menu[] = array ( 'menu_item' => ucwords ( $page ),
+				$this->_menu[] = array ( 'menu_item' => ucwords ( str_replace ( "_", " ", $page ) ),
 									'link' => strtolower ( $page ) );
 			}
 		}

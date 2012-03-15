@@ -33,17 +33,10 @@ if ( !!$_POST['save'] )
 				$sql .= '' . $table_name . '_' . 'content' . ' TEXT NOT NULL,';
 			elseif ( $att == 'image' )
 			{
-				// Loop through the number of image uploads they selected.
-				for ( $i = 1; $i <= $_POST['img-no']; $i++ )
-				{
-					if ( $i == 1 )
-						$num = '';
-					else
-						$num = '_'.$i;
-						
-					$sql .= '' . $table_name . '_' . 'imgname' . $num . ' VARCHAR( 150 ),';
-				}
+				$sql .= '' . $table_name . '_' . 'imgname' . $num . ' VARCHAR( 150 ),';	
 			}
+			elseif ( $att == 'multiple' && $value == 'multiple' )
+				$sql .= '' . $table_name . '_' . 'image_multiple' . $num . ' VARCHAR( 150 ) NULL,';
 			elseif ( $att != 'img-no' )
 				$sql .= '' . $table_name . '_' . $att . ' VARCHAR( 150 ) NOT NULL,';
 	}

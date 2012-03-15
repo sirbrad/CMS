@@ -136,7 +136,7 @@ class Data_model extends Super_model {
 				$count = 0;
 				foreach ( $imgs as $img )
 				{
-					if ( !!$img )
+					if ( !!$img && $img != ';' )
 					{
 						$_imgs[] = array ( 'img_name' => $img, 'img_num' => $count );
 					}	

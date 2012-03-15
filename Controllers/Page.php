@@ -5,6 +5,7 @@ $_men = new Menu_model();
 $_arr = new Arrays;
 $data_mod = new Data_model;
 $_templater = Templater::getInstance ();
+include ( "App/Helpers/Common.php" );
 
 /** Get the method and value from the URI **/
 $method = $_router->get_controller_method ();
@@ -18,8 +19,8 @@ $tags['table'] = $method;
 $tags['site_name'] = SITE_NAME;
 $tags['page_header'] = ucwords ( str_replace ( "_", " ", $method ) );
 $tags['add_another'] = FALSE;
-$tags['show_dropdowns'] = FALSE;
-$tags['show_downloads'] = FALSE;
+$tags['show_dropdowns'] = ' ';
+$tags['show_downloads'] = ' ';
 $tags['show_image'] = FALSE;
 $tags['hidden_id'] = ' ';
 $tags['input_title_value'] = ' ';
@@ -38,28 +39,39 @@ $tags['table_ref'] = $table;
 /** Set up the form attributes from this point **/
 $_fb = new Form_builder_model( $method );
 
-$tags['text_inputs'] = $_fb->get_textinputs();
-$tags['text_areas'] = $_fb->get_textareas();
-$tags['url_inputs'] = $_fb->get_urlinputs();
+$_title = $_fb->get_textinputs();
+$_content = $_fb->get_textareas();
+$_url = $_fb->get_urlinputs();
 $tags['image_upload'] = $_fb->get_imageuploads();
-$tags['show_dropdowns'] = $_fb->get_dropdowns();
-$tags['show_downloads'] = $_fb->get_downloads();
+$incdropdowns = $_fb->get_dropdowns();
+$incdownloads = $_fb->get_downloads();
+
+if ( !!$_title )
+	$tags['show_title'] = TRUE;
+if ( !!$_content )
+	$tags['show_content'] = TRUE;
+if ( !!$_url )
+	$tags['show_url'] = TRUE;
 
 // If the page has image insert the upload css file.
 if ( !!$tags['image_upload'] )
 	$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'upload' ), 'stylesheet' );
 
-if ( $tags['show_dropdowns'] )
+if ( $incdropdowns )
+{
 	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
+	$tags['show_dropdowns'] = get_include ( 'dropdowns', 'html' );
+}
 	
-if ( $tags['show_downloads'] )
+if ( $incdownloads )
+{
 	$tags['downloads'] = $data_mod->get_widgets ( 'downloads', $table );
+	$tags['show_dropdowns'] = get_include ( 'downloads', 'html' );
+}
 	
 if ( !!$tags['image_upload'] )
 	$tags['show_image'] = TRUE;
 	
-	
-
 /** Set up the database handling and columns from here **/
 
 $_db_columns = $_fb->get_table_cols ( $table );
@@ -120,8 +132,6 @@ if ( !!$_id )
 if ( !!$_tags )
 	$tags = array_merge ( $tags, $_tags );
 	
-
-
 /** Load and display the actual page **/
 $_templater->set_content ( $template, $tags );
 ?>

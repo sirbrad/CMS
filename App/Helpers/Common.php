@@ -197,9 +197,9 @@ function format_string ( $the_string )
 	return $the_string;
 }
 
-function get_include ( $include )
+function get_include ( $include, $ext = 'php' )
 {
-	$contents = file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Assets/Includes/' . ucwords ( $include ) . '.php' );
+	$contents = file_get_contents ( $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Assets/Includes/' . ucwords ( $include ) . '.'.$ext );
 	return $contents;		
 }
 

@@ -131,12 +131,14 @@ define( function() {
 		xhr.open("POST", "/GitHub/CMS/AJAX_uploader");
 
 	    xhr.onreadystatechange = function(e){
+			
 	    	console.info("readyState: ", this.readyState);
 			
 	    	if (this.readyState == 4) {
 				
 	      		if ((this.status >= 200 && this.status < 300) || this.status == 304) {
 	        		if (this.responseText != "") {
+						
 						// Display the image and set the hidden fields
 						var resp = xhr.responseText.split(';'),
 							path = resp[0],
@@ -145,7 +147,9 @@ define( function() {
 							imgfield = form.imgname;
 						
 						createImage(path, img, e);
-						imgfield.value = img+';'+imgfield.value;
+						img = img+";";
+						console.log(img);
+						imgfield.value = img+imgfield.value;
 					}
 				}
 			}

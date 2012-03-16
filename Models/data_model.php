@@ -170,7 +170,8 @@ class Data_model extends Super_model {
 				// Check to see if imgname is set and then we just remove the last ;
 				if ( !!$_POST['imgname'] ) 
 				{
-					$img = substr ( $_POST['imgname'], 0, -1 );
+					//$img = substr ( $_POST['imgname'], 0, -1 );
+					$img = $_POST['imgname'];
 					$fields[ $this->_table .'_imgname' ] = $img;
 				}
 				// Checks if a column is urltitle to assign a friendly url

@@ -69,6 +69,7 @@ class Data_model extends Super_model {
 	 */
 	public function get_widgets ( $type, $table )
 	{
+
 		$query = $this->db->get( 'SELECT * FROM ' . $this->_project . '_' . $type . '' );
 		
 		$saved_widgets = explode ( ',', $this->_tags[ $table.'_'.$type ] );

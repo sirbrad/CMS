@@ -63,27 +63,7 @@ if ( !!$tags['image_upload'] )
 if ( !!$tags['image_upload'] )
 	$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'upload' ), 'stylesheet' );
 
-/** To speed things up we put the widget in different views ( cut down on templating processing tags ) **/
-$_drp_down = 0;
 
-if ( $tags['show_dropdowns'] )	
-{
-	$_drp_down += 1;
-	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
-}
-
-if ( $tags['show_downloads'] )
-{
-	$_drp_down += 2;
-	$tags['downloads'] = $data_mod->get_widgets ( 'documents', $table );
-}
-	
-if ( $_drp_down == 1 )
-	$template = $template .'-with-dropdowns';
-elseif ( $_drp_down == 2 )
-	$template = $template .'-with-downloads';
-elseif ( $_drp_down == 3 )
-	$template = $template .'-with-all';
 
 /** Set up the database handling and columns from here **/
 $_db_columns = $_fb->get_table_cols ( $table );
@@ -134,6 +114,30 @@ foreach ( $_tags as $t => $v )
 		unset ( $_tags[ $table.'_imgname' ] );
 	}
 }
+
+/** To speed things up we put the widget in different views ( cut down on templating processing tags ) **/
+$_drp_down = 0;
+
+// As the data has to be set to grab the saved dropdowns and documents
+// The getting of the saved widgets has to come down here
+if ( $tags['show_dropdowns'] )	
+{
+	$_drp_down += 1;
+	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
+}
+
+if ( $tags['show_downloads'] )
+{
+	$_drp_down += 2;
+	$tags['downloads'] = $data_mod->get_widgets ( 'documents', $table );
+}
+	
+if ( $_drp_down == 1 )
+	$template = $template .'-with-dropdowns';
+elseif ( $_drp_down == 2 )
+	$template = $template .'-with-downloads';
+elseif ( $_drp_down == 3 )
+	$template = $template .'-with-all';
 
 // Set the hidden id if its been set
 if ( !!$_id )

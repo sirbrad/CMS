@@ -1,0 +1,16 @@
+<article class="article">
+    <h1 class="heading gradbar">List of Pages</h1>
+    <form class="module cf elem-del" name="delete-listing" method="post" action="" data-module="module">
+        <ol class="listing">
+        [FOREACH list_of_pages as page]
+            <li>
+                <p><a href="/[DIRECTORY]/listing/dynamic/[page.link]">[page.menu_item]</a><small>View the list of items under this page</small></p>
+                <ol class="hoz btns edit-opts">
+                    <li><a href="/[DIRECTORY]/page/[page.link]" class="btn f-btn"><span class="spr i-plus">Add</span></a></li>
+                    <li><a href="/[DIRECTORY]/listing/dynamic/[page.link]" class="btn e-btn"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></li>
+                </ol>
+            </li>
+        [/list_of_pages FOREACH]
+        </ol>
+    </form>
+</article>

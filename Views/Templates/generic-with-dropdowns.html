@@ -48,6 +48,24 @@
         [/ENDIF SHOW_URL]
         
     </div>
+    [IF SHOW_DROPDOWNS]
+    <p class="heading gradbar">Assign Dropdowns</p>
+    <div class="module cf elem-add" data-module="module">
+        <a href="/[DIRECTORY]/dropdowns" class="fbk add">
+        <p>Add a new dropdown.</p>
+        </a>
+        <ol class="listing">
+        [FOREACH dropdowns as drop]
+            <li>
+                <p><a href="/[DIRECTORY]/dropdowns/edit/[drop.dropdowns_id]">[drop.dropdowns_title]</a><small>Last Updated: [drop.dropdowns_date]</small></p>
+                <ol class="hoz btns edit-opts solo">
+                    <li><input type="checkbox"  name="[TABLE]dropdowns[]" [drop.dropdowns_checked] id="add[drop.dropdowns_id]" value="[drop.dropdowns_id]" /><label for="add[drop.dropdowns_id]" class="btn"><span class="spr i-tic">Add</span></label></li>
+                </ol>
+            </li>
+        [/dropdowns FOREACH]
+        </ol>
+    </div>
+    [/ENDIF SHOW_DROPDOWNS]
     <input type="submit" name="save" class="btn" value="Save" />
     </form>
 </article>

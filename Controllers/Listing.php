@@ -29,9 +29,10 @@ else
 	$tags['edit_page'] = $list_type.'/edit';
 }
 
-
 $table = $list_type;
 $order_by = $table.'_date DESC';
+
+$tags['list_type'] = ucwords ( str_replace ( "_", ' ', $list_type ) );
 
 /** Initiate the list model and build the result list **/
 $listing = new Listing_model;

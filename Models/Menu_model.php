@@ -16,7 +16,7 @@ class Menu_model extends Super_model {
 		
 		$_db = 'cms_';
 		
-		$ignore = array ( $_db.'admin', 'framework_tests', $_db.'news' );
+		$ignore = array ( $_db.'admin', 'framework_tests', $_db.'news', $_db.'dropdowns', $_db.'documents' );
 		
 		$menu = array ();
 		
@@ -27,7 +27,7 @@ class Menu_model extends Super_model {
 				$page = str_replace ( $_db, "", $t[0] );
 				
 				$this->_menu[] = array ( 'menu_item' => ucwords ( str_replace ( "_", " ", $page ) ),
-									'link' => strtolower ( $page ) );
+										 'link' => strtolower ( $page ) );
 			}
 		}
 		// For some reason a blank element is inserted. Remove it.

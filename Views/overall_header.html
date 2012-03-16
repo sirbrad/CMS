@@ -2,13 +2,14 @@
 <!--[if IE 7]><html class="no-js ie7" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js ie8" lang="en"><![endif]-->
 <!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]--><head>	
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>	
     <title>CMS | [SITE_NAME]</title>
     <script src="/[DIRECTORY]/Assets/Scripts/Utils/modernizr.min.js"></script>
     <meta charset="utf-8" />
     <meta name="author" content="Storm Creative" />
-</head>
-<link type="text/plain" rel="author" href="humans.txt" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link type="text/plain" rel="author" href="humans.txt" />
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/structure.css" />
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/skin.css" />
     <link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/header.css" />
@@ -36,6 +37,7 @@
     	<link rel="stylesheet" href="/[DIRECTORY]/Assets/Styles/IE.css" />
     <![endif]-->
     <script src="/[DIRECTORY]/Assets/Scripts/Utils/respond.min.js"></script>
+</head>
 <body>
 	<header class="gradbar">
         <div class="contain cf">
@@ -52,12 +54,8 @@
             <nav class="nav nav-des">
                 <ol class="">
                     <li><a class="active" href="/GitHub/CMS/dashboard"><span class="spr i-das"></span>Dashboard</a></li>
-                    <li><a href="/GitHub/CMS/listing/news"><span class="spr i-pag"></span>Pages</a></li>
-                    [FOREACH side_menu as menu]
-                    <li><a href="/GitHub/CMS/listing/dynamic/[menu.link]/"><span class="spr i-pag"></span>[menu.menu_item]</a></li>
-                    [/side_menu FOREACH]
-                    <li><a href="#">Downloads</a></li>
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="/GitHub/CMS/pages/"><span class="spr i-pag"></span>Pages</a></li>
+                    <li><a href="#"><span class="spr i-pag"></span>Widgets</a></li>
                 </ol>
             </nav>
         </div>

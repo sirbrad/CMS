@@ -78,7 +78,7 @@ define( function() {
 		var imageList = doc.getElementById("image-list"),
 			imageContent = document.createElement('div');
 					  
-		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="del-image" value="delete"></div>';
+		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="btn del-image" value="Delete Image"></div>';
 		
 		imageList.appendChild(imageContent);
 	}

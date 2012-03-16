@@ -73,12 +73,12 @@ define( function() {
 		
 	} 
 
-	function createImage (source, fileobj) {
+	function createImage (path, img, fileobj) {
 		
 		var imageList = doc.getElementById("image-list"),
 			imageContent = document.createElement('div');
 					  
-		imageContent.innerHTML = '<span class="img"><img src="'+ source +'"></span><input type="button" value="delete">';
+		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="del-image" value="delete"></div>';
 		
 		imageList.appendChild(imageContent);
 	}
@@ -144,7 +144,7 @@ define( function() {
 							form = document.forms.form,
 							imgfield = form.imgname;
 						
-						createImage(path+img, e);
+						createImage(path, img, e);
 						imgfield.value = img+';'+imgfield.value;
 					}
 				}

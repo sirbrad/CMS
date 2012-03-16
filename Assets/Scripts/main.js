@@ -13,9 +13,6 @@ require(['require', 'Utils/getEl'], function(require, getId){
 	
 // Check for 'ckeditor' component
 	if (getId('wysiwyg')) {
-		
-		
-		
 		// CKEDITOR_BASEPATH is a global variable
 		this.CKEDITOR_BASEPATH = '/GitHub/CMS/Assets/Scripts/Utils/ckeditor/';
 		
@@ -29,8 +26,8 @@ require(['require', 'Utils/getEl'], function(require, getId){
 	}
 	*/
 	if (getId('multi-upload')) {
-		require(['upload-multi']);
 		require(['image-delete']);
+		require(['upload-multi']);
 	}
 	
 	if (getId('file-upload')) {

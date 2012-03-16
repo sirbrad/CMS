@@ -1,6 +1,6 @@
 define(['Utils/getEl'], function( getEl ) {
 	
-	jQuery('.del-image').click(function(e) {
+	jQuery("div#image-list").delegate(".del-image","click",function(e){
 		
 		var target = e.target,
 			image = jQuery(target).attr('id'),

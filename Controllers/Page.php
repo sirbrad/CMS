@@ -11,7 +11,7 @@ include ( "App/Helpers/Common.php" );
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
-/** Set up default page tags **/
+/** Set up default page tags, as tags need a vaue to be set to not show the actual [ ] **/
 $tags['side_menu'] = $_men->get_menu();
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
@@ -46,12 +46,18 @@ $tags['image_upload'] = $_fb->get_imageuploads();
 $tags['show_dropdowns'] = $_fb->get_dropdowns();
 $tags['show_downloads'] = $_fb->get_downloads();
 
+// Set attributes to true if the user has defined the page to have them
 if ( !!$_title )
 	$tags['show_title'] = TRUE;
+	
 if ( !!$_content )
 	$tags['show_content'] = TRUE;
+	
 if ( !!$_url )
 	$tags['show_url'] = TRUE;
+	
+if ( !!$tags['image_upload'] )
+	$tags['show_image'] = TRUE;
 
 // If the page has image insert the upload css file.
 if ( !!$tags['image_upload'] )
@@ -61,16 +67,11 @@ if ( $tags['show_dropdowns'] )
 	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
 
 if ( $tags['show_downloads'] )
-{
-	// This table is obviously not created yet so needs to be commented out.
 	$tags['downloads'] = $data_mod->get_widgets ( 'documents', $table );
-}
 	
-if ( !!$tags['image_upload'] )
-	$tags['show_image'] = TRUE;
+
 
 /** Set up the database handling and columns from here **/
-
 $_db_columns = $_fb->get_table_cols ( $table );
 
 if ( in_array ( $table.'_image_multiple', $_db_columns ) )
@@ -79,15 +80,14 @@ if ( in_array ( $table.'_image_multiple', $_db_columns ) )
 // Set all the columns to default to empty
 foreach ( $_db_columns as $_col )
 	$tags[ $_col ] = ' ';
-	
+
+// The data model attributes to save the page	
 $attributes = array ( 'table' => $table, 
 					  'columns' => $_db_columns, 
 				      'id_column' => $table.'_id',
 					  'id' => $value );
 					  
 list ( $_tags, $_id ) = $data_mod->init ( $attributes, $tags );
-
-
 
 /** Change the values not not target the table name but assign the values to a *generic* tag **/
 foreach ( $_tags as $t => $v )
@@ -123,7 +123,12 @@ foreach ( $_tags as $t => $v )
 
 // Set the hidden id if its been set
 if ( !!$_id )
+{
 	$tags['hidden_id'] = $_id;
+	
+	// If there is an ID set we show the add another action
+	$tags['add_another'] = TRUE; 
+}
 
 // Merge the tags
 if ( !!$_tags )

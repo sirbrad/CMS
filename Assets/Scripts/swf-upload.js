@@ -14,7 +14,8 @@ define(['require'], function(require){
 			imageList = document.getElementById("image-list");
 			
 		imageContent = document.createElement('div');
-		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="btn del-image" value="Delete Image"></div>';		
+		
+		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><a href="'+sitePath+'/cropper/'+img+'" class="btn f-btn">Crop</a><input type="button" id="'+img+'" class="btn del-image" value="Delete Image"></div>';		
 		imageList.appendChild(imageContent);
 			
 		img = img+";";

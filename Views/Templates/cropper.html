@@ -1,0 +1,25 @@
+<article class="article">
+    <h1 class="heading gradbar">Cropping</h1>
+    <form method="post" action="" id="form" enctype="multipart/form-data">
+        <div class="module form cf"> 
+            <input type="hidden" name="hidden_id" id="hidden_id" value="[HIDDEN_ID]" />
+            <label class="label" for="img">Image</label>
+            
+                <input type="hidden" class="textInput" name="crop_x" id="input_crop_x">
+                <input type="hidden" class="textInput" name="crop_y" id="input_crop_y">
+                <input type="hidden" class="textInput" name="crop_width" id="input_crop_width">
+                <input type="hidden" class="textInput" name="crop_height" id="input_crop_height">
+            
+            <div id="image-list" style="overflow:hidden">
+                <div class="crop_content">
+                    <div id="imageContainer">
+                        <span class="img" ><img src="/[DIRECTORY]/Assets/Uploads/Images/[IMAGE]" /></span>
+                    </div>
+                </div>
+            </div>
+            
+        <!--<input type="submit" name="save" class="btn" value="Save" />-->
+        </div>
+    </form>
+   	
+</article>

@@ -34,4 +34,10 @@ require(['require', 'Utils/getEl'], function(require, getId){
 		require(['upload-files']);
 	}
 	
+	if (getId('imageContainer')) {
+		require(['image-cropper'], function (initImageCrop) {
+			initImageCrop();
+		});	
+	}
+	
 });

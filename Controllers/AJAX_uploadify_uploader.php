@@ -6,6 +6,8 @@ foreach ( $_FILES['images'] as $key => $value )
 {
 	if ( $value == UPLOAD_ERR_OK ) 
 	{  
+		//$name = str_replace ( array ( " ", '"', "'", '&' ), array ( "-", "", "", "" ), $_FILES["images"]["name"] );
+		
 		$name = $_FILES["images"]["name"];
 		
 		$dir = $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Assets/Uploads/Images/';

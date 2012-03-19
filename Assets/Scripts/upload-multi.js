@@ -5,7 +5,7 @@ define( ['require', 'jquery'], function(require, $) {
 	 * 		FileReader (Google Chrome 7+, FF 3.6+, IE 10+)
 	 *		FormData (Google Chrome 7+, FF 4+, Safari 5+)
 	 */
-	var formdata, link, input, doc = document, imgPreview = doc.getElementById("img-preview");
+	var formdata, link, input, doc = document, imgPreview = doc.getElementById("img-preview"), _path = '/GitHub/CMS';
 	
 	if (("addEventListener" in window) && ("FileReader" in window) && ("FormData" in window)) {
 		init();
@@ -80,7 +80,7 @@ define( ['require', 'jquery'], function(require, $) {
 		var imageList = doc.getElementById("image-list"),
 			imageContent = document.createElement('div');
 					  
-		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="btn del-image" value="Delete Image"></div>';
+		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><a href="'+_path+'/cropper/'+img+'" class="btn f-btn">Crop</a><input type="button" id="'+img+'" class="btn  e-btn del-image" value="Delete Image"></div>';
 		
 		imageList.appendChild(imageContent);
 	}

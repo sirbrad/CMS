@@ -23,7 +23,8 @@
         [FOREACH images as image]
         	<div id="img_[image.img_name]">
                 <span class="img" ><img src="/[DIRECTORY]/Assets/Uploads/Images/[image.img_name]" /></span>
-                <input type="button" id="[image.img_name]" class="btn del-image" value="Delete Image" />
+                <a href="/[DIRECTORY]/cropper/[image.img_name]" class="btn f-btn">Crop</a>
+                <input type="button" id="[image.img_name]" class="btn e-btn del-image" value="Delete Image" />
             </div>
         [/images FOREACH]
         </div>

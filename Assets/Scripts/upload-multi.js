@@ -80,7 +80,7 @@ define( ['require', 'jquery'], function(require, $) {
 		var imageList = doc.getElementById("image-list"),
 			imageContent = document.createElement('div');
 					  
-		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><a href="'+_path+'/cropper/'+img+'" class="btn f-btn">Crop</a><input type="button" id="'+img+'" class="btn  e-btn del-image" value="Delete Image"></div>';
+		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><a target="_blank" href="'+_path+'/cropper/'+img+'" class="btn f-btn">Crop</a><input type="button" id="'+img+'" class="btn  e-btn del-image" value="Delete Image"></div>';
 		
 		imageList.appendChild(imageContent);
 	}

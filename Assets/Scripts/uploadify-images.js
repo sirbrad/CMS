@@ -37,15 +37,7 @@ define(['swf-upload'], function(uploadify){
 				maxImages: config.maxImages 
 			}
 		};
-		
 	
-		
-	/*
-	// THIS LOOKS LIKE IT ISN'T NEEDED? IF SO, REMOVE IT PLEASE
-	jQuery('img.imageUpload').each(function(){
-		uploadify.imageCount++;
-	});
-	*/
 	// We use the Deferred object within the 'Uploadify' script to tell us when Uploadify has loaded
 	jQuery.when(uploadify.upload()).then(function(fn){
 		fn(settings);

@@ -1,4 +1,4 @@
-define(['Utils/getEl'], function( getEl ) {
+define(['Utils/getEl', 'jquery'], function(getEl) {
 	
 	jQuery("div#image-list").delegate(".del-image","click",function(e){
 		

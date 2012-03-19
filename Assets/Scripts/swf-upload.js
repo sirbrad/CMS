@@ -6,7 +6,6 @@ define(['require'], function(require){
 		
 	function preComplete(event, queueID, fileObj, response) {
 		
-		
 		var resp = response.split(';'),
 			path = resp[0],
 			img = resp[1],

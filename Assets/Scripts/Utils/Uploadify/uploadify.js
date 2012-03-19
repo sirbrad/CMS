@@ -39,7 +39,7 @@ define(['jquery', '../swfobject'], function(jQuery, swfobject){
 					cancelImg       : 'cancel.png', // The path to the cancel image for the default file queue item container
 					wmode           : 'opaque', // The wmode of the flash file
 					scriptAccess    : 'sameDomain', // Set to "always" to allow script access across domains
-					fileDataName    : 'Filedata', // The name of the file collection object in the backend upload script
+					fileDataName    : 'images', // The name of the file collection object in the backend upload script
 					method          : 'POST', // The method for sending variables to the backend upload script
 					queueSizeLimit  : 999, // The maximum size of the file queue
 					simUploadLimit  : 1, // The number of simultaneous uploads allowed

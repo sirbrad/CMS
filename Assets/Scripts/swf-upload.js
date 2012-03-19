@@ -6,31 +6,21 @@ define(['require'], function(require){
 		
 	function preComplete(event, queueID, fileObj, response) {
 		
-		var response_split = response.split(";");
 		
-		//Switch determine what method to take.
-		switch(config.method) {
+		var resp = response.split(';'),
+			path = resp[0],
+			img = resp[1],
+			form = document.forms.form,
+			imgfield = form.imgname,
+			imageList = document.getElementById("image-list");
 			
-			case 'imageUpload':
-				$(config.imageCell).html(response_split[0]);
-				$(config.nameField).val(response_split[1]);
-				$("#crop").hide();
-			break;
+		imageContent = document.createElement('div');
+		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="btn del-image" value="Delete Image"></div>';		
+		imageList.appendChild(imageContent);
 			
-			case 'imageUploadMulti':
-				if(!!config.callback.maxImages && imageCount == config.callback.maxImages) { 
-					alert("You have already attached the maximum number of images to this page"); 
-				} else {
-					imageCount++;
-					$(config.callback.imageCell).append('<div class="imgthumb">' +
-					response_split[0] +
-					'<input type="hidden" name="imagename[' + imageCount + ']" id="image' + imageCount + '" value="' + response_split[1] + '" />' +
-					'<input type="button" value="Delete Image" class="delete_image" />' +
-					'</div>');
-				};
-			break;
-		};
+		img = img+";";
 		
+		imgfield.value = img+imgfield.value;
 		
 	};
 	

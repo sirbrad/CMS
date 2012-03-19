@@ -25,7 +25,7 @@ define(['swf-upload'], function(uploadify){
 			height: config.height,
 			thumb_width: config.thumbwidth,
 			thumb_height: config.thumbheight,
-			script: config.script || '/uploadify/images/',
+			script: config.script || '/GitHub/CMS/AJAX_uploadify_uploader',
 			fileDesc: 'Standard image formats (*.jpeg; *.jpg; *.gif; *.bmp; *.png)',
 			fileExt: '*.jpeg; *.jpg; *.gif; *.bmp; *.png',
 			data: true,

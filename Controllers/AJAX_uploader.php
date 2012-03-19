@@ -1,8 +1,7 @@
 <?php
 
-$response = "";
-
 // http://net.tutsplus.com/tutorials/javascript-ajax/uploading-files-with-ajax/
+
 foreach ($_FILES["images"]["error"] as $key => $error)
 { 
 	if ($error == UPLOAD_ERR_OK) 
@@ -20,6 +19,10 @@ foreach ($_FILES["images"]["error"] as $key => $error)
 }
 
 echo $response;
+
+
+
+
 /*	
 include ( PATH . 'App/Third_party/phmagick.php' );
 

@@ -26,7 +26,7 @@ require(['require', 'Utils/getEl'], function(require, getId){
 	}
 	*/
 	if (getId('multi-upload')) {
-		//require(['image-delete']);
+		require(['image-delete']);
 		require(['upload-multi']);
 	}
 	

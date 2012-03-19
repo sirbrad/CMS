@@ -68,6 +68,9 @@
 input[type=button] {
 	margin-top: 1em;
 }
+/************************
+Uploadify Settings
+************************/
 
 .uploadifyQueueItem {
 	background-color: #F5F5F5;
@@ -97,3 +100,5 @@ input[type=button] {
 	height: 3px;
 	width: 1px;
 }
+
+#file_uploadUploader

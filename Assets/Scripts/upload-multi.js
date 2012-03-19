@@ -1,4 +1,4 @@
-define( [ 'Utils/swfupload'], function(SWFUpload) {
+define( ['require', 'jquery'], function(require, $) {
 	/*
 	 * Required features:
 	 * 		addEventListener (Google Chrome 1+, FF 1+, IE 9+, Opera 7+, Safari 1+)
@@ -12,9 +12,8 @@ define( [ 'Utils/swfupload'], function(SWFUpload) {
 	} else {
 		//alert("This demo wont work for you, sorry - please upgrade your web browser");
 		//document.getElementById("browsers").style.display = "block";
-		
-		// Need to work out a way of loading the Util/SWFUpload and calling it.
-		
+		require(['uploadify-images']);
+		return false;
 	}
 
 	function init(){

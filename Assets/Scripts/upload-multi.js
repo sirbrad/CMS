@@ -5,7 +5,7 @@ define( ['require', 'jquery'], function(require, $) {
 	 * 		FileReader (Google Chrome 7+, FF 3.6+, IE 10+)
 	 *		FormData (Google Chrome 7+, FF 4+, Safari 5+)
 	 */
-	var formdata, link, input, doc = document, imgPreview = doc.getElementById("img-preview"), _path = '/GitHub/CMS';
+	var formdata, link, input, doc = document, imgPreview = doc.getElementById("img-preview"), _path = '/GitHub/CMS', imgCount = 0, imgMax = 5;
 	
 	if (("addEventListener" in window) && ("FileReader" in window) && ("FormData" in window)) {
 		init();
@@ -80,12 +80,13 @@ define( ['require', 'jquery'], function(require, $) {
 		var imageList = doc.getElementById("image-list"),
 			imageContent = document.createElement('div');
 					  
-		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><a target="_blank" href="'+_path+'/cropper/'+img+'" class="btn f-btn">Crop</a><input type="button" id="'+img+'" class="btn  e-btn del-image" value="Delete Image"></div>';
+		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="btn  e-btn del-image" value="Delete Image"></div>';
 		
 		imageList.appendChild(imageContent);
 	}
 
 	var progressBar = (function(){
+		
 		var bar = doc.createElement("div"),
 			progress = doc.createElement("div"),
 			container = doc.getElementById("upload-link");
@@ -109,17 +110,14 @@ define( ['require', 'jquery'], function(require, $) {
 		var xhr = new XMLHttpRequest();
 		
 		function progressListener (e) {
-			console.log("progressListener: ", e);
 			if (e.lengthComputable) {
 				var percentage = Math.round((e.loaded * 100) / e.total);
 				progressBar(percentage);
-				console.log("Percentage loaded: ", percentage);
 			}
 		};
 
 		function finishUpload (e) {
 			progressBar(100);
-			console.log("Finished Percentage loaded: 100");
 		};
 
 		// XHR2 has an upload property with a 'progress' event
@@ -147,11 +145,19 @@ define( ['require', 'jquery'], function(require, $) {
 							img = resp[1]
 							form = document.forms.form,
 							imgfield = form.imgname;
+							
+						imgCount++;
 						
-						createImage(path, img, e);
-						img = img+";";
-						console.log(img);
-						imgfield.value = img+imgfield.value;
+						if ( imgCount <= imgMax ) {
+							
+							createImage(path, img, e);
+							img = img+";";
+							imgfield.value = img+imgfield.value;
+							
+						} else {
+							alert ( "You have uploaded the maximum amount of images" );
+							return false;
+						}
 					}
 				}
 			}

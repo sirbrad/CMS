@@ -6,6 +6,7 @@ require.config({
 });
 
 require(['manageElements']);
+require(['back-button']);
 
 var admin_editor = { editor: ".wysiwyg" };
 
@@ -20,11 +21,7 @@ require(['require', 'Utils/getEl'], function(require, getId){
 			require(['Utils/ckeditor/ckeditor-module']);
 		});
 	}
-	/*
-	if (getId('sinlge-upload')) {
-		require(['upload']);
-	}
-	*/
+	
 	if (getId('multi-upload')) {
 		require(['image-delete']);
 		require(['upload-multi']);

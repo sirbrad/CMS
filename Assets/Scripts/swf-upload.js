@@ -1,7 +1,8 @@
 define(['require'], function(require){
 	
 	var imageCount = 0,
-		config = ''
+		imageMax = 5,
+		config = '',
 		sitePath = '/GitHub/CMS/';
 		
 	function preComplete(event, queueID, fileObj, response) {
@@ -12,15 +13,24 @@ define(['require'], function(require){
 			form = document.forms.form,
 			imgfield = form.imgname,
 			imageList = document.getElementById("image-list");
-			
-		imageContent = document.createElement('div');
 		
-		imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><a href="'+sitePath+'/cropper/'+img+'" class="btn f-btn">Crop</a><input type="button" id="'+img+'" class="btn del-image" value="Delete Image"></div>';		
-		imageList.appendChild(imageContent);
+		imageCount++;
 			
-		img = img+";";
+		if ( imageCount <= imageMax ) {
 		
-		imgfield.value = img+imgfield.value;
+			imageContent = document.createElement('div');
+			
+			imageContent.innerHTML = '<div id="img_'+img+'"><span class="img"><img src="'+ path+img +'"></span><input type="button" id="'+img+'" class="btn del-image" value="Delete Image"></div>';		
+			imageList.appendChild(imageContent);
+				
+			img = img+";";
+			
+			imgfield.value = img+imgfield.value;
+			
+		} else {
+			alert ( 'You have uploaded the maxiumum number of images' );
+			return false;
+		}
 		
 	};
 	

@@ -6,6 +6,7 @@ require.config({
 });
 
 require(['manageElements']);
+require(['back-button']);
 
 var admin_editor = { editor: ".wysiwyg" };
 
@@ -13,9 +14,6 @@ require(['require', 'Utils/getEl'], function(require, getId){
 	
 // Check for 'ckeditor' component
 	if (getId('wysiwyg')) {
-		
-		
-		
 		// CKEDITOR_BASEPATH is a global variable
 		this.CKEDITOR_BASEPATH = '/GitHub/CMS/Assets/Scripts/Utils/ckeditor/';
 		
@@ -23,18 +21,20 @@ require(['require', 'Utils/getEl'], function(require, getId){
 			require(['Utils/ckeditor/ckeditor-module']);
 		});
 	}
-	/*
-	if (getId('sinlge-upload')) {
-		require(['upload']);
-	}
-	*/
+	
 	if (getId('multi-upload')) {
-		require(['upload-multi']);
 		require(['image-delete']);
+		require(['upload-multi']);
 	}
 	
 	if (getId('file-upload')) {
 		require(['upload-files']);
+	}
+	
+	if (getId('imageContainer')) {
+		require(['image-cropper'], function (initImageCrop) {
+			initImageCrop();
+		});	
 	}
 	
 });

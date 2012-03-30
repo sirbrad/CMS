@@ -29,7 +29,14 @@ class Router {
 	
 	public function get_controller ()
 	{
-		$controller = 'Controllers/' . $this->_uri[ $this->_controller ] . '.php';
+		$_con = 'home';
+		
+		if ( !! ( $this->_uri[ $this->_controller ] ) )
+			$_con = $this->_uri[ $this->_controller ];
+			
+		$controller = 'Controllers/' . $_con . '.php';
+		
+		
 		
 		if ( file_exists ( $controller ) )
 			include ( $controller );

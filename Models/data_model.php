@@ -69,6 +69,7 @@ class Data_model extends Super_model {
 	 */
 	public function get_widgets ( $type, $table )
 	{
+
 		$query = $this->db->get( 'SELECT * FROM ' . $this->_project . '_' . $type . '' );
 		
 		$saved_widgets = explode ( ',', $this->_tags[ $table.'_'.$type ] );
@@ -127,18 +128,25 @@ class Data_model extends Super_model {
 			// As we will be displaying the images in a list, this sets them up into an array
 			// If we decide to use the array. Notice I haven't unset the imgname key, as we could use the 
 			// reference else where if we needed to and keeping the array seperate.
-			$imgs = explode ( ';', $this->_tags[ $this->_table.'_imgname' ] );
-			
-			$_imgs = array ();
-		
-			$count = 0;
-			foreach ( $imgs as $img )
+			if ( !!$this->_tags[ $this->_table.'_imgname' ] && $this->_tags[ $this->_table.'_imgname' ] != ' ' )
 			{
-				$_imgs[] = array ( 'img_name' => $img, 'img_num' => $count );
-				$count++;
+				$imgs = explode ( ';', $this->_tags[ $this->_table.'_imgname' ] );
+				
+				$_imgs = array ();
+			
+				$count = 0;
+				foreach ( $imgs as $img )
+				{
+					if ( !!$img && $img != ';' )
+					{
+						$_imgs[] = array ( 'img_name' => $img, 'img_num' => $count );
+					}	
+					$count++;
+				}
+				
+				$this->_tags['images'] = $_imgs;
 			}
 			
-			$this->_tags['images'] = $_imgs;
 			
 			return $this;
 		}
@@ -163,7 +171,8 @@ class Data_model extends Super_model {
 				// Check to see if imgname is set and then we just remove the last ;
 				if ( !!$_POST['imgname'] ) 
 				{
-					$img = substr ( $_POST['imgname'], 0, -1 );
+					//$img = substr ( $_POST['imgname'], 0, -1 );
+					$img = $_POST['imgname'];
 					$fields[ $this->_table .'_imgname' ] = $img;
 				}
 				// Checks if a column is urltitle to assign a friendly url

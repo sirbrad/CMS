@@ -1,13 +1,12 @@
 <?php
 
-$response = "";
-
 // http://net.tutsplus.com/tutorials/javascript-ajax/uploading-files-with-ajax/
+
 foreach ($_FILES["images"]["error"] as $key => $error)
 { 
 	if ($error == UPLOAD_ERR_OK) 
 	{  
-		$name = $_FILES["images"]["name"][$key];
+		$name = str_replace ( array ( " ", '"', "'", '&' ), array ( "-", "", "", "" ), $_FILES["images"]["name"][$key] );
 		
 		$dir = $_SERVER['DOCUMENT_ROOT'] . '/' . DIRECTORY . '/Assets/Uploads/Images/';
 		
@@ -20,6 +19,10 @@ foreach ($_FILES["images"]["error"] as $key => $error)
 }
 
 echo $response;
+
+
+
+
 /*	
 include ( PATH . 'App/Third_party/phmagick.php' );
 

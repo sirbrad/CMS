@@ -22,16 +22,17 @@ $list_type = $_router->get_controller_method ();
 if ( $list_type == 'dynamic' )
 {
 	$list_type = $_router->get_method_value ();
-	$tags['edit_page'] = 'page/' . $list_type . '/';
+	$tags['edit_page'] = 'page/' . $list_type . '';
 }
 else
 {
 	$tags['edit_page'] = $list_type.'/edit';
 }
 
-
 $table = $list_type;
 $order_by = $table.'_date DESC';
+
+$tags['list_type'] = ucwords ( str_replace ( "_", ' ', $list_type ) );
 
 /** Initiate the list model and build the result list **/
 $listing = new Listing_model;

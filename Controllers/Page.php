@@ -5,12 +5,13 @@ $_men = new Menu_model();
 $_arr = new Arrays;
 $data_mod = new Data_model;
 $_templater = Templater::getInstance ();
+include ( "App/Helpers/Common.php" );
 
 /** Get the method and value from the URI **/
 $method = $_router->get_controller_method ();
 $value = $_router->get_method_value ();
 
-/** Set up default page tags **/
+/** Set up default page tags, as tags need a vaue to be set to not show the actual [ ] **/
 $tags['side_menu'] = $_men->get_menu();
 $tags['alert'] = ' ';
 $tags['directory'] = DIRECTORY;
@@ -38,30 +39,33 @@ $tags['table_ref'] = $table;
 /** Set up the form attributes from this point **/
 $_fb = new Form_builder_model( $method );
 
-$tags['text_inputs'] = $_fb->get_textinputs();
-$tags['text_areas'] = $_fb->get_textareas();
-$tags['url_inputs'] = $_fb->get_urlinputs();
+$_title = $_fb->get_textinputs();
+$_content = $_fb->get_textareas();
+$_url = $_fb->get_urlinputs();
 $tags['image_upload'] = $_fb->get_imageuploads();
 $tags['show_dropdowns'] = $_fb->get_dropdowns();
 $tags['show_downloads'] = $_fb->get_downloads();
+
+// Set attributes to true if the user has defined the page to have them
+if ( !!$_title )
+	$tags['show_title'] = TRUE;
+	
+if ( !!$_content )
+	$tags['show_content'] = TRUE;
+	
+if ( !!$_url )
+	$tags['show_url'] = TRUE;
+	
+if ( !!$tags['image_upload'] )
+	$tags['show_image'] = TRUE;
 
 // If the page has image insert the upload css file.
 if ( !!$tags['image_upload'] )
 	$tags['styles'] = $_arr->mutli_one_dimension ( array ( 'upload' ), 'stylesheet' );
 
-if ( $tags['show_dropdowns'] )
-	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
-	
-if ( $tags['show_downloads'] )
-	$tags['downloads'] = $data_mod->get_widgets ( 'downloads', $table );
-	
-if ( !!$tags['image_upload'] )
-	$tags['show_image'] = TRUE;
-	
-	
+
 
 /** Set up the database handling and columns from here **/
-
 $_db_columns = $_fb->get_table_cols ( $table );
 
 if ( in_array ( $table.'_image_multiple', $_db_columns ) )
@@ -70,7 +74,8 @@ if ( in_array ( $table.'_image_multiple', $_db_columns ) )
 // Set all the columns to default to empty
 foreach ( $_db_columns as $_col )
 	$tags[ $_col ] = ' ';
-	
+
+// The data model attributes to save the page	
 $attributes = array ( 'table' => $table, 
 					  'columns' => $_db_columns, 
 				      'id_column' => $table.'_id',
@@ -110,16 +115,43 @@ foreach ( $_tags as $t => $v )
 	}
 }
 
+/** To speed things up we put the widget in different views ( cut down on templating processing tags ) **/
+$_drp_down = 0;
+
+// As the data has to be set to grab the saved dropdowns and documents
+// The getting of the saved widgets has to come down here
+if ( $tags['show_dropdowns'] )	
+{
+	$_drp_down += 1;
+	$tags['dropdowns'] = $data_mod->get_widgets ( 'dropdowns', $table );
+}
+
+if ( $tags['show_downloads'] )
+{
+	$_drp_down += 2;
+	$tags['downloads'] = $data_mod->get_widgets ( 'documents', $table );
+}
+	
+if ( $_drp_down == 1 )
+	$template = $template .'-with-dropdowns';
+elseif ( $_drp_down == 2 )
+	$template = $template .'-with-downloads';
+elseif ( $_drp_down == 3 )
+	$template = $template .'-with-all';
+
 // Set the hidden id if its been set
 if ( !!$_id )
+{
 	$tags['hidden_id'] = $_id;
+	
+	// If there is an ID set we show the add another action
+	$tags['add_another'] = TRUE; 
+}
 
 // Merge the tags
 if ( !!$_tags )
 	$tags = array_merge ( $tags, $_tags );
 	
-
-
 /** Load and display the actual page **/
 $_templater->set_content ( $template, $tags );
 ?>

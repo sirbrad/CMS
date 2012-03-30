@@ -236,8 +236,7 @@ class Templater {
 				
 				// Check that what we are grabbing are actual tags in  [ ]
 				preg_match ( '#\\[' . $array_tag . '.(.+)\\]#s', $mtch[$i], $mtchhhh );
-				
-				
+			
 				$item = $mtchhhh[1];
 				
 				// If there is a match we go fourth, not to clog the array up with shit.
@@ -250,9 +249,7 @@ class Templater {
 				}
 					
 			}
-			
 			// Explode the strings in array to pass through the str_replace
-
 			$for_tags = explode ( ',', $for_tags );
 			$for_values = explode ( '^', substr ( $for_values, 0, -1 ) );
 			

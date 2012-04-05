@@ -14,9 +14,11 @@
 	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(234,234,234,1) 100%); /* W3C */
 	border:1px solid rgba(0, 0, 0, 0.15);
+	font-size:12px;
 	font-weight:bold;
 	color:#333;
 	cursor:pointer;
+	line-height:1.5;
 	display:inline-block;
 	padding:7px 14px;
 	text-align:center;
@@ -181,4 +183,12 @@ input[type=checkbox]:checked + .btn {
 
 .btn:active:before {
 	border:5px solid rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Back Button
+ **********************************************************************/
+
+.btn-back {
+	float:left;
+	margin:-2px 1em 0 -2px;
 }

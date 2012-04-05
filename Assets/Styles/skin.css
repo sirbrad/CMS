@@ -129,3 +129,13 @@
 	-moz-border-radius:0.3em;
 	border-radius:0.3em;
 }
+
+.darkbar {
+	background: rgb(90, 90, 90); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(90, 90, 90, 0.95) 0%, rgba(70, 70, 70, 0.95) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(90, 90, 90, 0.95)), color-stop(100%,rgba(70, 70, 70, 0.95))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(90, 90, 90, 0.95) 0%,rgba(70, 70, 70, 0.95) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(90, 90, 90, 0.95) 0%,rgba(70, 70, 70, 0.95) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(90, 90, 90, 0.95) 0%,rgba(70, 70, 70, 0.95) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(90, 90, 90, 0.95) 0%,rgba((70, 70, 70, 0.95)) 100%); /* W3C */
+}

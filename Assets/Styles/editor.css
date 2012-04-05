@@ -19,8 +19,12 @@
 #cke_wysiwyg {
 	clear: left;
 	display:block;
-	visibility: inherit !important; /* To show wysiwyg */
+	margin-bottom:2em;
 	width:100% !important;
+}
+
+.cke_skin_kama {
+	visibility: inherit !important; /* To show wysiwyg */
 }
 
 .cke_editor {
@@ -44,6 +48,11 @@
 	-webkit-box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
 	-moz-box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
 	box-shadow: 0px 1px 2px rgba(215, 215, 215, 0.6);
+}
+
+.no-rgba .cke_contents {
+	border:1px solid #E6E6E6;	
+	border-width:0 1px 1px;
 }
 
 
@@ -81,6 +90,13 @@
 	border-radius: 0.25em;
 }
 
+.no-cssgradients .cke_toolbox {
+	background:url(../Images/Css/bg-btn-ie.png) left bottom repeat-x #fff;
+}
+
+.no-rgba .cke_toolbox {
+	border:1px solid #C7C7C7;
+}
 .cke_toolbar_end {
 	background:red;
 	display:block;
@@ -116,7 +132,8 @@
 .cke_button a:focus,
 .cke_button .cke_on,
 .cke_rcombo a:hover,
-.cke_rcombo a:focus {
+.cke_rcombo a:focus,
+.cke_on a {
 	text-decoration:none;	
 	
 	-webkit-box-shadow:inset 0 0 50px rgba(0, 0, 0, 0.1);
@@ -128,7 +145,8 @@
 .no-boxshadow .cke_button a:focus,
 .no-boxshadow .cke_button a.selected,
 .no-boxshadow .cke_rcombo a:hover,
-.no-boxshadow .cke_rcombo a:focus {
+.no-boxshadow .cke_rcombo a:focus,
+.no-boxshadow .cke_on a {
 	background:url(../Images/Css/bg-btn-hover-ie.png) left bottom repeat-x;
 }
 
@@ -156,8 +174,9 @@
 	background:url(../Images/Css/bg-btn-ie.png) left bottom repeat-x #fff;
 }
 
-.no-rgba .cke_button a {
-	border:1px solid #C7C7C7;
+.no-rgba .cke_button a,
+.no-rgba .cke_rcombo a {
+	border-right:1px solid #C7C7C7;
 }
 
 .cke_rcombo a {
@@ -165,6 +184,10 @@
 	font-weight:bold;
 }
 
+.cke_format a {
+	max-width:58px;	
+	min-width:58px;	
+}
 
 
 /* 5. Icons
@@ -231,4 +254,31 @@
 .cke_path a {
 	font-weight:bold;
 	margin-right:1em;	
+}
+
+/* 7. Format box
+ **********************************************************************/
+
+body > .cke_skin_kama {
+	margin:20px 0 0 -20px;
+	position: relative;
+}
+
+body > .cke_skin_kama:before {
+	content:'';
+	background:#fff;
+	border:1px solid rgba(0, 0, 0, 0.1);
+	border-width:1px 0 0 1px;
+	display:block;
+	height:12px;
+	left:60px;
+	position:absolute;
+	top:-6px;
+	width:12px;
+	
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
 }

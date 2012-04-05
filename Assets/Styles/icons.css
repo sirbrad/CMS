@@ -40,3 +40,21 @@
 	height:21px;
 	width:17px;	
 }
+
+.i-list {
+	background-position:-24px -35px;
+	height:15px;
+	width:18px;	
+}
+
+.i-add {
+	background-position:0 -139px;
+	height:15px;
+	width:13px;	
+}
+
+.i-home {
+	background-position:-14px -140px;
+	height:14px;
+	width:14px;	
+}

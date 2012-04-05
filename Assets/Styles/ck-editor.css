@@ -22,7 +22,7 @@ nav, section {
 }
 
 html {
-	background-color:#fff;
+	background-color:transparent !important;
 	color:rgba(0, 0, 0, 0.8);
 	font-family: Helvetica, Arial, Verdana, sans-serif;
 	font-size: 100%;
@@ -32,7 +32,7 @@ html {
 }
 
 body {
-	font-size:0.75em; /* 12px / 16px = .75 */	
+	font-size:0.75em; /* 12px / 16px = .75 */
     margin: 0;
 }
 
@@ -164,14 +164,11 @@ p {
 
 /* 3. Layout
  **********************************************************************/
-
+ 
 .cke_show_borders {
 	background-color: white;
 	padding: 1.5em 03.3333333%;
 }
- 
- 
-
 
 .cke_show_borders ul {
 	list-style:disc inside;
@@ -180,4 +177,60 @@ p {
 .cke_show_borders ul li {
 	margin:0 0 0.6em 0;
 
+}
+
+/* 7. Format box
+ **********************************************************************/
+
+.cke_skin_kama_container {
+	visibility: inherit !important; /* To show wysiwyg */
+}
+
+.cke_panel_block {
+	background:#fff;
+	border:1px solid #E6E6E6;	
+	padding:1em .7em;
+	position:relative;
+	
+	-webkit-border-radius:0.35em;
+	-moz-border-radius:0.35em;
+	border-radius:0.35em;
+	-webkit-box-shadow:0px 1px 2px rgba(215, 215, 215, 0.6);
+	-moz-box-shadow:0px 1px 2px rgba(215, 215, 215, 0.6);
+	box-shadow:0px 1px 2px rgba(215, 215, 215, 0.6);
+}
+
+.cke_panel_grouptitle {
+	display:none;
+	font-size:12px;
+}
+
+.cke_panel_list {
+	list-style:none;
+	margin:0;
+	padding:0;	
+}
+
+.cke_panel_listItem p {
+	margin:0;	
+}
+
+.cke_panel_listItem h1,
+.cke_panel_listItem h2,
+.cke_panel_listItem h3,
+.cke_panel_listItem h4,
+.cke_panel_listItem h5,
+.cke_panel_listItem h6 {
+	margin:0;
+}
+
+.cke_panel_listItem a {
+	color:#222;
+	display:inline-block;
+	padding:.3em .7em;
+}
+
+.cke_selected a {
+	background:#eee;
+	outline:none;	
 }

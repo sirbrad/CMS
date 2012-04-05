@@ -47,12 +47,18 @@
 	padding-right:01.7331023%; /* 10 / 577 */
 	padding-top:2%;
 	min-width:20.797227%; /* 120 / 577 */
+	max-width:20.797227%; /* 120 / 577 */
 }
 
 [class="input"],
 .input-multi,
 .input-abbr {
 	width:76.4696707%;	/* 447 / 577 */
+}
+
+.form select {
+	margin-top:2.4%;
+	min-width:230px;	
 }
 
 .input {

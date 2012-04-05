@@ -32,3 +32,15 @@ label {
 .input {
 	margin-bottom:1em;	
 }
+
+.img-list {
+	overflow:hidden;	
+}
+
+.img-list .btns {
+	margin-bottom:3em;	
+}
+
+.img-list .btn {
+	margin:0;	
+}
